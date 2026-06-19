@@ -846,12 +846,28 @@
       background: var(--color-white);
       padding: 8% 10%;
     }
+    .faq-grid {
+      display: flex;
+      gap: 4rem;
+      align-items: flex-start;
+      flex-wrap: wrap;
+    }
+    .faq-left {
+      flex: 1;
+      min-width: 300px;
+    }
+    .faq-right {
+      flex: 1.5;
+      min-width: 300px;
+      width: 100%;
+    }
     #faq h2 {
       font-size: clamp(2.5rem, 5.5vw, 5.5rem);
       color: var(--color-primary);
-      margin-bottom: 3.5rem;
+      margin-bottom: 1.5rem;
+      line-height: 0.92;
     }
-    .faq-list { max-width: 760px; display: flex; flex-direction: column; gap: 0; }
+    .faq-list { max-width: 760px; display: flex; flex-direction: column; gap: 0; width: 100%; }
     .faq-item {
       border-bottom: 1px solid rgba(0,0,0,0.08);
     }
@@ -1703,73 +1719,87 @@
 
     <!-- FAQ -->
     <section id="faq" aria-labelledby="faq-heading">
-      <div class="section-tag reveal">05 — FAQ</div>
-      <h2 id="faq-heading" class="reveal reveal-delay-1">PREGUNTAS<br>FRECUENTES</h2>
-      <div class="faq-list reveal reveal-delay-2">
-        <div class="faq-item">
-          <details>
-            <summary>
-              ¿ES EFICAZ VS ONDAS ELECTROMAGNÉTICAS?
-              <span class="faq-arrow" aria-hidden="true">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
-              </span>
-            </summary>
-            <p class="faq-answer">
-              Sí, la electroósmosis con metales preciosos genera un campo eléctrico continuo que invierte la polaridad del agua obligándola a descender, mientras que las ondas magnéticas solo alteran temporalmente la tensión superficial. El sistema Drymat® actúa a nivel físico-electroquímico, garantizando resultados permanentes sin dependencia de mantenimiento.
-            </p>
-          </details>
+      <div class="faq-grid">
+        <div class="faq-left">
+          <div class="section-tag reveal">05 — FAQ</div>
+          <h2 id="faq-heading" class="reveal reveal-delay-1">PREGUNTAS<br>FRECUENTES</h2>
+          <p class="section-intro reveal reveal-delay-2" style="margin-top: 1.5rem; max-width: 340px; color: #666; font-size: 0.95rem; line-height: 1.6; font-weight: 300;">
+            Resolvemos tus dudas sobre el funcionamiento, la instalación y la eficacia de la tecnología alemana de electroósmosis Drymat®.
+          </p>
+          <div class="faq-image-container reveal reveal-delay-3" style="margin-top: 2rem; max-width: 340px;">
+            <div class="formacion-img-wrap" style="height: 200px;">
+              <img src="../img/measurement.webp" class="img-fade" alt="Técnico midiendo humedad en la pared">
+            </div>
+          </div>
         </div>
-        <div class="faq-item">
-          <details>
-            <summary>
-              ¿NECESITO SER INGENIERO PARA EL CURSO?
-              <span class="faq-arrow" aria-hidden="true">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
-              </span>
-            </summary>
-            <p class="faq-answer">
-              No, el curso está diseñado para profesionales de la construcción en general: albañiles, fontaneros, rehabilitadores y empresas de reformas. La metodología de AislayAhorra simplifica la ingeniería de la electroósmosis para que cualquier profesional pueda instalar y certificar el sistema correctamente.
-            </p>
-          </details>
-        </div>
-        <div class="faq-item">
-          <details>
-            <summary>
-              ¿DEJA LA PARED LISTA PARA PINTAR?
-              <span class="faq-arrow" aria-hidden="true">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
-              </span>
-            </summary>
-            <p class="faq-answer">
-              Sí. Tras el proceso de secado, que suele completarse entre 3 y 12 semanas según el grosor y tipo de muro, la pared recuperará su estado natural de equilibrio hídrico. En ese momento podrá ser tratada con cualquier tipo de revestimiento —pintura, mortero, estuco— sin riesgo de eflorescencias o salitre futuro.
-            </p>
-          </details>
-        </div>
-        <div class="faq-item">
-          <details>
-            <summary>
-              ¿CUÁNTO TIEMPO DURA LA INSTALACIÓN?
-              <span class="faq-arrow" aria-hidden="true">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
-              </span>
-            </summary>
-            <p class="faq-answer">
-              La instalación física del sistema Drymat® se completa en un solo día de trabajo para una vivienda estándar. El inmueble puede seguir siendo habitado durante el proceso. No se generan escombros ni se interrumpe la actividad cotidiana. Los electrodos son discretos y quedan integrados de forma prácticamente invisible en la pared.
-            </p>
-          </details>
-        </div>
-        <div class="faq-item">
-          <details>
-            <summary>
-              ¿EL SISTEMA CONSUME ELECTRICIDAD?
-              <span class="faq-arrow" aria-hidden="true">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
-              </span>
-            </summary>
-            <p class="faq-answer">
-              No. El sistema Drymat® 2030 EO+ opera con energía captada del propio campo eléctrico natural del edificio y del suelo, sin necesitar conexión a la red eléctrica. Esto lo hace 100% autónomo, sin costes operativos y sin necesidad de mantenimiento técnico periódico.
-            </p>
-          </details>
+        <div class="faq-right reveal reveal-delay-2">
+          <div class="faq-list">
+            <div class="faq-item">
+              <details>
+                <summary>
+                  ¿ES EFICAZ VS ONDAS ELECTROMAGNÉTICAS?
+                  <span class="faq-arrow" aria-hidden="true">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                  </span>
+                </summary>
+                <p class="faq-answer">
+                  Sí, la electroósmosis con metales preciosos genera un campo eléctrico continuo que invierte la polaridad del agua obligándola a descender, mientras que las ondas magnéticas solo alteran temporalmente la tensión superficial. El sistema Drymat® actúa a nivel físico-electroquímico, garantizando resultados permanentes sin dependencia de mantenimiento.
+                </p>
+              </details>
+            </div>
+            <div class="faq-item">
+              <details>
+                <summary>
+                  ¿NECESITO SER INGENIERO PARA EL CURSO?
+                  <span class="faq-arrow" aria-hidden="true">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                  </span>
+                </summary>
+                <p class="faq-answer">
+                  No, el curso está diseñado para profesionales de la construcción en general: albañiles, fontaneros, rehabilitadores y empresas de reformas. La metodología de AislayAhorra simplifica la ingeniería de la electroósmosis para que cualquier profesional pueda instalar y certificar el sistema correctamente.
+                </p>
+              </details>
+            </div>
+            <div class="faq-item">
+              <details>
+                <summary>
+                  ¿DEJA LA PARED LISTA PARA PINTAR?
+                  <span class="faq-arrow" aria-hidden="true">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                  </span>
+                </summary>
+                <p class="faq-answer">
+                  Sí. Tras el proceso de secado, que suele completarse entre 3 y 12 semanas según el grosor y tipo de muro, la pared recuperará su estado natural de equilibrio hídrico. En ese momento podrá ser tratada con cualquier tipo de revestimiento —pintura, mortero, estuco— sin riesgo de eflorescencias o salitre futuro.
+                </p>
+              </details>
+            </div>
+            <div class="faq-item">
+              <details>
+                <summary>
+                  ¿CUÁNTO TIEMPO DURA LA INSTALACIÓN?
+                  <span class="faq-arrow" aria-hidden="true">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                  </span>
+                </summary>
+                <p class="faq-answer">
+                  La instalación física del sistema Drymat® se completa en un solo día de trabajo para una vivienda estándar. El inmueble puede seguir siendo habitado durante el proceso. No se generan escombros ni se interrumpe la actividad cotidiana. Los electrodos son discretos y quedan integrados de forma prácticamente invisible en la pared.
+                </p>
+              </details>
+            </div>
+            <div class="faq-item">
+              <details>
+                <summary>
+                  ¿EL SISTEMA CONSUME ELECTRICIDAD?
+                  <span class="faq-arrow" aria-hidden="true">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                  </span>
+                </summary>
+                <p class="faq-answer">
+                  No. El sistema Drymat® 2030 EO+ opera con energía captada del propio campo eléctrico natural del edificio y del suelo, sin necesitar conexión a la red eléctrica. Esto lo hace 100% autónomo, sin costes operativos y sin necesidad de mantenimiento técnico periódico.
+                </p>
+              </details>
+            </div>
+          </div>
         </div>
       </div>
     </section>
