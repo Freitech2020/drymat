@@ -6,7 +6,7 @@
     <title>Drymat Systeme España | Secado de Paredes Sin Obras</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=JetBrains+Mono:wght@400;500&family=Oswald:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
         :root {
             --color-primary: #1a1a1a; /* Gris Carbón oscurecido para Noir */
@@ -15,7 +15,7 @@
             --color-bg-light: #f0f0f0;
             --color-white: #FFFFFF;
             --color-black: #000000;
-            --color-text: #222222;
+            --color-text: #000000;
             --radius-card: 20px;
             --ease-premium: cubic-bezier(0.25, 1, 0.5, 1);
             --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
@@ -28,18 +28,26 @@
         html { font-size: 18px; scroll-behavior: smooth; }
 
         body {
-            font-family: 'Oswald', sans-serif;
+            font-family: 'Outfit', sans-serif;
+            font-size: 18px;
+            font-weight: 400;
             line-height: 1.6;
             color: var(--color-text);
             background-color: var(--color-bg-light);
             overflow-x: hidden;
         }
 
-        h1, h2, h3, h4 { font-family: 'Bebas Neue', sans-serif; line-height: 1; color: var(--color-primary); letter-spacing: 1px; }
-        h2 { font-size: clamp(2.5rem, 6vw, 5rem); margin-bottom: 1rem; }
-        h3 { font-size: clamp(1.5rem, 3vw, 2.5rem); }
-        h4 { font-size: 1.2rem; }
-        p { font-weight: 300; }
+        h1, h2, h3, h4 {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 800;
+            line-height: 1.05;
+            color: var(--color-primary);
+            letter-spacing: -0.02em;
+        }
+        h2 { font-size: clamp(2rem, 4.5vw, 4rem); margin-bottom: 1rem; line-height: 1.05; }
+        h3 { font-size: clamp(1.4rem, 2.5vw, 2.2rem); font-weight: 700; line-height: 1.1; }
+        h4 { font-size: 1.25rem; font-weight: 700; }
+        p { font-weight: 400; color: #000000; }
         .mono { font-family: 'JetBrains Mono', monospace; }
 
         img { max-width: 100%; display: block; }
@@ -67,7 +75,7 @@
         }
         header.scrolled { background: rgba(255,255,255,0.95); backdrop-filter: blur(10px); padding: 1% 5%; box-shadow: 0 4px 20px rgba(0,0,0,0.05); }
         header.scrolled .nav-link, header.scrolled .logo { color: var(--color-primary); }
-        .logo { font-family: 'Bebas Neue', sans-serif; font-size: 1.8rem; color: var(--color-white); text-decoration: none; transition: color 0.3s ease; letter-spacing: 2px; }
+        .logo { font-family: 'Outfit', sans-serif; font-weight: 800; font-size: 1.5rem; color: var(--color-white); text-decoration: none; transition: color 0.3s ease; letter-spacing: -0.01em; }
         nav { display: flex; gap: 2rem; align-items: center; }
         .nav-link { color: var(--color-white); text-decoration: none; font-weight: 400; text-transform: uppercase; letter-spacing: 1px; transition: color 0.3s ease; font-size: 0.9rem; }
         .nav-link:hover { color: var(--color-secondary); }
@@ -75,7 +83,7 @@
         /* BOTONES Y CTA PULSANTE */
         .btn {
             padding: 0.8rem 2rem; border-radius: 2px; border: none; font-weight: 500;
-            cursor: pointer; transition: all 0.3s ease; font-family: 'Oswald', sans-serif;
+            cursor: pointer; transition: all 0.3s ease;
             text-transform: uppercase; letter-spacing: 1px; display: inline-block; text-align: center;
             font-size: 0.9rem;
         }
@@ -104,8 +112,8 @@
             background: linear-gradient(rgba(0,0,0,0.8), rgba(20,20,20,0.9)), url('../img/hero_person.webp') center/cover no-repeat;
             will-change: transform;
         }
-        .hero h1 { color: var(--color-white); font-size: clamp(3rem, 14vw, 14rem); margin: 0 auto 1rem; text-shadow: 0 10px 30px rgba(0,0,0,0.5); z-index: 2; }
-        .hero p { font-size: clamp(1rem, 2vw, 1.5rem); max-width: 700px; margin: 0 auto 2.5rem; color: #e0e0e0; text-shadow: 0 2px 5px rgba(0,0,0,0.5); z-index: 2; font-family: 'Oswald', sans-serif; }
+        .hero h1 { color: var(--color-white); font-size: clamp(3rem, 9vw, 8.5rem); margin: 0 auto 1rem; text-shadow: 0 10px 30px rgba(0,0,0,0.5); z-index: 2; line-height: 0.95; }
+        .hero p { font-size: clamp(1rem, 2vw, 1.35rem); max-width: 700px; margin: 0 auto 2.5rem; color: #e0e0e0; text-shadow: 0 2px 5px rgba(0,0,0,0.5); z-index: 2; }
         
         /* TELETIPO HERO */
         .ticker {
@@ -135,6 +143,7 @@
         }
         .card-front { background: var(--color-white); }
         .card-back { background: var(--color-primary); color: var(--color-white); transform: rotateY(180deg); }
+        .card-back p { color: var(--color-white); }
         .card-back h3 { color: var(--color-secondary); }
         .card-3d .icon-box { width: 50px; height: 50px; background: rgba(0,160,220,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem; color: var(--color-secondary); }
 
@@ -144,7 +153,7 @@
         .table-header:last-child, .table-row:last-child { border-bottom: none; }
         .table-cell { padding: 1.5rem; flex: 1; display: flex; align-items: center; justify-content: center; text-align: center; font-weight: 500; }
         .table-cell:first-child { flex: 1.5; justify-content: flex-start; text-align: left; color: var(--color-primary); font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; }
-        .table-header .table-cell { background: var(--color-primary); color: var(--color-white); font-family: 'Bebas Neue', sans-serif; font-size: 1.2rem; letter-spacing: 1px; }
+        .table-header .table-cell { background: var(--color-primary); color: var(--color-white); font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 1.05rem; }
         .table-header .table-cell:nth-child(2) { background: var(--color-secondary); }
         .yes { color: #28a745; font-weight: 700; }
         .no { color: #dc3545; font-weight: 700; }
@@ -169,7 +178,7 @@
         .modal-content { background: var(--color-white); padding: 3rem; border-radius: 2px; width: 90%; max-width: 500px; transform: scale(0.9); transition: transform 0.4s var(--ease-bounce); position: relative; }
         .modal-overlay.active .modal-content { transform: scale(1); }
         .modal-content h3 { margin-bottom: 1.5rem; text-align: center; color: var(--color-primary); font-size: 2rem; }
-        .modal-content input { width: 100%; padding: 1rem; margin-bottom: 1rem; border: 1px solid #ccc; font-family: 'Oswald', sans-serif; font-size: 1rem; }
+        .modal-content input { width: 100%; padding: 1rem; margin-bottom: 1rem; border: 1px solid #ccc; font-size: 1rem; }
         .close-btn { position: absolute; top: 15px; right: 20px; font-size: 2rem; cursor: pointer; color: var(--color-primary); }
 
         /* STICKY BAR */
@@ -179,12 +188,12 @@
             transform: translateY(120%); transition: transform 0.5s var(--ease-bounce); box-shadow: 0 -5px 20px rgba(0,0,0,0.2);
         }
         .sticky-bar.active { transform: translateY(0); }
-        .sticky-bar p { font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; margin: 0; }
+        .sticky-bar p { font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; margin: 0; color: var(--color-white); }
         .sticky-bar .btn { padding: 0.5rem 1.5rem; }
 
         /* FOOTER */
         footer { background: var(--color-black); color: var(--color-white); padding: 5% 10% 2%; text-align: center; }
-        .subfooter { margin-top: 3rem; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 1.5rem; font-size: 1rem; display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 0.5rem 1rem; line-height: 1.5; font-family: 'Oswald', sans-serif; }
+        .subfooter { margin-top: 3rem; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 1.5rem; font-size: 0.95rem; display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 0.5rem 1rem; line-height: 1.5; }
         .subfooter a { color: var(--color-secondary); text-decoration: none; transition: color 0.3s ease; }
         .subfooter a:hover { text-decoration: underline; }
         .emoji { width: 16px; vertical-align: middle; }
@@ -251,14 +260,14 @@
                 <article class="card-3d reveal">
                     <div class="card-face card-front" style="padding: 1.5rem; display: flex; flex-direction: column; justify-content: flex-start; align-items: stretch; text-align: left;">
                         <div class="card-image-wrap" style="position: relative; width: 100%; height: 160px; overflow: hidden; border-radius: 12px; margin-bottom: 1.2rem;">
-                            <img src="../img/media__1781850041801.webp" class="noir-img card-img" alt="Muro dañado por humedad" style="width: 100%; height: 100%; object-fit: cover;">
+                            <img src="../img/historic.webp" class="noir-img card-img" alt="Muro dañado por humedad" style="width: 100%; height: 100%; object-fit: cover;">
                         </div>
                         <h3 style="font-size: 1.6rem; margin-bottom: 0.5rem;">Daños Estructurales</h3>
-                        <p style="font-size: 0.95rem; color: #555; line-height: 1.5; font-weight: 300;">El agua por capilaridad degrada el mortero y el ladrillo, comprometiendo la integridad del edificio a largo plazo.</p>
+                        <p style="font-size: 0.95rem; color: #000000; line-height: 1.5; font-weight: 400;">El agua por capilaridad degrada el mortero y el ladrillo, comprometiendo la integridad del edificio a largo plazo.</p>
                     </div>
                     <div class="card-face card-back" style="padding: 1.5rem; display: flex; flex-direction: column; justify-content: center; align-items: stretch; text-align: left;">
                         <h3 style="color: var(--color-secondary); font-size: 1.8rem; margin-bottom: 1rem;">Solución Drymat</h3>
-                        <p style="font-size: 0.95rem; line-height: 1.5; font-weight: 300;">Nuestra tecnología detiene el ascenso capilar de raíz, protegiendo la estructura de tu edificio de forma permanente sin necesidad de perforaciones.</p>
+                        <p style="font-size: 0.95rem; line-height: 1.5; font-weight: 400; color: var(--color-white);">Nuestra tecnología detiene el ascenso capilar de raíz, protegiendo la estructura de tu edificio de forma permanente sin necesidad de perforaciones.</p>
                     </div>
                 </article>
                 <article class="card-3d reveal" style="transition-delay: 0.1s;">
@@ -267,24 +276,24 @@
                             <img src="../img/basement.webp" class="noir-img card-img" alt="Sótano húmedo con olor a moho" style="width: 100%; height: 100%; object-fit: cover;">
                         </div>
                         <h3 style="font-size: 1.6rem; margin-bottom: 0.5rem;">Malos Olores</h3>
-                        <p style="font-size: 0.95rem; color: #555; line-height: 1.5; font-weight: 300;">La humedad persistente genera moho y bacterias que producen olores desagradables difíciles de eliminar.</p>
+                        <p style="font-size: 0.95rem; color: #000000; line-height: 1.5; font-weight: 400;">La humedad persistente genera moho y bacterias que producen olores desagradables difíciles de eliminar.</p>
                     </div>
                     <div class="card-face card-back" style="padding: 1.5rem; display: flex; flex-direction: column; justify-content: center; align-items: stretch; text-align: left;">
                         <h3 style="color: var(--color-secondary); font-size: 1.8rem; margin-bottom: 1rem;">Solución Drymat</h3>
-                        <p style="font-size: 0.95rem; line-height: 1.5; font-weight: 300;">Al secar el muro desde su base, eliminamos el hábitat del moho y las bacterias, acabando con los malos olores para siempre.</p>
+                        <p style="font-size: 0.95rem; line-height: 1.5; font-weight: 400; color: var(--color-white);">Al secar el muro desde su base, eliminamos el hábitat del moho y las bacterias, acabando con los malos olores para siempre.</p>
                     </div>
                 </article>
                 <article class="card-3d reveal" style="transition-delay: 0.2s;">
                     <div class="card-face card-front" style="padding: 1.5rem; display: flex; flex-direction: column; justify-content: flex-start; align-items: stretch; text-align: left;">
                         <div class="card-image-wrap" style="position: relative; width: 100%; height: 160px; overflow: hidden; border-radius: 12px; margin-bottom: 1.2rem;">
-                            <img src="../img/engineer.webp" class="noir-img card-img" alt="Medición de humedad y salud familiar" style="width: 100%; height: 100%; object-fit: cover;">
+                            <img src="../img/measurement.webp" class="noir-img card-img" alt="Medición de humedad y salud familiar" style="width: 100%; height: 100%; object-fit: cover;">
                         </div>
                         <h3 style="font-size: 1.6rem; margin-bottom: 0.5rem;">Problemas de Salud</h3>
-                        <p style="font-size: 0.95rem; color: #555; line-height: 1.5; font-weight: 300;">Los muros húmedos favorecen problemas respiratorios, asma y alergias, especialmente en niños y ancianos.</p>
+                        <p style="font-size: 0.95rem; color: #000000; line-height: 1.5; font-weight: 400;">Los muros húmedos favorecen problemas respiratorios, asma y alergias, especialmente en niños y ancianos.</p>
                     </div>
                     <div class="card-face card-back" style="padding: 1.5rem; display: flex; flex-direction: column; justify-content: center; align-items: stretch; text-align: left;">
                         <h3 style="color: var(--color-secondary); font-size: 1.8rem; margin-bottom: 1rem;">Solución Drymat</h3>
-                        <p style="font-size: 0.95rem; line-height: 1.5; font-weight: 300;">Recupera un ambiente sano en tu hogar. Nuestro sistema es 100% ecológico y no emite campos magnéticos nocivos.</p>
+                        <p style="font-size: 0.95rem; line-height: 1.5; font-weight: 400; color: var(--color-white);">Recupera un ambiente sano en tu hogar. Nuestro sistema es 100% ecológico y no emite campos magnéticos nocivos.</p>
                     </div>
                 </article>
             </div>
@@ -294,7 +303,7 @@
         <section id="solucion" style="background: var(--color-primary); color: var(--color-white);">
             <div class="reveal">
                 <h2 style="color: var(--color-white);">BENEFICIOS VS MÉTODOS TRADICIONALES</h2>
-                <p style="text-align: center; max-width: 800px; margin: 0 auto 4rem; color: #ccc;">La revolución en el tratamiento de humedades. Comparativa técnica directa.</p>
+                <p style="text-align: center; max-width: 800px; margin: 0 auto 4rem; color: #e0e0e0; font-weight: 400;">La revolución en el tratamiento de humedades. Comparativa técnica directa.</p>
             </div>
             <div class="comparison-table reveal">
                 <div class="table-header">
@@ -343,28 +352,28 @@
                         <img src="../img/historic.webp" class="noir-img" alt="Muro antes tratamiento">
                         <div class="content">
                             <h4 style="margin-bottom: 0.5rem;">Rehabilitación en Centro Histórico</h4>
-                            <p class="mono" style="font-size: 0.85rem; color: #666;">Eliminación de salitre en muro de piedra de 60cm sin perforación.</p>
+                            <p class="mono" style="font-size: 0.85rem; color: #000000; font-weight: 400;">Eliminación de salitre en muro de piedra de 60cm sin perforación.</p>
                         </div>
                     </div>
                     <div class="carousel-item">
                         <img src="../img/basement.webp" class="noir-img" alt="Instalador sistema Drymat">
                         <div class="content">
                             <h4 style="margin-bottom: 0.5rem;">Sótano Residencial</h4>
-                            <p class="mono" style="font-size: 0.85rem; color: #666;">Secado completo de muro enterrado en 14 días. 0 consumo eléctrico.</p>
+                            <p class="mono" style="font-size: 0.85rem; color: #000000; font-weight: 400;">Secado completo de muro enterrado en 14 días. 0 consumo eléctrico.</p>
                         </div>
                     </div>
                     <div class="carousel-item">
                         <img src="../img/heritage.webp" class="noir-img" alt="Ingeniero revisando muros">
                         <div class="content">
                             <h4 style="margin-bottom: 0.5rem;">Edificio Protegido</h4>
-                            <p class="mono" style="font-size: 0.85rem; color: #666;">Solución reversible y no invasiva para patrimonio histórico.</p>
+                            <p class="mono" style="font-size: 0.85rem; color: #000000; font-weight: 400;">Solución reversible y no invasiva para patrimonio histórico.</p>
                         </div>
                     </div>
                     <div class="carousel-item">
                         <img src="../img/commercial.webp" class="noir-img" alt="Muro seco rehabilitado">
                         <div class="content">
                             <h4 style="margin-bottom: 0.5rem;">Local Comercial</h4>
-                            <p class="mono" style="font-size: 0.85rem; color: #666;">Recuperación de paredes sin cesar la actividad comercial.</p>
+                            <p class="mono" style="font-size: 0.85rem; color: #000000; font-weight: 400;">Recuperación de paredes sin cesar la actividad comercial.</p>
                         </div>
                     </div>
                 </div>
@@ -384,7 +393,7 @@
                 </div>
                 <div class="reveal" style="flex: 1 1 400px;">
                     <h2 style="color: var(--color-white);">CONVIÉRTETE EN INSTALADOR</h2>
-                    <p style="font-size: 1.2rem; margin-bottom: 2rem; color: #ccc;">Únete a la red de profesionales exclusivos en España. Curso oficial en Madrid impartido por <strong>Ricardo López Pietsch</strong>, Director Técnico de AislayAhorra e Ingeniero de Caminos.</p>
+                    <p style="font-size: 1.2rem; margin-bottom: 2rem; color: #e0e0e0; font-weight: 400;">Únete a la red de profesionales exclusivos en España. Curso oficial en Madrid impartido por <strong>Ricardo López Pietsch</strong>, Director Técnico de AislayAhorra e Ingeniero de Caminos.</p>
                     <ul style="list-style: none; margin-bottom: 2rem;">
                         <li style="margin-bottom: 1rem; display: flex; align-items: center; gap: 10px;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00A0DC" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Certificación oficial Drymat®</li>
                         <li style="margin-bottom: 1rem; display: flex; align-items: center; gap: 10px;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00A0DC" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Soporte técnico de AislayAhorra</li>
@@ -402,24 +411,24 @@
             </div>
             <div class="reveal" style="max-width: 800px; margin: 0 auto;">
                 <details style="border-bottom: 1px solid #eee; padding: 1.5rem 0;">
-                    <summary style="font-family: 'Bebas Neue', sans-serif; font-size: 1.5rem; cursor: pointer; color: var(--color-primary);">¿NECESITO EXPERIENCIA PREVIA O SER INGENIERO PARA EL CURSO?</summary>
-                    <p style="margin-top: 1rem; color: #666;">No. El programa está diseñado para profesionales de la construcción en general: reformistas, fontaneros, constructores y rehabilitadores. La metodología de AislayAhorra simplifica los fundamentos y la instalación técnica paso a paso para que cualquier instalador pueda ejecutarla sin titulación de ingeniería.</p>
+                    <summary style="font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 1.15rem; cursor: pointer; color: var(--color-primary);">¿NECESITO EXPERIENCIA PREVIA O SER INGENIERO PARA EL CURSO?</summary>
+                    <p style="margin-top: 1rem; color: #000000; font-weight: 400;">No. El programa está diseñado para profesionales de la construcción en general: reformistas, fontaneros, constructores y rehabilitadores. La metodología de AislayAhorra simplifica los fundamentos y la instalación técnica paso a paso para que cualquier instalador pueda ejecutarla sin titulación de ingeniería.</p>
                 </details>
                 <details style="border-bottom: 1px solid #eee; padding: 1.5rem 0;">
-                    <summary style="font-family: 'Bebas Neue', sans-serif; font-size: 1.5rem; cursor: pointer; color: var(--color-primary);">¿EL SISTEMA REQUIERE GRANDES OBRAS O EXCAVACIONES?</summary>
-                    <p style="margin-top: 1rem; color: #666;">No. La instalación se realiza en un solo día de trabajo para una vivienda estándar, sin generar escombros, ruidos molestos ni excavaciones. Los electrodos de metales preciosos se introducen de forma limpia en la mampostería, quedando completamente integrados e invisibles.</p>
+                    <summary style="font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 1.15rem; cursor: pointer; color: var(--color-primary);">¿EL SISTEMA REQUIERE GRANDES OBRAS O EXCAVACIONES?</summary>
+                    <p style="margin-top: 1rem; color: #000000; font-weight: 400;">No. La instalación se realiza en un solo día de trabajo para una vivienda estándar, sin generar escombros, ruidos molestos ni excavaciones. Los electrodos de metales preciosos se introducen de forma limpia en la mampostería, quedando completamente integrados e invisibles.</p>
                 </details>
                 <details style="border-bottom: 1px solid #eee; padding: 1.5rem 0;">
-                    <summary style="font-family: 'Bebas Neue', sans-serif; font-size: 1.5rem; cursor: pointer; color: var(--color-primary);">¿QUÉ DIFERENCIA HAY CON OTROS SISTEMAS (COMO LAS ONDAS ELECTROMAGNÉTICAS)?</summary>
-                    <p style="margin-top: 1rem; color: #666;">A diferencia de los sistemas de ondas electromagnéticas (que solo actúan sobre la superficie temporalmente sin revertir la gravedad del agua), DRYMAT® utiliza electroósmosis activa homologada (normativa ÖNORM B 3355-2). Mediante corriente continua y metales preciosos, genera un campo constante que empuja la humedad de regreso al suelo. El resultado es definitivo, rápido y medible técnicamente.</p>
+                    <summary style="font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 1.15rem; cursor: pointer; color: var(--color-primary);">¿QUÉ DIFERENCIA HAY CON OTROS SISTEMAS (COMO LAS ONDAS ELECTROMAGNÉTICAS)?</summary>
+                    <p style="margin-top: 1rem; color: #000000; font-weight: 400;">A diferencia de los sistemas de ondas electromagnéticas (que solo actúan sobre la superficie temporalmente sin revertir la gravedad del agua), DRYMAT® utiliza electroósmosis activa homologada (normativa ÖNORM B 3355-2). Mediante corriente continua y metales preciosos, genera un campo constante que empuja la humedad de regreso al suelo. El resultado es definitivo, rápido y medible técnicamente.</p>
                 </details>
                 <details style="border-bottom: 1px solid #eee; padding: 1.5rem 0;">
-                    <summary style="font-family: 'Bebas Neue', sans-serif; font-size: 1.5rem; cursor: pointer; color: var(--color-primary);">¿EL SISTEMA CONSUME MUCHA ELECTRICIDAD?</summary>
-                    <p style="margin-top: 1rem; color: #666;">No. El sistema trabaja a baja tensión (10V y 200mA), con una potencia de apenas 2W. Esto equivale a un consumo eléctrico anual estimado de solo 17,52 kWh, lo que representa entre 6 y 7€ al año en la factura eléctrica del cliente.</p>
+                    <summary style="font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 1.15rem; cursor: pointer; color: var(--color-primary);">¿EL SISTEMA CONSUME MUCHA ELECTRICIDAD?</summary>
+                    <p style="margin-top: 1rem; color: #000000; font-weight: 400;">No. El sistema trabaja a baja tensión (10V y 200mA), con una potencia de apenas 2W. Esto equivale a un consumo eléctrico anual estimado de solo 17,52 kWh, lo que representa entre 6 y 7€ al año en la factura eléctrica del cliente.</p>
                 </details>
                 <details style="border-bottom: 1px solid #eee; padding: 1.5rem 0;">
-                    <summary style="font-family: 'Bebas Neue', sans-serif; font-size: 1.5rem; cursor: pointer; color: var(--color-primary);">¿SE OFRECE SOPORTE TÉCNICO Y COMERCIAL TRAS LA CERTIFICACIÓN?</summary>
-                    <p style="margin-top: 1rem; color: #666;">Sí. Los instaladores certificados acceden al soporte técnico continuo de la red AislayAhorra. Recibirás acompañamiento y asesoramiento técnico para tus primeros proyectos reales, además de material comercial oficial, argumentarios y comparativas técnicas para facilitar la captación de clientes.</p>
+                    <summary style="font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 1.15rem; cursor: pointer; color: var(--color-primary);">¿SE OFRECE SOPORTE TÉCNICO Y COMERCIAL TRAS LA CERTIFICACIÓN?</summary>
+                    <p style="margin-top: 1rem; color: #000000; font-weight: 400;">Sí. Los instaladores certificados acceden al soporte técnico continuo de la red AislayAhorra. Recibirás acompañamiento y asesoramiento técnico para tus primeros proyectos reales, además de material comercial oficial, argumentarios y comparativas técnicas para facilitar la captación de clientes.</p>
                 </details>
             </div>
         </section>
@@ -435,7 +444,7 @@
     </main>
 
     <footer>
-        <p style="font-family: 'Bebas Neue', sans-serif; font-size: 2rem; letter-spacing: 2px;">DRYMAT SYSTEME ESPAÑA</p>
+        <p style="font-family: 'Outfit', sans-serif; font-weight: 800; font-size: 1.8rem; color: var(--color-white);">DRYMAT SYSTEME ESPAÑA</p>
         <div class="subfooter">
             Drymat España | Todos los Derechos Reservados.
             Diseñado con <img draggable="false" role="img" class="emoji" alt="❤" src="https://s.w.org/images/core/emoji/17.0.2/svg/2764.svg"> por <a href="https://seolife.es" rel="nofollow">SEOLife.es</a> | 
