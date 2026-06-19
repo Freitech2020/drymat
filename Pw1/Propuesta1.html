@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drymat Systeme España | Secado de Paredes Sin Obras</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=JetBrains+Mono:wght@400;500&family=Oswald:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-primary: #1a1a1a; /* Gris Carbón oscurecido para Noir */
+            --color-secondary: #00A0DC; /* Azul Agua */
+            --color-accent: #0077b6; /* Azul oscuro */
+            --color-bg-light: #f0f0f0;
+            --color-white: #FFFFFF;
+            --color-black: #000000;
+            --color-text: #222222;
+            --radius-card: 20px;
+            --ease-premium: cubic-bezier(0.25, 1, 0.5, 1);
+            --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+            --transition-fast: 0.2s var(--ease-premium);
+            --transition-normal: 0.35s var(--ease-premium);
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        html { font-size: 18px; scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Oswald', sans-serif;
+            line-height: 1.6;
+            color: var(--color-text);
+            background-color: var(--color-bg-light);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 { font-family: 'Bebas Neue', sans-serif; line-height: 1; color: var(--color-primary); letter-spacing: 1px; }
+        h2 { font-size: clamp(2.5rem, 6vw, 5rem); margin-bottom: 1rem; }
+        h3 { font-size: clamp(1.5rem, 3vw, 2.5rem); }
+        h4 { font-size: 1.2rem; }
+        p { font-weight: 300; }
+        .mono { font-family: 'JetBrains Mono', monospace; }
+
+        img { max-width: 100%; display: block; }
+        .noir-img {
+            filter: grayscale(100%) contrast(1.1) brightness(0.9);
+            transition: filter 0.5s ease;
+            mask-image: linear-gradient(135deg, #000 82%, transparent 100%);
+            -webkit-mask-image: linear-gradient(135deg, #000 82%, transparent 100%);
+        }
+        .noir-img:hover { filter: grayscale(0%) contrast(1) brightness(1); }
+
+        /* ATMÓSFERA Y GRANO */
+        .grain-overlay {
+            position: fixed; top: -50%; left: -50%; width: 200%; height: 200%;
+            pointer-events: none; z-index: 9999; opacity: 0.08;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 300 300' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+            will-change: transform;
+        }
+
+        /* HEADER */
+        header {
+            position: fixed; top: 0; width: 100%; padding: 1.5% 5%;
+            display: flex; justify-content: space-between; align-items: center; z-index: 1000;
+            background: transparent; transition: background 0.4s ease, padding 0.4s ease;
+        }
+        header.scrolled { background: rgba(255,255,255,0.95); backdrop-filter: blur(10px); padding: 1% 5%; box-shadow: 0 4px 20px rgba(0,0,0,0.05); }
+        header.scrolled .nav-link, header.scrolled .logo { color: var(--color-primary); }
+        .logo { font-family: 'Bebas Neue', sans-serif; font-size: 1.8rem; color: var(--color-white); text-decoration: none; transition: color 0.3s ease; letter-spacing: 2px; }
+        nav { display: flex; gap: 2rem; align-items: center; }
+        .nav-link { color: var(--color-white); text-decoration: none; font-weight: 400; text-transform: uppercase; letter-spacing: 1px; transition: color 0.3s ease; font-size: 0.9rem; }
+        .nav-link:hover { color: var(--color-secondary); }
+
+        /* BOTONES Y CTA PULSANTE */
+        .btn {
+            padding: 0.8rem 2rem; border-radius: 2px; border: none; font-weight: 500;
+            cursor: pointer; transition: all 0.3s ease; font-family: 'Oswald', sans-serif;
+            text-transform: uppercase; letter-spacing: 1px; display: inline-block; text-align: center;
+            font-size: 0.9rem;
+        }
+        .btn-primary { background: var(--color-secondary); color: var(--color-white); position: relative; }
+        .btn-primary::before {
+            content: ''; position: absolute; top: 50%; left: 50%; width: 100%; height: 100%;
+            background: var(--color-secondary); border-radius: 2px; transform: translate(-50%, -50%) scale(1);
+            z-index: -1; animation: pulse-ring 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        @keyframes pulse-ring {
+            0% { transform: translate(-50%, -50%) scale(1); opacity: 0.7; }
+            80%, 100% { transform: translate(-50%, -50%) scale(1.5); opacity: 0; }
+        }
+        .btn-primary:hover { background: var(--color-accent); transform: translateY(-2px); }
+        .btn-outline { background: transparent; color: var(--color-white); border: 1px solid var(--color-white); }
+        .btn-outline:hover { background: var(--color-white); color: var(--color-primary); }
+
+        /* HERO */
+        .hero {
+            min-height: 100vh; display: flex; align-items: center; justify-content: center;
+            text-align: center; padding: 10% 5%; position: relative; overflow: hidden;
+            color: var(--color-white);
+        }
+        .hero-bg {
+            position: absolute; top: 0; left: 0; width: 100%; height: 120%; z-index: -1;
+            background: linear-gradient(rgba(0,0,0,0.8), rgba(20,20,20,0.9)), url('../img/hero_person.webp') center/cover no-repeat;
+            will-change: transform;
+        }
+        .hero h1 { color: var(--color-white); font-size: clamp(3rem, 14vw, 14rem); margin: 0 auto 1rem; text-shadow: 0 10px 30px rgba(0,0,0,0.5); z-index: 2; }
+        .hero p { font-size: clamp(1rem, 2vw, 1.5rem); max-width: 700px; margin: 0 auto 2.5rem; color: #e0e0e0; text-shadow: 0 2px 5px rgba(0,0,0,0.5); z-index: 2; font-family: 'Oswald', sans-serif; }
+        
+        /* TELETIPO HERO */
+        .ticker {
+            position: absolute; bottom: 40px; left: 0; width: 100%; overflow: hidden; white-space: nowrap; z-index: 2;
+            border-top: 1px solid rgba(255,255,255,0.2); border-bottom: 1px solid rgba(255,255,255,0.2); padding: 15px 0;
+        }
+        .ticker-track { display: inline-block; animation: ticker 30s linear infinite; }
+        .ticker-item { font-family: 'JetBrains Mono', monospace; font-size: 0.9rem; color: var(--color-secondary); margin-right: 50px; text-transform: uppercase; }
+        @keyframes ticker { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+        /* SECCIONES Y REVELADO */
+        section { padding: 8% 10%; position: relative; }
+        .reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.8s var(--ease-premium), transform 0.8s var(--ease-premium); }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+
+        /* TARJETAS 3D */
+        .grid-3 { display: flex; flex-wrap: wrap; gap: 2rem; justify-content: center; perspective: 1000px; }
+        .card-3d {
+            flex: 1 1 300px; max-width: 350px; height: 400px; position: relative;
+            transform-style: preserve-3d; transition: transform 0.8s var(--ease-bounce);
+        }
+        .card-3d:hover { transform: rotateY(180deg); }
+        .card-face {
+            position: absolute; width: 100%; height: 100%; backface-visibility: hidden;
+            border-radius: var(--radius-card); padding: 2.5rem; display: flex; flex-direction: column;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        }
+        .card-front { background: var(--color-white); }
+        .card-back { background: var(--color-primary); color: var(--color-white); transform: rotateY(180deg); }
+        .card-back h3 { color: var(--color-secondary); }
+        .card-3d .icon-box { width: 50px; height: 50px; background: rgba(0,160,220,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem; color: var(--color-secondary); }
+
+        /* COMPARATIVA */
+        .comparison-table { max-width: 800px; margin: 0 auto; background: var(--color-white); border-radius: var(--radius-card); overflow: hidden; box-shadow: 0 15px 35px rgba(0,0,0,0.1); }
+        .table-header, .table-row { display: flex; border-bottom: 1px solid #eee; }
+        .table-header:last-child, .table-row:last-child { border-bottom: none; }
+        .table-cell { padding: 1.5rem; flex: 1; display: flex; align-items: center; justify-content: center; text-align: center; font-weight: 500; }
+        .table-cell:first-child { flex: 1.5; justify-content: flex-start; text-align: left; color: var(--color-primary); font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; }
+        .table-header .table-cell { background: var(--color-primary); color: var(--color-white); font-family: 'Bebas Neue', sans-serif; font-size: 1.2rem; letter-spacing: 1px; }
+        .table-header .table-cell:nth-child(2) { background: var(--color-secondary); }
+        .yes { color: #28a745; font-weight: 700; }
+        .no { color: #dc3545; font-weight: 700; }
+
+        /* CARRUSEL PERSONALIZADO */
+        .carousel-container { position: relative; max-width: 100%; margin: 0 auto; overflow: hidden; padding: 0 5%; }
+        .carousel-track { display: flex; gap: 2rem; cursor: grab; padding-bottom: 3rem; will-change: transform; }
+        .carousel-track:active { cursor: grabbing; }
+        .carousel-item { flex: 0 0 80%; max-width: 600px; background: var(--color-white); border-radius: var(--radius-card); overflow: hidden; box-shadow: 0 15px 35px rgba(0,0,0,0.1); pointer-events: none; }
+        .carousel-item img { width: 100%; height: 300px; object-fit: cover; }
+        .carousel-item .content { padding: 2rem; }
+        .carousel-controls { display: flex; justify-content: center; align-items: center; gap: 2rem; margin-top: 1rem; }
+        .carousel-btn { background: var(--color-primary); color: var(--color-white); width: 45px; height: 45px; border-radius: 50%; border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: var(--transition-fast); }
+        .carousel-btn:hover { background: var(--color-secondary); transform: scale(1.1); }
+        .carousel-dots { display: flex; gap: 10px; }
+        .dot { width: 10px; height: 10px; background: #ccc; border-radius: 50%; cursor: pointer; transition: var(--transition-fast); }
+        .dot.active { background: var(--color-secondary); width: 30px; border-radius: 5px; }
+
+        /* MODAL */
+        .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); display: none; justify-content: center; align-items: center; z-index: 2000; opacity: 0; transition: opacity 0.3s ease; backdrop-filter: blur(5px); }
+        .modal-overlay.active { display: flex; opacity: 1; }
+        .modal-content { background: var(--color-white); padding: 3rem; border-radius: 2px; width: 90%; max-width: 500px; transform: scale(0.9); transition: transform 0.4s var(--ease-bounce); position: relative; }
+        .modal-overlay.active .modal-content { transform: scale(1); }
+        .modal-content h3 { margin-bottom: 1.5rem; text-align: center; color: var(--color-primary); font-size: 2rem; }
+        .modal-content input { width: 100%; padding: 1rem; margin-bottom: 1rem; border: 1px solid #ccc; font-family: 'Oswald', sans-serif; font-size: 1rem; }
+        .close-btn { position: absolute; top: 15px; right: 20px; font-size: 2rem; cursor: pointer; color: var(--color-primary); }
+
+        /* STICKY BAR */
+        .sticky-bar {
+            position: fixed; bottom: 0; left: 0; width: 100%; background: var(--color-primary); color: var(--color-white);
+            padding: 1rem 5%; display: flex; justify-content: space-between; align-items: center; z-index: 998;
+            transform: translateY(120%); transition: transform 0.5s var(--ease-bounce); box-shadow: 0 -5px 20px rgba(0,0,0,0.2);
+        }
+        .sticky-bar.active { transform: translateY(0); }
+        .sticky-bar p { font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; margin: 0; }
+        .sticky-bar .btn { padding: 0.5rem 1.5rem; }
+
+        /* FOOTER */
+        footer { background: var(--color-black); color: var(--color-white); padding: 5% 10% 2%; text-align: center; }
+        .subfooter { margin-top: 3rem; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 1.5rem; font-size: 1rem; display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 0.5rem 1rem; line-height: 1.5; font-family: 'Oswald', sans-serif; }
+        .subfooter a { color: var(--color-secondary); text-decoration: none; transition: color 0.3s ease; }
+        .subfooter a:hover { text-decoration: underline; }
+        .emoji { width: 16px; vertical-align: middle; }
+
+        /* MOBILE */
+        @media (max-width: 768px) {
+            html { font-size: 16px; }
+            nav { display: none; }
+            .table-header { display: none; }
+            .table-row { flex-direction: column; padding: 1rem; border-bottom: 2px solid var(--color-primary); }
+            .table-cell { justify-content: flex-start; text-align: left; padding: 0.5rem 0; width: 100%; }
+            .table-cell:first-child { font-weight: bold; margin-bottom: 0.5rem; }
+            .carousel-item { flex: 0 0 85%; }
+            .sticky-bar { flex-direction: column; gap: 0.5rem; text-align: center; }
+            .sticky-bar p { font-size: 0.75rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="grain-overlay" id="grain"></div>
+
+    <header id="header">
+        <a href="#" class="logo">DRYMAT® Systeme</a>
+        <nav>
+            <a href="#problema" class="nav-link">Problema</a>
+            <a href="#solucion" class="nav-link">Tecnología</a>
+            <a href="#formacion" class="nav-link">Formación</a>
+            <a href="#faq" class="nav-link">FAQ</a>
+            <button class="btn btn-primary" onclick="openModal('Solicitar Diagnóstico')">Diagnóstico</button>
+        </nav>
+    </header>
+
+    <main>
+        <!-- HERO -->
+        <section class="hero">
+            <div class="hero-bg" id="heroBg"></div>
+            <div style="z-index: 2;">
+                <h1>DRYMAT<br>SYSTEME</h1>
+                <p>Tecnología alemana de electroósmosis. El sistema definitivo contra la humedad por capilaridad. Sin químicos, sin rotura de muros y con garantía.</p>
+                <button class="btn btn-primary" onclick="openModal('Solicitar Diagnóstico')" style="padding: 1rem 2.5rem; font-size: 1rem;">Solicitar Diagnóstico Gratuito</button>
+            </div>
+            <div class="ticker">
+                <div class="ticker-track">
+                    <span class="ticker-item">// Electrodos de metales preciosos</span>
+                    <span class="ticker-item">// Ahorro del 70% vs métodos tradicionales</span>
+                    <span class="ticker-item">// Instalación en 1 día</span>
+                    <span class="ticker-item">// 100% Ecológico y sin obras</span>
+                    <span class="ticker-item">// Electrodos de metales preciosos</span>
+                    <span class="ticker-item">// Ahorro del 70% vs métodos tradicionales</span>
+                    <span class="ticker-item">// Instalación en 1 día</span>
+                    <span class="ticker-item">// 100% Ecológico y sin obras</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROBLEMA -->
+        <section id="problema" style="background: var(--color-white);">
+            <div class="reveal">
+                <h2>¿MANCHAS, SALITRE O PINTURA DESCARCELADA?</h2>
+                <p style="text-align: center; max-width: 800px; margin: 0 auto 4rem; font-size: 1.1rem;">La humedad destruye tu hogar y pone en riesgo la salud de tu familia. No ignores las señales.</p>
+            </div>
+            <div class="grid-3">
+                <article class="card-3d reveal">
+                    <div class="card-face card-front" style="padding: 1.5rem; display: flex; flex-direction: column; justify-content: flex-start; align-items: stretch; text-align: left;">
+                        <div class="card-image-wrap" style="position: relative; width: 100%; height: 160px; overflow: hidden; border-radius: 12px; margin-bottom: 1.2rem;">
+                            <img src="../img/media__1781850041801.webp" class="noir-img card-img" alt="Muro dañado por humedad" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <h3 style="font-size: 1.6rem; margin-bottom: 0.5rem;">Daños Estructurales</h3>
+                        <p style="font-size: 0.95rem; color: #555; line-height: 1.5; font-weight: 300;">El agua por capilaridad degrada el mortero y el ladrillo, comprometiendo la integridad del edificio a largo plazo.</p>
+                    </div>
+                    <div class="card-face card-back" style="padding: 1.5rem; display: flex; flex-direction: column; justify-content: center; align-items: stretch; text-align: left;">
+                        <h3 style="color: var(--color-secondary); font-size: 1.8rem; margin-bottom: 1rem;">Solución Drymat</h3>
+                        <p style="font-size: 0.95rem; line-height: 1.5; font-weight: 300;">Nuestra tecnología detiene el ascenso capilar de raíz, protegiendo la estructura de tu edificio de forma permanente sin necesidad de perforaciones.</p>
+                    </div>
+                </article>
+                <article class="card-3d reveal" style="transition-delay: 0.1s;">
+                    <div class="card-face card-front" style="padding: 1.5rem; display: flex; flex-direction: column; justify-content: flex-start; align-items: stretch; text-align: left;">
+                        <div class="card-image-wrap" style="position: relative; width: 100%; height: 160px; overflow: hidden; border-radius: 12px; margin-bottom: 1.2rem;">
+                            <img src="../img/basement.webp" class="noir-img card-img" alt="Sótano húmedo con olor a moho" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <h3 style="font-size: 1.6rem; margin-bottom: 0.5rem;">Malos Olores</h3>
+                        <p style="font-size: 0.95rem; color: #555; line-height: 1.5; font-weight: 300;">La humedad persistente genera moho y bacterias que producen olores desagradables difíciles de eliminar.</p>
+                    </div>
+                    <div class="card-face card-back" style="padding: 1.5rem; display: flex; flex-direction: column; justify-content: center; align-items: stretch; text-align: left;">
+                        <h3 style="color: var(--color-secondary); font-size: 1.8rem; margin-bottom: 1rem;">Solución Drymat</h3>
+                        <p style="font-size: 0.95rem; line-height: 1.5; font-weight: 300;">Al secar el muro desde su base, eliminamos el hábitat del moho y las bacterias, acabando con los malos olores para siempre.</p>
+                    </div>
+                </article>
+                <article class="card-3d reveal" style="transition-delay: 0.2s;">
+                    <div class="card-face card-front" style="padding: 1.5rem; display: flex; flex-direction: column; justify-content: flex-start; align-items: stretch; text-align: left;">
+                        <div class="card-image-wrap" style="position: relative; width: 100%; height: 160px; overflow: hidden; border-radius: 12px; margin-bottom: 1.2rem;">
+                            <img src="../img/engineer.webp" class="noir-img card-img" alt="Medición de humedad y salud familiar" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <h3 style="font-size: 1.6rem; margin-bottom: 0.5rem;">Problemas de Salud</h3>
+                        <p style="font-size: 0.95rem; color: #555; line-height: 1.5; font-weight: 300;">Los muros húmedos favorecen problemas respiratorios, asma y alergias, especialmente en niños y ancianos.</p>
+                    </div>
+                    <div class="card-face card-back" style="padding: 1.5rem; display: flex; flex-direction: column; justify-content: center; align-items: stretch; text-align: left;">
+                        <h3 style="color: var(--color-secondary); font-size: 1.8rem; margin-bottom: 1rem;">Solución Drymat</h3>
+                        <p style="font-size: 0.95rem; line-height: 1.5; font-weight: 300;">Recupera un ambiente sano en tu hogar. Nuestro sistema es 100% ecológico y no emite campos magnéticos nocivos.</p>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- COMPARATIVA -->
+        <section id="solucion" style="background: var(--color-primary); color: var(--color-white);">
+            <div class="reveal">
+                <h2 style="color: var(--color-white);">BENEFICIOS VS MÉTODOS TRADICIONALES</h2>
+                <p style="text-align: center; max-width: 800px; margin: 0 auto 4rem; color: #ccc;">La revolución en el tratamiento de humedades. Comparativa técnica directa.</p>
+            </div>
+            <div class="comparison-table reveal">
+                <div class="table-header">
+                    <div class="table-cell">Característica</div>
+                    <div class="table-cell">Drymat®</div>
+                    <div class="table-cell">Inyección Química</div>
+                    <div class="table-cell">Corte de Muro</div>
+                </div>
+                <div class="table-row">
+                    <div class="table-cell">Requiere obra</div>
+                    <div class="table-cell yes">NO</div>
+                    <div class="table-cell no">SÍ</div>
+                    <div class="table-cell no">SÍ</div>
+                </div>
+                <div class="table-row">
+                    <div class="table-cell">Uso de químicos</div>
+                    <div class="table-cell yes">NO</div>
+                    <div class="table-cell no">SÍ</div>
+                    <div class="table-cell yes">NO</div>
+                </div>
+                <div class="table-row">
+                    <div class="table-cell">Genera escombros</div>
+                    <div class="table-cell yes">NO</div>
+                    <div class="table-cell no">SÍ</div>
+                    <div class="table-cell no">MUCHOS</div>
+                </div>
+                <div class="table-row">
+                    <div class="table-cell">Garantía</div>
+                    <div class="table-cell yes">30 AÑOS</div>
+                    <div class="table-cell no">5-10 AÑOS</div>
+                    <div class="table-cell yes">VARIABLE</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CARRUSEL CASOS DE ÉXITO -->
+        <section style="background: var(--color-bg-light);">
+            <div class="reveal">
+                <h2>CASOS DE ÉXITO</h2>
+                <p style="text-align: center; max-width: 800px; margin: 0 auto 4rem; font-size: 1.1rem;">Arrastra para ver las transformaciones reales con el sistema Drymat®.</p>
+            </div>
+            
+            <div class="carousel-container reveal">
+                <div class="carousel-track" id="carouselTrack">
+                    <div class="carousel-item">
+                        <img src="../img/historic.webp" class="noir-img" alt="Muro antes tratamiento">
+                        <div class="content">
+                            <h4 style="margin-bottom: 0.5rem;">Rehabilitación en Centro Histórico</h4>
+                            <p class="mono" style="font-size: 0.85rem; color: #666;">Eliminación de salitre en muro de piedra de 60cm sin perforación.</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="../img/basement.webp" class="noir-img" alt="Instalador sistema Drymat">
+                        <div class="content">
+                            <h4 style="margin-bottom: 0.5rem;">Sótano Residencial</h4>
+                            <p class="mono" style="font-size: 0.85rem; color: #666;">Secado completo de muro enterrado en 14 días. 0 consumo eléctrico.</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="../img/heritage.webp" class="noir-img" alt="Ingeniero revisando muros">
+                        <div class="content">
+                            <h4 style="margin-bottom: 0.5rem;">Edificio Protegido</h4>
+                            <p class="mono" style="font-size: 0.85rem; color: #666;">Solución reversible y no invasiva para patrimonio histórico.</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="../img/commercial.webp" class="noir-img" alt="Muro seco rehabilitado">
+                        <div class="content">
+                            <h4 style="margin-bottom: 0.5rem;">Local Comercial</h4>
+                            <p class="mono" style="font-size: 0.85rem; color: #666;">Recuperación de paredes sin cesar la actividad comercial.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-controls">
+                    <button class="carousel-btn" id="prevBtn"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"></polyline></svg></button>
+                    <div class="carousel-dots" id="carouselDots"></div>
+                    <button class="carousel-btn" id="nextBtn"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg></button>
+                </div>
+            </div>
+        </section>
+
+        <!-- FORMACIÓN B2B -->
+        <section id="formacion" style="background: var(--color-black); color: var(--color-white);">
+            <div style="display: flex; flex-wrap: wrap; gap: 4rem; align-items: center;">
+                <div class="reveal" style="flex: 1 1 300px;">
+                    <img src="../img/training.webp" class="noir-img" style="border-radius: 2px; height: 400px; width: 100%; object-fit: cover;">
+                </div>
+                <div class="reveal" style="flex: 1 1 400px;">
+                    <h2 style="color: var(--color-white);">CONVIÉRTETE EN INSTALADOR</h2>
+                    <p style="font-size: 1.2rem; margin-bottom: 2rem; color: #ccc;">Únete a la red de profesionales exclusivos en España. Curso oficial en Madrid impartido por <strong>Ricardo López Pietsch</strong>, Director Técnico de AislayAhorra e Ingeniero de Caminos.</p>
+                    <ul style="list-style: none; margin-bottom: 2rem;">
+                        <li style="margin-bottom: 1rem; display: flex; align-items: center; gap: 10px;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00A0DC" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Certificación oficial Drymat®</li>
+                        <li style="margin-bottom: 1rem; display: flex; align-items: center; gap: 10px;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00A0DC" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Soporte técnico de AislayAhorra</li>
+                        <li style="margin-bottom: 1rem; display: flex; align-items: center; gap: 10px;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00A0DC" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Acceso a tecnología patentada</li>
+                    </ul>
+                    <button class="btn btn-primary" onclick="openModal('Quiero ser Instalador')" style="padding: 1rem 2.5rem; font-size: 1rem;">Quiero ser Instalador</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <section id="faq" style="background: var(--color-white);">
+            <div class="reveal">
+                <h2>PREGUNTAS FRECUENTES</h2>
+            </div>
+            <div class="reveal" style="max-width: 800px; margin: 0 auto;">
+                <details style="border-bottom: 1px solid #eee; padding: 1.5rem 0;">
+                    <summary style="font-family: 'Bebas Neue', sans-serif; font-size: 1.5rem; cursor: pointer; color: var(--color-primary);">¿NECESITO EXPERIENCIA PREVIA O SER INGENIERO PARA EL CURSO?</summary>
+                    <p style="margin-top: 1rem; color: #666;">No. El programa está diseñado para profesionales de la construcción en general: reformistas, fontaneros, constructores y rehabilitadores. La metodología de AislayAhorra simplifica los fundamentos y la instalación técnica paso a paso para que cualquier instalador pueda ejecutarla sin titulación de ingeniería.</p>
+                </details>
+                <details style="border-bottom: 1px solid #eee; padding: 1.5rem 0;">
+                    <summary style="font-family: 'Bebas Neue', sans-serif; font-size: 1.5rem; cursor: pointer; color: var(--color-primary);">¿EL SISTEMA REQUIERE GRANDES OBRAS O EXCAVACIONES?</summary>
+                    <p style="margin-top: 1rem; color: #666;">No. La instalación se realiza en un solo día de trabajo para una vivienda estándar, sin generar escombros, ruidos molestos ni excavaciones. Los electrodos de metales preciosos se introducen de forma limpia en la mampostería, quedando completamente integrados e invisibles.</p>
+                </details>
+                <details style="border-bottom: 1px solid #eee; padding: 1.5rem 0;">
+                    <summary style="font-family: 'Bebas Neue', sans-serif; font-size: 1.5rem; cursor: pointer; color: var(--color-primary);">¿QUÉ DIFERENCIA HAY CON OTROS SISTEMAS (COMO LAS ONDAS ELECTROMAGNÉTICAS)?</summary>
+                    <p style="margin-top: 1rem; color: #666;">A diferencia de los sistemas de ondas electromagnéticas (que solo actúan sobre la superficie temporalmente sin revertir la gravedad del agua), DRYMAT® utiliza electroósmosis activa homologada (normativa ÖNORM B 3355-2). Mediante corriente continua y metales preciosos, genera un campo constante que empuja la humedad de regreso al suelo. El resultado es definitivo, rápido y medible técnicamente.</p>
+                </details>
+                <details style="border-bottom: 1px solid #eee; padding: 1.5rem 0;">
+                    <summary style="font-family: 'Bebas Neue', sans-serif; font-size: 1.5rem; cursor: pointer; color: var(--color-primary);">¿EL SISTEMA CONSUME MUCHA ELECTRICIDAD?</summary>
+                    <p style="margin-top: 1rem; color: #666;">No. El sistema trabaja a baja tensión (10V y 200mA), con una potencia de apenas 2W. Esto equivale a un consumo eléctrico anual estimado de solo 17,52 kWh, lo que representa entre 6 y 7€ al año en la factura eléctrica del cliente.</p>
+                </details>
+                <details style="border-bottom: 1px solid #eee; padding: 1.5rem 0;">
+                    <summary style="font-family: 'Bebas Neue', sans-serif; font-size: 1.5rem; cursor: pointer; color: var(--color-primary);">¿SE OFRECE SOPORTE TÉCNICO Y COMERCIAL TRAS LA CERTIFICACIÓN?</summary>
+                    <p style="margin-top: 1rem; color: #666;">Sí. Los instaladores certificados acceden al soporte técnico continuo de la red AislayAhorra. Recibirás acompañamiento y asesoramiento técnico para tus primeros proyectos reales, además de material comercial oficial, argumentarios y comparativas técnicas para facilitar la captación de clientes.</p>
+                </details>
+            </div>
+        </section>
+
+        <!-- CTA FINAL -->
+        <section id="cta-final" style="background: var(--color-secondary); text-align: center; color: white;">
+            <div class="reveal">
+                <h2 style="color: white;">RECUPERA EL VALOR DE TU PROPIEDAD</h2>
+                <p style="font-size: 1.2rem; margin-bottom: 2.5rem;">Solicita un estudio sin coste. Nuestros técnicos certificados analizarán el grado de humedad.</p>
+                <button class="btn btn-outline" onclick="openModal('Solicitar Diagnóstico')" style="border-color: white; color: white; padding: 1rem 2.5rem; font-size: 1rem;">Solicitar Diagnóstico Gratuito</button>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p style="font-family: 'Bebas Neue', sans-serif; font-size: 2rem; letter-spacing: 2px;">DRYMAT SYSTEME ESPAÑA</p>
+        <div class="subfooter">
+            Drymat España | Todos los Derechos Reservados.
+            Diseñado con <img draggable="false" role="img" class="emoji" alt="❤" src="https://s.w.org/images/core/emoji/17.0.2/svg/2764.svg"> por <a href="https://seolife.es" rel="nofollow">SEOLife.es</a> | 
+            <a href="/privacidad" rel="nofollow">Política de Privacidad</a> | 
+            <a href="/cookies" rel="nofollow">Política de Cookies</a>
+        </div>
+    </footer>
+
+    <!-- STICKY BAR -->
+    <div class="sticky-bar" id="stickyBar">
+        <p>¿PROBLEMAS DE HUMEDAD? SOLUCIÓN TECNOLÓGICA ALEMANA.</p>
+        <button class="btn btn-primary" onclick="openModal('Solicitar Diagnóstico')">SOLICITAR INFO</button>
+    </div>
+
+    <!-- MODAL -->
+    <div class="modal-overlay" id="contactModal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <h3 id="modalTitle">CONTACTO</h3>
+            <form onsubmit="closeModal(); return false;">
+                <input type="text" placeholder="Nombre" required>
+                <input type="email" placeholder="Email" required>
+                <input type="tel" placeholder="Teléfono">
+                <button type="submit" class="btn btn-primary" style="width: 100%; padding: 1rem;">ENVIAR</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // 1. HEADER SCROLL
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) header.classList.add('scrolled');
+            else header.classList.remove('scrolled');
+        });
+
+        // 2. MODAL
+        function openModal(source) {
+            document.getElementById('modalTitle').innerText = source.toUpperCase();
+            document.getElementById('contactModal').classList.add('active');
+        }
+        function closeModal() { document.getElementById('contactModal').classList.remove('active'); }
+        document.getElementById('contactModal').addEventListener('click', function(e) { if (e.target === this) closeModal(); });
+
+        // 3. INTERSECTION OBSERVER (Reveal)
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // 4. GRANO LERP + PARALLAX HERO
+        const grain = document.getElementById('grain');
+        const heroBg = document.getElementById('heroBg');
+        let targetScroll = 0, currentScroll = 0;
+        
+        function lerp(a, b, n) { return (1 - n) * a + n * b; }
+        
+        window.addEventListener('scroll', () => { targetScroll = window.scrollY; });
+        
+        function animateAtmosphere() {
+            currentScroll = lerp(currentScroll, targetScroll, 0.1);
+            // Grano se mueve a 0.5x velocidad vertical
+            grain.style.transform = `translateY(${currentScroll * 0.5}px)`;
+            // Hero bg parallax 0.3x (se mueve hacia abajo)
+            heroBg.style.transform = `translateY(${currentScroll * 0.3}px)`;
+            requestAnimationFrame(animateAtmosphere);
+        }
+        animateAtmosphere();
+
+        // 5. STICKY BAR LOGIC
+        const stickyBar = document.getElementById('stickyBar');
+        const heroSection = document.querySelector('.hero');
+        const ctaFinal = document.getElementById('cta-final');
+
+        const stickyObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.target === heroSection && !entry.isIntersecting) {
+                    // Si el hero sale de vista, mostrar barra (a menos que estemos en CTA)
+                    if (!ctaFinal.getBoundingClientRect().top < window.innerHeight) {
+                        stickyBar.classList.add('active');
+                    }
+                } else if (entry.target === heroSection && entry.isIntersecting) {
+                    stickyBar.classList.remove('active');
+                }
+                
+                if (entry.target === ctaFinal) {
+                    if (entry.isIntersecting) stickyBar.classList.remove('active');
+                    else if (window.scrollY > heroSection.offsetHeight) stickyBar.classList.add('active');
+                }
+            });
+        }, { threshold: 0.2 });
+        stickyObserver.observe(heroSection);
+        stickyObserver.observe(ctaFinal);
+
+        // 6. CARRUSEL PERSONALIZADO (Drag, Swipe, Momentum, Elastic, Autoplay)
+        const track = document.getElementById('carouselTrack');
+        const items = document.querySelectorAll('.carousel-item');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const dotsContainer = document.getElementById('carouselDots');
+
+        let isDown = false;
+        let startX, scrollLeft, trackLeft, velocity, rafId;
+        let autoPlayInterval;
+        let currentIndex = 0;
+
+        // Crear puntos
+        items.forEach((_, i) => {
+            const dot = document.createElement('div');
+            dot.classList.add('dot');
+            if (i === 0) dot.classList.add('active');
+            dot.addEventListener('click', () => goToSlide(i));
+            dotsContainer.appendChild(dot);
+        });
+
+        function updateDots() {
+            document.querySelectorAll('.dot').forEach((d, i) => {
+                d.classList.toggle('active', i === currentIndex);
+            });
+        }
+
+        function getMaxScroll() {
+            return track.scrollWidth - track.parentElement.offsetWidth;
+        }
+
+        function updateCurrentIndex() {
+            let maxScroll = getMaxScroll();
+            if (maxScroll <= 0) return;
+            // Calcula qué item está más centrado
+            let itemWidth = items[0].offsetWidth + 32; // gap
+            currentIndex = Math.round(-trackLeft / itemWidth);
+            if (currentIndex < 0) currentIndex = 0;
+            if (currentIndex >= items.length) currentIndex = items.length - 1;
+            updateDots();
+        }
+
+        // Arrastre Ratón
+        track.addEventListener('mousedown', (e) => {
+            isDown = true;
+            track.style.cursor = 'grabbing';
+            startX = e.pageX;
+            trackLeft = parseFloat(window.getComputedStyle(track).transform.split(',')[4] || 0) * -1; // Tricky: get current X
+            // Mejor obtener el translate actual
+            const matrix = new DOMMatrix(window.getComputedStyle(track).transform);
+            trackLeft = -matrix.m41;
+            velocity = 0;
+            cancelAnimationFrame(rafId);
+            stopAutoPlay();
+        });
+
+        window.addEventListener('mouseup', () => {
+            if (!isDown) return;
+            isDown = false;
+            track.style.cursor = 'grab';
+            applyMomentum();
+            snapToNearest();
+            startAutoPlay();
+        });
+
+        window.addEventListener('mousemove', (e) => {
+            if (!isDown) return;
+            e.preventDefault();
+            const x = e.pageX;
+            let walk = (x - startX) * 1.5; // Velocidad arrastre
+            let newPos = trackLeft - walk; // Ir hacia atrás si arrastras derecha? No: trackLeft - walk NO. trackLeft + walk NO.
+            // Si arrastro a la derecha (walk > 0), el track debe moverse a la derecha (sumar a X)
+            // Pero queremos ver lo de la izquierda, así que X debe ser negativo.
+            // Nueva X = trackLeft - walk
+            let targetX = trackLeft - walk;
+            velocity = -walk * 0.5; // Para inercia
+            
+            applyBounds(targetX, true); // true = elastic
+            applyTransform();
+        });
+
+        // Touch Events (Móvil)
+        track.addEventListener('touchstart', (e) => {
+            isDown = true;
+            startX = e.touches[0].pageX;
+            const matrix = new DOMMatrix(window.getComputedStyle(track).transform);
+            trackLeft = -matrix.m41;
+            velocity = 0;
+            cancelAnimationFrame(rafId);
+            stopAutoPlay();
+        }, {passive: true});
+
+        track.addEventListener('touchend', () => {
+            if (!isDown) return;
+            isDown = false;
+            applyMomentum();
+            snapToNearest();
+            startAutoPlay();
+        });
+
+        track.addEventListener('touchmove', (e) => {
+            if (!isDown) return;
+            const x = e.touches[0].pageX;
+            let walk = (x - startX) * 1.5;
+            let targetX = trackLeft - walk;
+            velocity = -walk * 0.5;
+            applyBounds(targetX, true);
+            applyTransform();
+        }, {passive: true});
+
+        function applyBounds(x, elastic = false) {
+            let maxScroll = getMaxScroll();
+            if (x > 0) { // Límite izquierdo
+                trackLeft = elastic ? x * 0.35 : 0;
+            } else if (x < -maxScroll) { // Límite derecho
+                trackLeft = elastic ? -maxScroll + (x + maxScroll) * 0.35 : -maxScroll;
+            } else {
+                trackLeft = x;
+            }
+        }
+
+        function applyTransform() {
+            track.style.transform = `translateX(${trackLeft}px)`;
+        }
+
+        function applyMomentum() {
+            if (Math.abs(velocity) < 0.5) return;
+            trackLeft += velocity;
+            velocity *= 0.95; // Fricción
+            applyBounds(trackLeft, false); // No elástico en inercia
+            applyTransform();
+            if (Math.abs(velocity) > 0.5) {
+                rafId = requestAnimationFrame(applyMomentum);
+            } else {
+                snapToNearest();
+            }
+        }
+
+        function snapToNearest() {
+            let itemWidth = items[0].offsetWidth + 32;
+            let snapPos = Math.round(trackLeft / itemWidth) * itemWidth;
+            
+            // Asegurar límites duros
+            if (snapPos > 0) snapPos = 0;
+            if (snapPos < -getMaxScroll()) snapPos = -getMaxScroll();
+            
+            // Animar al snap
+            let start = trackLeft;
+            let change = snapPos - start;
+            let currentTime = 0;
+            let increment = 20;
+            let duration = 300;
+            
+            function animateSnap() {
+                currentTime += increment;
+                let t = Math.min(currentTime / duration, 1);
+                let ease = 1 - Math.pow(1 - t, 3); // easeOutCubic
+                trackLeft = start + change * ease;
+                applyBounds(trackLeft, false);
+                applyTransform();
+                if (t < 1) {
+                    rafId = requestAnimationFrame(animateSnap);
+                } else {
+                    updateCurrentIndex();
+                }
+            }
+            cancelAnimationFrame(rafId);
+            animateSnap();
+        }
+
+        function goToSlide(index) {
+            let itemWidth = items[0].offsetWidth + 32;
+            trackLeft = -index * itemWidth;
+            applyBounds(trackLeft, false);
+            snapToNearest();
+            stopAutoPlay();
+            startAutoPlay();
+        }
+
+        prevBtn.addEventListener('click', () => goToSlide(Math.max(0, currentIndex - 1)));
+        nextBtn.addEventListener('click', () => goToSlide(Math.min(items.length - 1, currentIndex + 1)));
+
+        // Autoplay
+        function startAutoPlay() {
+            stopAutoPlay();
+            autoPlayInterval = setInterval(() => {
+                let nextIndex = (currentIndex + 1) % items.length;
+                goToSlide(nextIndex);
+            }, 4500);
+        }
+        function stopAutoPlay() { clearInterval(autoPlayInterval); }
+        
+        track.addEventListener('mouseenter', stopAutoPlay);
+        track.addEventListener('mouseleave', startAutoPlay);
+
+        // Init
+        startAutoPlay();
+        window.addEventListener('resize', () => { applyBounds(trackLeft, false); applyTransform(); });
+
+    </script>
+</body>
+</html>

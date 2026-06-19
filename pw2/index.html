@@ -1,0 +1,2227 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Drymat® Systeme España – Tecnología alemana de electroósmosis contra la humedad por capilaridad. Sin químicos, sin obra. Diagnóstico gratuito. Instalación en 1 día.">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="Drymat® Systeme España – Tecnología Alemana contra la Humedad">
+  <meta property="og:description" content="El sistema definitivo contra la humedad por capilaridad. Sin químicos, sin rotura de muros, con 30 años de garantía.">
+  <meta property="og:type" content="website">
+  <title>Drymat® Systeme España | Tecnología Alemana contra la Humedad</title>
+
+  <!-- Schema.org -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "name": "Drymat Systeme España",
+        "url": "https://drymat.es/",
+        "description": "Tecnología alemana de electroósmosis para la eliminación definitiva de humedad por capilaridad. Sin químicos, sin obras.",
+        "areaServed": "ES",
+        "parentOrganization": { "@type": "Organization", "name": "Drymat Systeme GmbH" }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "¿Es eficaz vs ondas electromagnéticas?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Sí, la electroósmosis con metales preciosos genera un campo eléctrico continuo que invierte la polaridad del agua obligándola a descender." }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Necesito ser ingeniero para el curso?",
+            "acceptedAnswer": { "@type": "Answer", "text": "No, está diseñado para profesionales de la construcción. La metodología de AislayAhorra simplifica la ingeniería." }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <style>
+    /* =============================================
+       DESIGN TOKENS
+    ============================================= */
+    :root {
+      --color-primary: #1a1a1a;
+      --color-secondary: #00A0DC;
+      --color-accent: #0077b6;
+      --color-bg-light: #f0f0f0;
+      --color-white: #FFFFFF;
+      --color-black: #000000;
+      --color-text: #222222;
+      --ease-premium: cubic-bezier(0.25, 1, 0.5, 1);
+      --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+      --radius: 20px;
+      --radius-sm: 4px;
+      --shadow: 0 15px 35px rgba(0,0,0,0.12);
+      --shadow-dark: 0 20px 60px rgba(0,0,0,0.4);
+    }
+
+    /* =============================================
+       RESET & BASE
+    ============================================= */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Oswald', sans-serif;
+      font-weight: 300;
+      color: var(--color-text);
+      background: var(--color-primary);
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+    img { max-width: 100%; display: block; }
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+    button { cursor: pointer; border: none; background: none; font-family: inherit; }
+
+    /* =============================================
+       NOISE OVERLAY (Grano Fractal)
+    ============================================= */
+    #noise-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      pointer-events: none;
+      opacity: 0.06;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 300 300' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      background-size: 300px 300px;
+      will-change: transform;
+    }
+
+    /* =============================================
+       TYPOGRAPHY SCALE
+    ============================================= */
+    h1, h2 { font-family: 'Bebas Neue', sans-serif; letter-spacing: 0.02em; line-height: 0.92; }
+    h3, h4 { font-family: 'Oswald', sans-serif; font-weight: 500; }
+    .mono { font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; font-weight: 400; letter-spacing: -0.02em; }
+
+    /* =============================================
+       REVEAL ANIMATIONS
+    ============================================= */
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.8s var(--ease-premium), transform 0.8s var(--ease-premium);
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+
+    /* =============================================
+       HEADER
+    ============================================= */
+    #header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      padding: 18px 5%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: background 0.4s var(--ease-premium), backdrop-filter 0.4s, box-shadow 0.4s;
+    }
+    #header.scrolled {
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+    }
+    .header-logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(1.4rem, 2.5vw, 2rem);
+      color: var(--color-white);
+      letter-spacing: 0.04em;
+      transition: color 0.4s;
+    }
+    #header.scrolled .header-logo { color: var(--color-primary); }
+    .header-logo span { color: var(--color-secondary); }
+    .header-nav { display: flex; align-items: center; gap: 2.5rem; }
+    .header-nav a {
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.8);
+      transition: color 0.3s;
+    }
+    .header-nav a:hover { color: var(--color-secondary); }
+    #header.scrolled .header-nav a { color: var(--color-text); }
+    #header.scrolled .header-nav a:hover { color: var(--color-secondary); }
+    .btn-header {
+      background: var(--color-secondary);
+      color: var(--color-white) !important;
+      padding: 10px 22px;
+      border-radius: var(--radius-sm);
+      font-weight: 500 !important;
+      letter-spacing: 0.08em;
+      font-size: 0.8rem !important;
+      transition: background 0.3s, transform 0.2s var(--ease-bounce) !important;
+    }
+    .btn-header:hover { background: var(--color-accent) !important; transform: translateY(-2px); }
+    .mobile-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      padding: 5px;
+    }
+    .mobile-toggle span {
+      display: block;
+      width: 24px; height: 2px;
+      background: var(--color-white);
+      border-radius: 2px;
+      transition: background 0.4s, transform 0.3s;
+    }
+    #header.scrolled .mobile-toggle span { background: var(--color-primary); }
+
+    /* =============================================
+       HERO SECTION
+    ============================================= */
+    #hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      overflow: hidden;
+      padding: 120px 5% 100px;
+    }
+    .hero-bg {
+      position: absolute;
+      inset: -20%;
+      background-image: url('../img/installer.webp');
+      background-size: cover;
+      background-position: center;
+      filter: brightness(0.3) contrast(1.1);
+      will-change: transform;
+      z-index: 0;
+    }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.7) 100%);
+      z-index: 1;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 1000px;
+    }
+    .hero-eyebrow {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      letter-spacing: 0.25em;
+      color: var(--color-secondary);
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+    }
+    .hero-eyebrow::before, .hero-eyebrow::after {
+      content: '';
+      display: block;
+      width: 40px; height: 1px;
+      background: var(--color-secondary);
+    }
+    #hero h1 {
+      font-size: clamp(4rem, 13vw, 13rem);
+      color: var(--color-white);
+      text-shadow: 0 0 80px rgba(0,0,0,0.8);
+      margin-bottom: 0.3em;
+      line-height: 0.88;
+    }
+    #hero h1 span { color: var(--color-secondary); }
+    .hero-sub {
+      font-family: 'Oswald', sans-serif;
+      font-weight: 300;
+      font-size: clamp(1rem, 2vw, 1.35rem);
+      color: rgba(255,255,255,0.85);
+      max-width: 640px;
+      margin: 1.5rem auto 2.5rem;
+      line-height: 1.6;
+    }
+
+    /* CTA BUTTON PULSANTE */
+    .btn-primary {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--color-secondary);
+      color: var(--color-white);
+      padding: 18px 40px;
+      border-radius: var(--radius-sm);
+      font-family: 'Oswald', sans-serif;
+      font-size: 1rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      transition: background 0.3s, transform 0.3s var(--ease-bounce), box-shadow 0.3s;
+      box-shadow: 0 8px 30px rgba(0,160,220,0.35);
+    }
+    .btn-primary::before {
+      content: '';
+      position: absolute;
+      inset: -4px;
+      border-radius: calc(var(--radius-sm) + 4px);
+      border: 2px solid var(--color-secondary);
+      animation: pulse-ring 2s ease-out infinite;
+    }
+    @keyframes pulse-ring {
+      0% { transform: scale(1); opacity: 0.7; }
+      100% { transform: scale(1.5); opacity: 0; }
+    }
+    .btn-primary:hover { background: var(--color-accent); transform: translateY(-3px); box-shadow: 0 12px 40px rgba(0,160,220,0.5); }
+    .btn-primary svg { transition: transform 0.3s var(--ease-bounce); }
+    .btn-primary:hover svg { transform: translateX(4px); }
+
+    /* STATS STRIP */
+    .hero-stats {
+      display: flex;
+      justify-content: center;
+      gap: 3rem;
+      margin-top: 4rem;
+      flex-wrap: wrap;
+    }
+    .hero-stat {
+      text-align: center;
+      border-left: 1px solid rgba(255,255,255,0.15);
+      padding-left: 2rem;
+    }
+    .hero-stat:first-child { border-left: none; padding-left: 0; }
+    .hero-stat-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      color: var(--color-secondary);
+      line-height: 1;
+    }
+    .hero-stat-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      color: rgba(255,255,255,0.5);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-top: 4px;
+    }
+
+    /* TICKER */
+    .ticker-wrap {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      z-index: 3;
+      background: rgba(0,0,0,0.7);
+      border-top: 1px solid rgba(0,160,220,0.3);
+      padding: 12px 0;
+      overflow: hidden;
+    }
+    .ticker-track {
+      display: flex;
+      gap: 0;
+      animation: ticker-anim 25s linear infinite;
+      white-space: nowrap;
+    }
+    .ticker-item {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.6);
+      padding: 0 3rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex-shrink: 0;
+    }
+    .ticker-item span { color: var(--color-secondary); }
+    @keyframes ticker-anim {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* =============================================
+       SECCIÓN PROBLEMA
+    ============================================= */
+    #problema {
+      background: var(--color-white);
+      padding: 8% 10%;
+    }
+    .section-tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.25em;
+      color: var(--color-secondary);
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+    .section-tag::before {
+      content: '';
+      display: block;
+      width: 30px; height: 1px;
+      background: var(--color-secondary);
+    }
+    #problema h2 {
+      font-size: clamp(2.5rem, 6vw, 6rem);
+      color: var(--color-primary);
+      margin-bottom: 1rem;
+    }
+    #problema .section-intro {
+      font-size: clamp(1rem, 1.5vw, 1.2rem);
+      color: #555;
+      max-width: 560px;
+      margin-bottom: 4rem;
+      line-height: 1.7;
+      font-weight: 300;
+    }
+
+    /* 3D CARDS */
+    .cards-grid {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+    .card-3d-wrap {
+      flex: 1;
+      min-width: 260px;
+      height: 340px;
+      perspective: 1000px;
+    }
+    .card-3d {
+      position: relative;
+      width: 100%; height: 100%;
+      transform-style: preserve-3d;
+      transition: transform 0.7s var(--ease-premium);
+      cursor: pointer;
+    }
+    .card-3d-wrap:hover .card-3d { transform: rotateY(180deg); }
+    .card-face {
+      position: absolute;
+      inset: 0;
+      border-radius: var(--radius);
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2.5rem;
+      text-align: center;
+      box-shadow: var(--shadow);
+    }
+    .card-front {
+      background: var(--color-bg-light);
+      border: 1px solid rgba(0,0,0,0.06);
+    }
+    .card-back {
+      background: var(--color-primary);
+      transform: rotateY(180deg);
+      border: 1px solid rgba(0,160,220,0.2);
+    }
+    .card-icon {
+      width: 64px; height: 64px;
+      background: rgba(0,160,220,0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+    }
+    .card-icon svg { width: 32px; height: 32px; }
+    .card-front h3 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--color-primary);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.5rem;
+    }
+    .card-front p {
+      font-size: 0.9rem;
+      color: #888;
+      font-weight: 300;
+    }
+    .card-back .back-badge {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem;
+      color: var(--color-secondary);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+    .card-back h3 {
+      font-size: 1.2rem;
+      color: var(--color-white);
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .card-back p {
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.7);
+      font-weight: 300;
+      line-height: 1.6;
+    }
+    .card-hover-hint {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.65rem;
+      color: var(--color-secondary);
+      letter-spacing: 0.1em;
+      margin-top: 1rem;
+      opacity: 0.7;
+      text-transform: uppercase;
+    }
+
+    /* =============================================
+       SECCIÓN COMPARATIVA
+    ============================================= */
+    #comparativa {
+      background: var(--color-primary);
+      padding: 8% 10%;
+    }
+    #comparativa h2 {
+      font-size: clamp(2.5rem, 5.5vw, 5.5rem);
+      color: var(--color-white);
+      margin-bottom: 1rem;
+    }
+    #comparativa .section-intro {
+      color: rgba(255,255,255,0.6);
+      font-size: clamp(0.95rem, 1.4vw, 1.15rem);
+      max-width: 520px;
+      margin-bottom: 3.5rem;
+      font-weight: 300;
+      line-height: 1.7;
+    }
+    .tabla-wrap { overflow-x: auto; }
+    .tabla-comparativa {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      border-radius: var(--radius);
+      overflow: hidden;
+      min-width: 560px;
+    }
+    .tabla-comparativa thead tr {
+      background: rgba(255,255,255,0.04);
+    }
+    .tabla-comparativa th {
+      padding: 18px 24px;
+      text-align: left;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .tabla-comparativa th:first-child { border-radius: var(--radius) 0 0 0; }
+    .tabla-comparativa th:last-child { border-radius: 0 var(--radius) 0 0; }
+    .tabla-comparativa th.col-drymat { color: var(--color-secondary); }
+    .tabla-comparativa td {
+      padding: 18px 24px;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      font-size: 0.95rem;
+      font-weight: 400;
+      color: rgba(255,255,255,0.75);
+      transition: background 0.3s;
+    }
+    .tabla-comparativa tbody tr:hover td { background: rgba(255,255,255,0.03); }
+    .tabla-comparativa tbody tr:last-child td { border-bottom: none; }
+    .tabla-comparativa td:first-child { font-weight: 500; color: rgba(255,255,255,0.5); font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; letter-spacing: 0.05em; }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 14px;
+      border-radius: 100px;
+      font-family: 'Oswald', sans-serif;
+      font-weight: 500;
+      font-size: 0.85rem;
+      letter-spacing: 0.05em;
+    }
+    .badge-yes { background: rgba(0,160,220,0.15); color: #4fc3e8; border: 1px solid rgba(0,160,220,0.3); }
+    .badge-no { background: rgba(220,60,60,0.12); color: #e87272; border: 1px solid rgba(220,60,60,0.25); }
+    .badge-star { background: rgba(0,160,220,0.15); color: var(--color-secondary); border: 1px solid rgba(0,160,220,0.3); }
+
+    /* =============================================
+       CARRUSEL CASOS DE ÉXITO
+    ============================================= */
+    #casos {
+      background: var(--color-bg-light);
+      padding: 8% 0 8% 10%;
+      overflow: hidden;
+    }
+    #casos .section-header {
+      padding-right: 10%;
+      margin-bottom: 3rem;
+    }
+    #casos h2 {
+      font-size: clamp(2.5rem, 5.5vw, 5.5rem);
+      color: var(--color-primary);
+    }
+    #casos .section-intro {
+      font-size: clamp(0.95rem, 1.4vw, 1.15rem);
+      color: #666;
+      margin-top: 0.5rem;
+      font-weight: 300;
+    }
+    .carousel-container { position: relative; }
+    .carousel-track-wrap { overflow: hidden; cursor: grab; }
+    .carousel-track-wrap:active { cursor: grabbing; }
+    #carouselTrack {
+      display: flex;
+      gap: 1.5rem;
+      user-select: none;
+      will-change: transform;
+      transition: none;
+    }
+    .carousel-item {
+      flex-shrink: 0;
+      width: calc(33.33% - 1rem);
+      min-width: 280px;
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      background: var(--color-white);
+      position: relative;
+    }
+    @media (max-width: 900px) { .carousel-item { width: 85vw; } }
+    .carousel-img-wrap {
+      height: 220px;
+      overflow: hidden;
+      position: relative;
+    }
+    .carousel-img-wrap img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      filter: grayscale(100%) contrast(1.1) brightness(0.9);
+      transition: filter 0.5s var(--ease-premium), transform 0.5s var(--ease-premium);
+    }
+    .carousel-item:hover .carousel-img-wrap img {
+      filter: grayscale(0%) contrast(1) brightness(1);
+      transform: scale(1.04);
+    }
+    .carousel-img-wrap::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent 50%, rgba(0,0,0,0.4) 100%);
+      pointer-events: none;
+    }
+    .carousel-body { padding: 1.5rem; }
+    .carousel-num {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.65rem;
+      color: var(--color-secondary);
+      letter-spacing: 0.2em;
+      margin-bottom: 0.5rem;
+      text-transform: uppercase;
+    }
+    .carousel-body h3 {
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--color-primary);
+      margin-bottom: 0.6rem;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+    .carousel-body p {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.78rem;
+      color: #888;
+      line-height: 1.5;
+    }
+    .carousel-controls {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-top: 2rem;
+      padding-right: 10%;
+    }
+    .carousel-btn {
+      width: 48px; height: 48px;
+      border-radius: 50%;
+      border: 1.5px solid rgba(0,0,0,0.15);
+      background: var(--color-white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.3s, border-color 0.3s, transform 0.2s var(--ease-bounce);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+    .carousel-btn:hover { background: var(--color-secondary); border-color: var(--color-secondary); transform: scale(1.08); }
+    .carousel-btn:hover svg path { stroke: white; }
+    .carousel-btn svg { width: 18px; height: 18px; }
+    .carousel-btn svg path { stroke: var(--color-primary); transition: stroke 0.3s; }
+    .carousel-dots {
+      display: flex;
+      gap: 6px;
+      align-items: center;
+      margin-left: auto;
+    }
+    .carousel-dot {
+      width: 8px; height: 8px;
+      border-radius: 100px;
+      background: rgba(0,0,0,0.15);
+      cursor: pointer;
+      transition: width 0.3s var(--ease-premium), background 0.3s;
+    }
+    .carousel-dot.active { width: 28px; background: var(--color-secondary); }
+
+    /* =============================================
+       SECCIÓN FORMACIÓN B2B
+    ============================================= */
+    #formacion {
+      background: var(--color-black);
+      padding: 8% 10%;
+      position: relative;
+      overflow: hidden;
+    }
+    #formacion::before {
+      content: 'B2B';
+      position: absolute;
+      right: -2%;
+      top: 50%;
+      transform: translateY(-50%);
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(8rem, 18vw, 18rem);
+      color: rgba(255,255,255,0.02);
+      pointer-events: none;
+      line-height: 1;
+      user-select: none;
+    }
+    .formacion-grid {
+      display: flex;
+      gap: 5rem;
+      align-items: flex-start;
+      flex-wrap: wrap;
+    }
+    .formacion-left { flex: 1; min-width: 280px; }
+    .formacion-right { flex: 1; min-width: 280px; }
+    #formacion h2 {
+      font-size: clamp(2.5rem, 5vw, 5.5rem);
+      color: var(--color-white);
+      margin-bottom: 1.5rem;
+    }
+    #formacion .section-intro {
+      color: rgba(255,255,255,0.6);
+      font-size: clamp(0.9rem, 1.3vw, 1.1rem);
+      max-width: 480px;
+      line-height: 1.7;
+      font-weight: 300;
+      margin-bottom: 2.5rem;
+    }
+    .formacion-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(0,160,220,0.08);
+      border: 1px solid rgba(0,160,220,0.2);
+      border-radius: 100px;
+      padding: 8px 18px;
+      margin-bottom: 2rem;
+    }
+    .formacion-badge span {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      color: var(--color-secondary);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    .check-list { display: flex; flex-direction: column; gap: 1rem; }
+    .check-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+    .check-icon {
+      width: 24px; height: 24px;
+      background: var(--color-secondary);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .check-icon svg { width: 13px; height: 13px; }
+    .check-item p {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.75);
+      font-weight: 300;
+      line-height: 1.5;
+    }
+    .instructor-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: var(--radius);
+      padding: 2rem;
+    }
+    .instructor-card .card-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.68rem;
+      color: var(--color-secondary);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin-bottom: 1.2rem;
+    }
+    .instructor-info { display: flex; align-items: center; gap: 1.2rem; margin-bottom: 1.5rem; }
+    .instructor-avatar {
+      width: 56px; height: 56px;
+      background: linear-gradient(135deg, var(--color-secondary), var(--color-accent));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.5rem;
+      color: white;
+      flex-shrink: 0;
+    }
+    .instructor-name {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--color-white);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .instructor-title {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      color: rgba(255,255,255,0.4);
+      letter-spacing: 0.05em;
+      margin-top: 3px;
+    }
+    .instructor-card p {
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.5);
+      font-weight: 300;
+      line-height: 1.7;
+      border-top: 1px solid rgba(255,255,255,0.07);
+      padding-top: 1.2rem;
+    }
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: transparent;
+      color: var(--color-white);
+      border: 1.5px solid rgba(255,255,255,0.3);
+      padding: 16px 36px;
+      border-radius: var(--radius-sm);
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-top: 2.5rem;
+      transition: background 0.3s, border-color 0.3s, transform 0.3s var(--ease-bounce);
+    }
+    .btn-secondary:hover {
+      background: var(--color-secondary);
+      border-color: var(--color-secondary);
+      transform: translateY(-2px);
+    }
+
+    /* =============================================
+       SECCIÓN FAQ
+    ============================================= */
+    #faq {
+      background: var(--color-white);
+      padding: 8% 10%;
+    }
+    #faq h2 {
+      font-size: clamp(2.5rem, 5.5vw, 5.5rem);
+      color: var(--color-primary);
+      margin-bottom: 3.5rem;
+    }
+    .faq-list { max-width: 760px; display: flex; flex-direction: column; gap: 0; }
+    .faq-item {
+      border-bottom: 1px solid rgba(0,0,0,0.08);
+    }
+    .faq-item:first-child { border-top: 1px solid rgba(0,0,0,0.08); }
+    details summary {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.4rem 0;
+      cursor: pointer;
+      list-style: none;
+      font-family: 'Oswald', sans-serif;
+      font-weight: 500;
+      font-size: clamp(1rem, 1.5vw, 1.1rem);
+      color: var(--color-primary);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      user-select: none;
+      gap: 1rem;
+      transition: color 0.3s;
+    }
+    details summary::-webkit-details-marker { display: none; }
+    details summary:hover { color: var(--color-secondary); }
+    .faq-arrow {
+      width: 32px; height: 32px;
+      border-radius: 50%;
+      border: 1.5px solid rgba(0,0,0,0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      transition: background 0.3s, border-color 0.3s, transform 0.4s var(--ease-premium);
+    }
+    details[open] summary .faq-arrow {
+      background: var(--color-secondary);
+      border-color: var(--color-secondary);
+      transform: rotate(180deg);
+    }
+    details[open] summary .faq-arrow svg path { stroke: white; }
+    .faq-arrow svg { width: 14px; height: 14px; }
+    .faq-arrow svg path { stroke: var(--color-text); transition: stroke 0.3s; }
+    details .faq-answer {
+      padding: 0 0 1.5rem 0;
+      font-size: 0.95rem;
+      color: #666;
+      font-weight: 300;
+      line-height: 1.8;
+      max-width: 640px;
+      animation: faq-open 0.3s var(--ease-premium);
+    }
+    @keyframes faq-open {
+      from { opacity: 0; transform: translateY(-8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* =============================================
+       CTA FINAL
+    ============================================= */
+    #cta-final {
+      background: var(--color-secondary);
+      padding: 8% 10%;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    #cta-final::before {
+      content: '';
+      position: absolute;
+      top: -50%; left: -20%;
+      width: 60%;
+      aspect-ratio: 1;
+      background: rgba(255,255,255,0.06);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    #cta-final::after {
+      content: '';
+      position: absolute;
+      bottom: -30%; right: -10%;
+      width: 40%;
+      aspect-ratio: 1;
+      background: rgba(0,0,0,0.06);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    #cta-final h2 {
+      font-size: clamp(2.5rem, 6vw, 6rem);
+      color: var(--color-white);
+      position: relative;
+      z-index: 1;
+      margin-bottom: 1rem;
+      text-shadow: 0 2px 20px rgba(0,0,0,0.15);
+    }
+    #cta-final p {
+      font-size: clamp(1rem, 1.5vw, 1.2rem);
+      color: rgba(255,255,255,0.85);
+      max-width: 540px;
+      margin: 0 auto 2.5rem;
+      line-height: 1.7;
+      font-weight: 300;
+      position: relative;
+      z-index: 1;
+    }
+    .btn-outline-white {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: transparent;
+      color: var(--color-white);
+      border: 2px solid var(--color-white);
+      padding: 18px 44px;
+      border-radius: var(--radius-sm);
+      font-family: 'Oswald', sans-serif;
+      font-size: 1rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      position: relative;
+      z-index: 1;
+      transition: background 0.3s, color 0.3s, transform 0.3s var(--ease-bounce);
+    }
+    .btn-outline-white:hover {
+      background: var(--color-white);
+      color: var(--color-secondary);
+      transform: translateY(-3px);
+    }
+
+    /* =============================================
+       FOOTER
+    ============================================= */
+    #footer {
+      background: var(--color-black);
+      padding: 4rem 10%;
+      text-align: center;
+    }
+    .footer-logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(1.5rem, 3vw, 2.5rem);
+      color: var(--color-white);
+      letter-spacing: 0.08em;
+      margin-bottom: 0.5rem;
+    }
+    .footer-logo span { color: var(--color-secondary); }
+    .footer-tagline {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      color: rgba(255,255,255,0.3);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 2.5rem;
+    }
+    .footer-nav {
+      display: flex;
+      justify-content: center;
+      gap: 2.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 2.5rem;
+    }
+    .footer-nav a {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      color: rgba(255,255,255,0.4);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      transition: color 0.3s;
+    }
+    .footer-nav a:hover { color: var(--color-secondary); }
+    .footer-divider {
+      width: 100%;
+      height: 1px;
+      background: rgba(255,255,255,0.07);
+      margin: 2rem 0;
+    }
+    .subfooter {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem;
+      color: rgba(255,255,255,0.25);
+      letter-spacing: 0.05em;
+    }
+    .subfooter a { color: rgba(255,255,255,0.35); transition: color 0.3s; }
+    .subfooter a:hover { color: var(--color-secondary); }
+    .subfooter img { width: 16px; height: 16px; vertical-align: middle; display: inline; }
+
+    /* =============================================
+       STICKY BAR
+    ============================================= */
+    #sticky-bar {
+      position: fixed;
+      bottom: 0; left: 0; right: 0;
+      z-index: 998;
+      background: rgba(0,0,0,0.95);
+      border-top: 1px solid rgba(0,160,220,0.2);
+      backdrop-filter: blur(10px);
+      padding: 12px 5%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      transform: translateY(120%);
+      transition: transform 0.4s var(--ease-premium);
+      flex-wrap: wrap;
+    }
+    #sticky-bar.visible { transform: translateY(0); }
+    .sticky-bar-text {
+      font-family: 'Oswald', sans-serif;
+      font-weight: 400;
+      font-size: clamp(0.85rem, 1.3vw, 1rem);
+      color: rgba(255,255,255,0.75);
+      letter-spacing: 0.04em;
+    }
+    .sticky-bar-text strong { color: var(--color-white); font-weight: 600; }
+    .sticky-bar-cta {
+      background: var(--color-secondary);
+      color: var(--color-white);
+      padding: 10px 24px;
+      border-radius: var(--radius-sm);
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      transition: background 0.3s, transform 0.2s var(--ease-bounce);
+      flex-shrink: 0;
+    }
+    .sticky-bar-cta:hover { background: var(--color-accent); transform: scale(1.04); }
+
+    /* =============================================
+       MODAL
+    ============================================= */
+    #modal-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 10000;
+      background: rgba(0,0,0,0.7);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s;
+    }
+    #modal-overlay.open { opacity: 1; pointer-events: all; }
+    .modal-box {
+      background: var(--color-white);
+      border-radius: var(--radius);
+      padding: 3rem;
+      width: 100%;
+      max-width: 520px;
+      position: relative;
+      transform: scale(0.9) translateY(20px);
+      transition: transform 0.4s var(--ease-bounce);
+      box-shadow: var(--shadow-dark);
+    }
+    #modal-overlay.open .modal-box { transform: scale(1) translateY(0); }
+    .modal-close {
+      position: absolute;
+      top: 1.2rem; right: 1.2rem;
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      background: rgba(0,0,0,0.06);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.3s, transform 0.2s var(--ease-bounce);
+    }
+    .modal-close:hover { background: rgba(0,0,0,0.12); transform: scale(1.1); }
+    .modal-close svg { width: 16px; height: 16px; }
+    .modal-tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.68rem;
+      color: var(--color-secondary);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin-bottom: 0.8rem;
+    }
+    .modal-box h3 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      color: var(--color-primary);
+      margin-bottom: 0.5rem;
+    }
+    .modal-box p {
+      font-size: 0.9rem;
+      color: #888;
+      margin-bottom: 2rem;
+      font-weight: 300;
+      line-height: 1.6;
+    }
+    .modal-form { display: flex; flex-direction: column; gap: 1rem; }
+    .modal-form input, .modal-form select, .modal-form textarea {
+      width: 100%;
+      border: 1.5px solid rgba(0,0,0,0.1);
+      border-radius: 8px;
+      padding: 13px 16px;
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 300;
+      color: var(--color-text);
+      transition: border-color 0.3s, box-shadow 0.3s;
+      outline: none;
+      background: var(--color-white);
+    }
+    .modal-form input:focus, .modal-form select:focus, .modal-form textarea:focus {
+      border-color: var(--color-secondary);
+      box-shadow: 0 0 0 3px rgba(0,160,220,0.12);
+    }
+    .modal-form textarea { height: 90px; resize: none; }
+    .modal-form .btn-submit {
+      width: 100%;
+      background: var(--color-secondary);
+      color: var(--color-white);
+      padding: 16px;
+      border-radius: var(--radius-sm);
+      font-family: 'Oswald', sans-serif;
+      font-size: 1rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      transition: background 0.3s, transform 0.2s var(--ease-bounce);
+      border: none;
+      cursor: pointer;
+    }
+    .modal-form .btn-submit:hover { background: var(--color-accent); transform: translateY(-2px); }
+    .modal-privacy {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.65rem;
+      color: #bbb;
+      text-align: center;
+      margin-top: 1rem;
+      line-height: 1.6;
+    }
+
+    /* =============================================
+       MOBILE NAV
+    ============================================= */
+    .mobile-nav {
+      position: fixed;
+      top: 0; right: 0;
+      width: 100%; max-width: 320px;
+      height: 100%;
+      background: var(--color-primary);
+      z-index: 1001;
+      padding: 6rem 2.5rem 2.5rem;
+      transform: translateX(100%);
+      transition: transform 0.4s var(--ease-premium);
+      border-left: 1px solid rgba(255,255,255,0.07);
+    }
+    .mobile-nav.open { transform: translateX(0); }
+    .mobile-nav a {
+      display: block;
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.3rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.7);
+      padding: 1rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      transition: color 0.3s;
+    }
+    .mobile-nav a:hover { color: var(--color-secondary); }
+    .mobile-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.5);
+      z-index: 1000;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s;
+    }
+    .mobile-overlay.open { opacity: 1; pointer-events: all; }
+
+    /* =============================================
+       RESPONSIVE
+    ============================================= */
+    @media (max-width: 900px) {
+      .header-nav { display: none; }
+      .mobile-toggle { display: flex; }
+      .cards-grid { flex-direction: column; }
+      .formacion-grid { flex-direction: column; gap: 3rem; }
+      .hero-stats { gap: 1.5rem; }
+      .hero-stat { padding-left: 1rem; }
+      .tabla-comparativa th:nth-child(3),
+      .tabla-comparativa th:nth-child(4),
+      .tabla-comparativa td:nth-child(3),
+      .tabla-comparativa td:nth-child(4) { display: none; }
+    }
+    @media (max-width: 600px) {
+      #hero { padding: 100px 5% 80px; }
+      #problema, #comparativa, #formacion, #faq, #cta-final, #footer { padding: 12% 6%; }
+      #casos { padding: 12% 0 12% 6%; }
+      .tabla-comparativa { min-width: 100%; }
+      .sticky-bar-text { font-size: 0.8rem; }
+      .modal-box { padding: 2rem 1.5rem; }
+      .hero-stat-num { font-size: 2rem; }
+    }
+
+    /* ===== UX & IMAGE PREMIUM ADDITIONS ===== */
+    .img-fade {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: grayscale(10%) contrast(1.05) brightness(0.95);
+      transition: all 0.5s ease;
+      mask-image: linear-gradient(135deg, #000 80%, transparent 100%);
+      -webkit-mask-image: linear-gradient(135deg, #000 80%, transparent 100%);
+    }
+    .img-fade:hover {
+      filter: grayscale(0%) contrast(1) brightness(1);
+    }
+
+    /* 3D Cards front face override */
+    .card-front {
+      background: var(--color-bg-light);
+      border: 1px solid rgba(0,0,0,0.06);
+      display: flex !important;
+      flex-direction: column;
+      justify-content: flex-start !important;
+      padding: 0 !important;
+      overflow: hidden;
+    }
+    .card-front-img {
+      width: 100%;
+      height: 140px;
+      object-fit: cover;
+      border-bottom: 1.5px solid rgba(0,160,220,0.2);
+      mask-image: linear-gradient(180deg, #000 85%, transparent 100%);
+      -webkit-mask-image: linear-gradient(180deg, #000 85%, transparent 100%);
+    }
+    .card-front-body {
+      padding: 1.2rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      flex-grow: 1;
+      width: 100%;
+    }
+    .card-front .card-icon {
+      width: 48px; height: 48px;
+      margin-bottom: 0.8rem;
+      background: rgba(0,160,220,0.1);
+    }
+    .card-front .card-icon svg {
+      width: 24px; height: 24px;
+    }
+    .card-front h3 {
+      margin-bottom: 0.4rem;
+    }
+    .card-front p {
+      font-size: 0.85rem;
+      line-height: 1.5;
+    }
+
+    /* Instructor avatar support */
+    .instructor-avatar {
+      width: 56px; height: 56px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 1.5px solid var(--color-secondary);
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: none !important;
+    }
+    .instructor-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Training image wrapper */
+    .formacion-img-wrap {
+      width: 100%;
+      height: 200px;
+      border-radius: var(--radius);
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.08);
+      position: relative;
+    }
+    .formacion-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* CTA final overlay image */
+    .cta-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('../img/commercial.webp');
+      background-size: cover;
+      background-position: center;
+      opacity: 0.12;
+      z-index: 0;
+      filter: grayscale(100%) contrast(1.1) brightness(0.9);
+      pointer-events: none;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NOISE OVERLAY -->
+  <div id="noise-overlay" aria-hidden="true"></div>
+
+  <!-- MOBILE OVERLAY -->
+  <div class="mobile-overlay" id="mobileOverlay" aria-hidden="true"></div>
+
+  <!-- MOBILE NAV -->
+  <nav class="mobile-nav" id="mobileNav" aria-label="Menú móvil">
+    <a href="#problema">Problema</a>
+    <a href="#comparativa">Tecnología</a>
+    <a href="#formacion">Formación</a>
+    <a href="#faq">FAQ</a>
+    <a href="#" class="btn-secondary" id="mobileCtaBtn" style="margin-top:1.5rem; display:inline-flex;">Diagnóstico Gratuito</a>
+  </nav>
+
+  <!-- HEADER -->
+  <header id="header" role="banner">
+    <a href="#" class="header-logo" aria-label="Drymat Systeme España - Inicio">
+      DRYMAT<span>®</span> SYSTEME
+    </a>
+    <nav class="header-nav" role="navigation" aria-label="Navegación principal">
+      <a href="#problema">Problema</a>
+      <a href="#comparativa">Tecnología</a>
+      <a href="#formacion">Formación</a>
+      <a href="#faq">FAQ</a>
+      <a href="#" class="btn-header" id="headerCtaBtn">Diagnóstico</a>
+    </nav>
+    <button class="mobile-toggle" id="mobileToggle" aria-label="Abrir menú de navegación" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <main id="main-content" role="main">
+
+    <!-- HERO -->
+    <section id="hero" aria-labelledby="hero-heading">
+      <div class="hero-bg" id="heroBg" aria-hidden="true"></div>
+      <div class="hero-overlay" aria-hidden="true"></div>
+      <div class="hero-content">
+        <p class="hero-eyebrow reveal">Tecnología Alemana · Electroósmosis</p>
+        <h1 id="hero-heading" class="reveal reveal-delay-1">
+          DRYMAT<br><span>SYSTEME</span>
+        </h1>
+        <p class="hero-sub reveal reveal-delay-2">
+          Tecnología alemana de electroósmosis. El sistema definitivo contra la humedad por capilaridad. Sin químicos, sin rotura de muros y con garantía.
+        </p>
+        <a href="#" class="btn-primary reveal reveal-delay-3" id="heroCtaBtn" role="button">
+          Solicitar Diagnóstico Gratuito
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <div class="hero-stats reveal reveal-delay-4">
+          <div class="hero-stat">
+            <div class="hero-stat-num">30</div>
+            <div class="hero-stat-label">Años de garantía</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-num">0</div>
+            <div class="hero-stat-label">Químicos usados</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-num">70%</div>
+            <div class="hero-stat-label">Ahorro vs métodos trad.</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-num">1</div>
+            <div class="hero-stat-label">Día de instalación</div>
+          </div>
+        </div>
+      </div>
+      <!-- TICKER -->
+      <div class="ticker-wrap" aria-hidden="true">
+        <div class="ticker-track" id="tickerTrack">
+          <div class="ticker-item"><span>//</span> Electrodos de metales preciosos</div>
+          <div class="ticker-item"><span>//</span> Ahorro del 70% vs métodos tradicionales</div>
+          <div class="ticker-item"><span>//</span> Instalación en 1 día</div>
+          <div class="ticker-item"><span>//</span> 100% Ecológico y sin obras</div>
+          <div class="ticker-item"><span>//</span> Garantía 30 años</div>
+          <div class="ticker-item"><span>//</span> Sin campos magnéticos nocivos</div>
+          <div class="ticker-item"><span>//</span> Electrodos de metales preciosos</div>
+          <div class="ticker-item"><span>//</span> Ahorro del 70% vs métodos tradicionales</div>
+          <div class="ticker-item"><span>//</span> Instalación en 1 día</div>
+          <div class="ticker-item"><span>//</span> 100% Ecológico y sin obras</div>
+          <div class="ticker-item"><span>//</span> Garantía 30 años</div>
+          <div class="ticker-item"><span>//</span> Sin campos magnéticos nocivos</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROBLEMA -->
+    <section id="problema" aria-labelledby="problema-heading">
+      <div class="section-tag reveal">01 — El Problema</div>
+      <h2 id="problema-heading" class="reveal reveal-delay-1">¿MANCHAS, SALITRE<br>O PINTURA<br>DESCARCELADA?</h2>
+      <p class="section-intro reveal reveal-delay-2">
+        La humedad destruye tu hogar y pone en riesgo la salud de tu familia. No ignores las señales.
+      </p>
+      <div class="cards-grid">
+        <!-- Tarjeta 1 -->
+        <div class="card-3d-wrap reveal reveal-delay-1">
+          <div class="card-3d" role="article" tabindex="0" aria-label="Daños Estructurales - Haz hover para ver la solución">
+            <div class="card-face card-front">
+              <img src="../img/historic.webp" class="card-front-img" alt="Daños por humedad en muro histórico">
+              <div class="card-front-body">
+                <div class="card-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#00A0DC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+                </div>
+                <h3>Daños Estructurales</h3>
+                <p>Grietas, eflorescencias y pérdida de cohesión en muros.</p>
+                <p class="card-hover-hint mono">↻ Ver solución</p>
+              </div>
+            </div>
+            <div class="card-face card-back">
+              <p class="back-badge mono">// Solución Drymat</p>
+              <h3>Sin Perforaciones</h3>
+              <p>Nuestra tecnología detiene el ascenso capilar de raíz, protegiendo la estructura sin perforaciones ni obras invasivas.</p>
+            </div>
+          </div>
+        </div>
+        <!-- Tarjeta 2 -->
+        <div class="card-3d-wrap reveal reveal-delay-2">
+          <div class="card-3d" role="article" tabindex="0" aria-label="Malos Olores - Haz hover para ver la solución">
+            <div class="card-face card-front">
+              <img src="../img/basement.webp" class="card-front-img" alt="Sótano húmedo con olor a moho">
+              <div class="card-front-body">
+                <div class="card-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#00A0DC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 8h1a4 4 0 010 8h-1"/><path d="M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+                </div>
+                <h3>Malos Olores</h3>
+                <p>Moho y bacterias proliferan en el ambiente húmedo de los muros.</p>
+                <p class="card-hover-hint mono">↻ Ver solución</p>
+              </div>
+            </div>
+            <div class="card-face card-back">
+              <p class="back-badge mono">// Solución Drymat</p>
+              <h3>Elimina el Moho</h3>
+              <p>Al secar el muro desde su base, eliminamos el hábitat del moho y bacterias, restaurando la calidad del aire interior.</p>
+            </div>
+          </div>
+        </div>
+        <!-- Tarjeta 3 -->
+        <div class="card-3d-wrap reveal reveal-delay-3">
+          <div class="card-3d" role="article" tabindex="0" aria-label="Problemas de Salud - Haz hover para ver la solución">
+            <div class="card-face card-front">
+              <img src="../img/measurement.webp" class="card-front-img" alt="Medición de humedad para proteger la salud">
+              <div class="card-front-body">
+                <div class="card-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#00A0DC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                </div>
+                <h3>Problemas de Salud</h3>
+                <p>Alergias, asma y enfermedades respiratorias por esporas de moho.</p>
+                <p class="card-hover-hint mono">↻ Ver solución</p>
+              </div>
+            </div>
+            <div class="card-face card-back">
+              <p class="back-badge mono">// Solución Drymat</p>
+              <h3>Ambiente Sano</h3>
+              <p>Recupera un ambiente sano. 100% ecológico, sin campos magnéticos nocivos. Certificado para hogares con niños y embarazadas.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- COMPARATIVA -->
+    <section id="comparativa" aria-labelledby="comparativa-heading">
+      <div class="section-tag reveal" style="color: rgba(0,160,220,0.8);">02 — Comparativa Técnica</div>
+      <h2 id="comparativa-heading" class="reveal reveal-delay-1">BENEFICIOS VS<br>MÉTODOS<br>TRADICIONALES</h2>
+      <p class="section-intro reveal reveal-delay-2">
+        La revolución en el tratamiento de humedades. Comparativa técnica directa con los métodos convencionales.
+      </p>
+      <div class="tabla-wrap reveal reveal-delay-3">
+        <table class="tabla-comparativa" role="table" aria-label="Comparativa Drymat vs métodos tradicionales">
+          <thead>
+            <tr>
+              <th scope="col">Característica</th>
+              <th scope="col" class="col-drymat">Drymat®</th>
+              <th scope="col">Inyección Química</th>
+              <th scope="col">Corte de Muro</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td data-label="Característica">Requiere obra</td>
+              <td data-label="Drymat®"><span class="badge badge-yes">✓ NO</span></td>
+              <td data-label="Inyección Química"><span class="badge badge-no">✗ SÍ</span></td>
+              <td data-label="Corte de Muro"><span class="badge badge-no">✗ SÍ</span></td>
+            </tr>
+            <tr>
+              <td data-label="Característica">Uso de químicos</td>
+              <td data-label="Drymat®"><span class="badge badge-yes">✓ NO</span></td>
+              <td data-label="Inyección Química"><span class="badge badge-no">✗ SÍ</span></td>
+              <td data-label="Corte de Muro"><span class="badge badge-yes">✓ NO</span></td>
+            </tr>
+            <tr>
+              <td data-label="Característica">Genera escombros</td>
+              <td data-label="Drymat®"><span class="badge badge-yes">✓ NO</span></td>
+              <td data-label="Inyección Química"><span class="badge badge-no">✗ SÍ</span></td>
+              <td data-label="Corte de Muro"><span class="badge badge-no">✗ MUCHOS</span></td>
+            </tr>
+            <tr>
+              <td data-label="Característica">Garantía</td>
+              <td data-label="Drymat®"><span class="badge badge-star">★ 30 AÑOS</span></td>
+              <td data-label="Inyección Química"><span class="badge badge-no">5-10 AÑOS</span></td>
+              <td data-label="Corte de Muro"><span class="badge badge-no">VARIABLE</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- CASOS DE ÉXITO -->
+    <section id="casos" aria-labelledby="casos-heading">
+      <div class="section-header">
+        <div class="section-tag reveal">03 — Casos de Éxito</div>
+        <h2 id="casos-heading" class="reveal reveal-delay-1">CASOS DE ÉXITO</h2>
+        <p class="section-intro reveal reveal-delay-2">Arrastra para ver las transformaciones reales con el sistema Drymat®.</p>
+      </div>
+      <div class="carousel-container">
+        <div class="carousel-track-wrap" id="carouselWrap" role="region" aria-label="Carrusel de casos de éxito">
+          <div id="carouselTrack">
+            <article class="carousel-item">
+              <div class="carousel-img-wrap">
+                <img src="../img/historic.webp" class="img-fade" alt="Rehabilitación de muro de piedra en centro histórico antes y después del tratamiento Drymat" loading="lazy">
+              </div>
+              <div class="carousel-body">
+                <p class="carousel-num mono">// Caso 01</p>
+                <h3>Rehabilitación en Centro Histórico</h3>
+                <p>Eliminación de salitre en muro de piedra de 60cm sin perforación.</p>
+              </div>
+            </article>
+            <article class="carousel-item">
+              <div class="carousel-img-wrap">
+                <img src="../img/basement.webp" class="img-fade" alt="Sótano residencial tratado con sistema Drymat sin consumo eléctrico" loading="lazy">
+              </div>
+              <div class="carousel-body">
+                <p class="carousel-num mono">// Caso 02</p>
+                <h3>Sótano Residencial</h3>
+                <p>Secado completo de muro enterrado en 14 días. 0 consumo eléctrico.</p>
+              </div>
+            </article>
+            <article class="carousel-item">
+              <div class="carousel-img-wrap">
+                <img src="../img/monument.webp" class="img-fade" alt="Edificio histórico protegido tratado con solución reversible Drymat" loading="lazy">
+              </div>
+              <div class="carousel-body">
+                <p class="carousel-num mono">// Caso 03</p>
+                <h3>Edificio Protegido</h3>
+                <p>Solución reversible y no invasiva para patrimonio histórico.</p>
+              </div>
+            </article>
+            <article class="carousel-item">
+              <div class="carousel-img-wrap">
+                <img src="../img/commercial.webp" class="img-fade" alt="Local comercial recuperado con Drymat sin interrumpir la actividad" loading="lazy">
+              </div>
+              <div class="carousel-body">
+                <p class="carousel-num mono">// Caso 04</p>
+                <h3>Local Comercial</h3>
+                <p>Recuperación de paredes sin cesar la actividad comercial.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+        <div class="carousel-controls">
+          <button class="carousel-btn" id="carouselPrev" aria-label="Slide anterior">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+          </button>
+          <button class="carousel-btn" id="carouselNext" aria-label="Slide siguiente">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </button>
+          <div class="carousel-dots" role="tablist" aria-label="Slides del carrusel">
+            <button class="carousel-dot active" data-index="0" role="tab" aria-selected="true" aria-label="Slide 1"></button>
+            <button class="carousel-dot" data-index="1" role="tab" aria-selected="false" aria-label="Slide 2"></button>
+            <button class="carousel-dot" data-index="2" role="tab" aria-selected="false" aria-label="Slide 3"></button>
+            <button class="carousel-dot" data-index="3" role="tab" aria-selected="false" aria-label="Slide 4"></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FORMACIÓN B2B -->
+    <section id="formacion" aria-labelledby="formacion-heading">
+      <div class="formacion-grid">
+        <div class="formacion-left">
+          <div class="section-tag reveal" style="color: rgba(0,160,220,0.8);">04 — B2B · Formación</div>
+          <h2 id="formacion-heading" class="reveal reveal-delay-1">CONVIÉRTETE<br>EN INSTALADOR</h2>
+          <p class="section-intro reveal reveal-delay-2">
+            Únete a la red de profesionales exclusivos en España. Curso oficial en Madrid impartido por Ricardo López Pietsch, Director Técnico de AislayAhorra e Ingeniero de Caminos.
+          </p>
+          <div class="check-list reveal reveal-delay-3">
+            <div class="check-item">
+              <div class="check-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              </div>
+              <p>Certificación oficial Drymat® avalada por ingeniería alemana</p>
+            </div>
+            <div class="check-item">
+              <div class="check-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              </div>
+              <p>Soporte técnico continuo de AislayAhorra</p>
+            </div>
+            <div class="check-item">
+              <div class="check-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              </div>
+              <p>Acceso exclusivo a tecnología patentada en España</p>
+            </div>
+          </div>
+          <a href="#" class="btn-secondary reveal reveal-delay-4" id="formacionCtaBtn" role="button">
+            Quiero ser Instalador
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+        <div class="formacion-right reveal reveal-delay-2">
+          <div class="instructor-card">
+            <p class="card-label">// Director Técnico · Curso Oficial Madrid</p>
+            <div class="instructor-info">
+              <div class="instructor-avatar" aria-hidden="true"><img src="../img/partner.webp" alt="Ricardo López Pietsch"></div>
+              <div>
+                <p class="instructor-name">Ricardo López Pietsch</p>
+                <p class="instructor-title">Ingeniero de Caminos · Director Técnico AislayAhorra</p>
+              </div>
+            </div>
+            <p>
+              Más de 15 años de experiencia en tecnologías de electroósmosis aplicadas a la edificación. Responsable de la implantación del sistema Drymat® en el mercado español. Colaborador habitual con universidades politécnicas en investigación de patologías de humedad.
+            </p>
+          </div>
+          <div class="formacion-badge" style="margin-top:1.5rem; display:inline-flex;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00A0DC" stroke-width="2" aria-hidden="true"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
+            <span>Plazas limitadas · Próximo curso en Madrid</span>
+          </div>
+          <div class="formacion-image-container reveal reveal-delay-3" style="margin-top: 1.5rem;">
+            <div class="formacion-img-wrap">
+              <img src="../img/training.webp" class="img-fade" alt="Curso oficial DRYMAT en Madrid">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" aria-labelledby="faq-heading">
+      <div class="section-tag reveal">05 — FAQ</div>
+      <h2 id="faq-heading" class="reveal reveal-delay-1">PREGUNTAS<br>FRECUENTES</h2>
+      <div class="faq-list reveal reveal-delay-2">
+        <div class="faq-item">
+          <details>
+            <summary>
+              ¿ES EFICAZ VS ONDAS ELECTROMAGNÉTICAS?
+              <span class="faq-arrow" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+              </span>
+            </summary>
+            <p class="faq-answer">
+              Sí, la electroósmosis con metales preciosos genera un campo eléctrico continuo que invierte la polaridad del agua obligándola a descender, mientras que las ondas magnéticas solo alteran temporalmente la tensión superficial. El sistema Drymat® actúa a nivel físico-electroquímico, garantizando resultados permanentes sin dependencia de mantenimiento.
+            </p>
+          </details>
+        </div>
+        <div class="faq-item">
+          <details>
+            <summary>
+              ¿NECESITO SER INGENIERO PARA EL CURSO?
+              <span class="faq-arrow" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+              </span>
+            </summary>
+            <p class="faq-answer">
+              No, el curso está diseñado para profesionales de la construcción en general: albañiles, fontaneros, rehabilitadores y empresas de reformas. La metodología de AislayAhorra simplifica la ingeniería de la electroósmosis para que cualquier profesional pueda instalar y certificar el sistema correctamente.
+            </p>
+          </details>
+        </div>
+        <div class="faq-item">
+          <details>
+            <summary>
+              ¿DEJA LA PARED LISTA PARA PINTAR?
+              <span class="faq-arrow" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+              </span>
+            </summary>
+            <p class="faq-answer">
+              Sí. Tras el proceso de secado, que suele completarse entre 3 y 12 semanas según el grosor y tipo de muro, la pared recuperará su estado natural de equilibrio hídrico. En ese momento podrá ser tratada con cualquier tipo de revestimiento —pintura, mortero, estuco— sin riesgo de eflorescencias o salitre futuro.
+            </p>
+          </details>
+        </div>
+        <div class="faq-item">
+          <details>
+            <summary>
+              ¿CUÁNTO TIEMPO DURA LA INSTALACIÓN?
+              <span class="faq-arrow" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+              </span>
+            </summary>
+            <p class="faq-answer">
+              La instalación física del sistema Drymat® se completa en un solo día de trabajo para una vivienda estándar. El inmueble puede seguir siendo habitado durante el proceso. No se generan escombros ni se interrumpe la actividad cotidiana. Los electrodos son discretos y quedan integrados de forma prácticamente invisible en la pared.
+            </p>
+          </details>
+        </div>
+        <div class="faq-item">
+          <details>
+            <summary>
+              ¿EL SISTEMA CONSUME ELECTRICIDAD?
+              <span class="faq-arrow" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+              </span>
+            </summary>
+            <p class="faq-answer">
+              No. El sistema Drymat® 2030 EO+ opera con energía captada del propio campo eléctrico natural del edificio y del suelo, sin necesitar conexión a la red eléctrica. Esto lo hace 100% autónomo, sin costes operativos y sin necesidad de mantenimiento técnico periódico.
+            </p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA FINAL -->
+    <section id="cta-final" aria-labelledby="cta-final-heading">
+      <div class="cta-bg"></div>
+      <h2 id="cta-final-heading" class="reveal">RECUPERA EL VALOR<br>DE TU PROPIEDAD</h2>
+      <p class="reveal reveal-delay-1">
+        Solicita un estudio sin coste. Nuestros técnicos certificados analizarán el grado de humedad y te presentarán una solución personalizada.
+      </p>
+      <a href="#" class="btn-outline-white reveal reveal-delay-2" id="ctaFinalBtn" role="button">
+        Solicitar Diagnóstico Gratuito
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer id="footer" role="contentinfo">
+    <p class="footer-logo">DRYMAT<span>®</span> SYSTEME ESPAÑA</p>
+    <p class="footer-tagline">// Tecnología Alemana de Electroósmosis</p>
+    <nav class="footer-nav" aria-label="Navegación de pie de página">
+      <a href="#problema">El Problema</a>
+      <a href="#comparativa">Tecnología</a>
+      <a href="#formacion">Formación</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <div class="footer-divider"></div>
+    <div class="subfooter">
+      <span>Drymat España | Todos los Derechos Reservados.</span>
+      <span>Diseñado con</span>
+      <img src="https://s.w.org/images/core/emoji/17.0.2/svg/2764.svg" alt="corazón" width="16" height="16">
+      <span>por</span>
+      <a href="https://seolife.es" rel="nofollow noopener" target="_blank">SEOLife.es</a>
+      <span>|</span>
+      <a href="#" rel="nofollow">Política de Privacidad</a>
+      <span>|</span>
+      <a href="#" rel="nofollow">Política de Cookies</a>
+    </div>
+  </footer>
+
+  <!-- STICKY BAR -->
+  <div id="sticky-bar" aria-live="polite" aria-label="Llamada a la acción persistente">
+    <p class="sticky-bar-text">
+      <strong>¿Tienes humedad en tus muros?</strong> Diagnóstico gratuito sin compromiso.
+    </p>
+    <a href="#" class="sticky-bar-cta" id="stickyBarCta" role="button">Solicitar Diagnóstico</a>
+  </div>
+
+  <!-- MODAL -->
+  <div id="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal-box" role="document">
+      <button class="modal-close" id="modalClose" aria-label="Cerrar formulario">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+      <p class="modal-tag">// Drymat® Systeme España</p>
+      <h3 id="modal-title">Diagnóstico Gratuito</h3>
+      <p>Rellena el formulario y nuestro técnico certificado se pondrá en contacto contigo en menos de 24h.</p>
+      <form class="modal-form" id="modalForm" novalidate>
+        <input type="text" placeholder="Nombre y apellidos" autocomplete="name" required aria-label="Nombre y apellidos">
+        <input type="tel" placeholder="Teléfono de contacto" autocomplete="tel" required aria-label="Teléfono">
+        <input type="email" placeholder="Email" autocomplete="email" required aria-label="Email">
+        <select aria-label="Tipo de consulta">
+          <option value="" disabled selected>Tipo de consulta</option>
+          <option value="diagnostico">Diagnóstico gratuito</option>
+          <option value="instalador">Quiero ser instalador</option>
+          <option value="presupuesto">Solicitar presupuesto</option>
+          <option value="otro">Otra consulta</option>
+        </select>
+        <textarea placeholder="Descríbenos brevemente el problema de humedad..." aria-label="Descripción del problema"></textarea>
+        <button type="submit" class="btn-submit">Enviar Solicitud</button>
+      </form>
+      <p class="modal-privacy">Al enviar, aceptas nuestra <a href="#" rel="nofollow" style="color:#00A0DC">Política de Privacidad</a>. Tus datos no serán cedidos a terceros.</p>
+    </div>
+  </div>
+
+  <script>
+    /* =============================================
+       UTILITY: LERP
+    ============================================= */
+    const lerp = (a, b, t) => a + (b - a) * t;
+
+    /* =============================================
+       SCROLL STATE
+    ============================================= */
+    let currentScroll = 0;
+    let targetScroll = 0;
+    const header = document.getElementById('header');
+    const heroBg = document.getElementById('heroBg');
+    const noiseOverlay = document.getElementById('noise-overlay');
+
+    /* =============================================
+       HEADER SCROLL EFFECT
+    ============================================= */
+    function updateHeader() {
+      if (window.scrollY > 50) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    }
+    window.addEventListener('scroll', updateHeader, { passive: true });
+    updateHeader();
+
+    /* =============================================
+       ATMOSPHERE LERP & PARALLAX (rAF)
+    ============================================= */
+    function animLoop() {
+      targetScroll = window.scrollY;
+      currentScroll = lerp(currentScroll, targetScroll, 0.1);
+
+      if (noiseOverlay) {
+        noiseOverlay.style.transform = `translateY(${currentScroll * 0.05}px)`;
+      }
+      if (heroBg) {
+        heroBg.style.transform = `translateY(${currentScroll * 0.3}px)`;
+      }
+
+      requestAnimationFrame(animLoop);
+    }
+    requestAnimationFrame(animLoop);
+
+    /* =============================================
+       REVEAL ON SCROLL (IntersectionObserver)
+    ============================================= */
+    const revealEls = document.querySelectorAll('.reveal');
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    revealEls.forEach(el => revealObserver.observe(el));
+
+    /* =============================================
+       STICKY BAR
+    ============================================= */
+    const stickyBar = document.getElementById('sticky-bar');
+    const heroSection = document.getElementById('hero');
+    const ctaFinalSection = document.getElementById('cta-final');
+    let heroOut = false;
+    let ctaVisible = false;
+
+    const heroObserver = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        heroOut = !e.isIntersecting;
+        updateStickyBar();
+      });
+    }, { threshold: 0 });
+    heroObserver.observe(heroSection);
+
+    const ctaObserver = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        ctaVisible = e.isIntersecting;
+        updateStickyBar();
+      });
+    }, { threshold: 0.3 });
+    ctaObserver.observe(ctaFinalSection);
+
+    function updateStickyBar() {
+      if (heroOut && !ctaVisible) {
+        stickyBar.classList.add('visible');
+      } else {
+        stickyBar.classList.remove('visible');
+      }
+    }
+
+    /* =============================================
+       MODAL
+    ============================================= */
+    const modalOverlay = document.getElementById('modal-overlay');
+    const modalClose = document.getElementById('modalClose');
+    const modalTitle = document.getElementById('modal-title');
+    const modalForm = document.getElementById('modalForm');
+
+    function openModal(titleText) {
+      modalTitle.textContent = titleText || 'Diagnóstico Gratuito';
+      modalOverlay.classList.add('open');
+      modalOverlay.removeAttribute('aria-hidden');
+      document.body.style.overflow = 'hidden';
+      modalClose.focus();
+    }
+    function closeModal() {
+      modalOverlay.classList.remove('open');
+      modalOverlay.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+
+    modalClose.addEventListener('click', closeModal);
+    modalOverlay.addEventListener('click', (e) => {
+      if (e.target === modalOverlay) closeModal();
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeModal();
+    });
+
+    modalForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const btn = modalForm.querySelector('.btn-submit');
+      btn.textContent = '✓ Solicitud Enviada';
+      btn.style.background = '#22c55e';
+      setTimeout(() => closeModal(), 2000);
+    });
+
+    // CTA Buttons
+    const ctaButtons = [
+      { id: 'heroCtaBtn', title: 'Solicitar Diagnóstico Gratuito' },
+      { id: 'headerCtaBtn', title: 'Diagnóstico Gratuito' },
+      { id: 'formacionCtaBtn', title: 'Quiero ser Instalador' },
+      { id: 'ctaFinalBtn', title: 'Solicitar Diagnóstico Gratuito' },
+      { id: 'stickyBarCta', title: 'Solicitar Diagnóstico' },
+      { id: 'mobileCtaBtn', title: 'Diagnóstico Gratuito' },
+    ];
+    ctaButtons.forEach(({ id, title }) => {
+      const el = document.getElementById(id);
+      if (el) {
+        el.addEventListener('click', (e) => {
+          e.preventDefault();
+          openModal(title);
+          if (document.getElementById('mobileNav').classList.contains('open')) {
+            closeMobileNav();
+          }
+        });
+      }
+    });
+
+    /* =============================================
+       MOBILE NAV
+    ============================================= */
+    const mobileToggle = document.getElementById('mobileToggle');
+    const mobileNav = document.getElementById('mobileNav');
+    const mobileOverlay = document.getElementById('mobileOverlay');
+
+    function openMobileNav() {
+      mobileNav.classList.add('open');
+      mobileOverlay.classList.add('open');
+      mobileToggle.setAttribute('aria-expanded', 'true');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeMobileNav() {
+      mobileNav.classList.remove('open');
+      mobileOverlay.classList.remove('open');
+      mobileToggle.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    }
+    mobileToggle.addEventListener('click', () => {
+      if (mobileNav.classList.contains('open')) closeMobileNav();
+      else openMobileNav();
+    });
+    mobileOverlay.addEventListener('click', closeMobileNav);
+    mobileNav.querySelectorAll('a:not([id="mobileCtaBtn"])').forEach(a => {
+      a.addEventListener('click', closeMobileNav);
+    });
+
+    /* =============================================
+       CAROUSEL (Físico, desde cero)
+    ============================================= */
+    (function() {
+      const track = document.getElementById('carouselTrack');
+      const wrap = document.getElementById('carouselWrap');
+      const prevBtn = document.getElementById('carouselPrev');
+      const nextBtn = document.getElementById('carouselNext');
+      const dots = document.querySelectorAll('.carousel-dot');
+      const items = track.querySelectorAll('.carousel-item');
+      const totalItems = items.length;
+
+      let currentIndex = 0;
+      let isDragging = false;
+      let startX = 0;
+      let trackLeft = 0;
+      let currentX = 0;
+      let velocity = 0;
+      let prevClientX = 0;
+      let animating = false;
+      let autoplayTimer = null;
+
+      function getItemWidth() {
+        return items[0].offsetWidth + 24; // width + gap
+      }
+      function getMaxScroll() {
+        return -(getItemWidth() * (totalItems - 1));
+      }
+      function getTargetX(index) {
+        return -getItemWidth() * index;
+      }
+
+      function animateTo(targetX, duration = 400) {
+        animating = true;
+        const startX = trackLeft;
+        const distance = targetX - startX;
+        const startTime = performance.now();
+
+        function step(now) {
+          const elapsed = now - startTime;
+          const progress = Math.min(elapsed / duration, 1);
+          const eased = 1 - Math.pow(1 - progress, 3); // easeOutCubic
+          trackLeft = startX + distance * eased;
+          track.style.transform = `translateX(${trackLeft}px)`;
+          if (progress < 1) {
+            requestAnimationFrame(step);
+          } else {
+            trackLeft = targetX;
+            animating = false;
+          }
+        }
+        requestAnimationFrame(step);
+      }
+
+      function goTo(index) {
+        currentIndex = Math.max(0, Math.min(index, totalItems - 1));
+        animateTo(getTargetX(currentIndex));
+        updateDots();
+      }
+
+      function updateDots() {
+        dots.forEach((d, i) => {
+          d.classList.toggle('active', i === currentIndex);
+          d.setAttribute('aria-selected', i === currentIndex ? 'true' : 'false');
+        });
+      }
+
+      // Pointer events (Mouse + Touch)
+      function getClientX(e) {
+        return e.touches ? e.touches[0].clientX : e.clientX;
+      }
+
+      wrap.addEventListener('mousedown', startDrag);
+      wrap.addEventListener('touchstart', startDrag, { passive: true });
+
+      function startDrag(e) {
+        if (animating) return;
+        isDragging = true;
+        startX = getClientX(e);
+        prevClientX = startX;
+        velocity = 0;
+        track.style.transition = 'none';
+        stopAutoplay();
+        document.addEventListener('mousemove', onDrag);
+        document.addEventListener('touchmove', onDrag, { passive: false });
+        document.addEventListener('mouseup', endDrag);
+        document.addEventListener('touchend', endDrag);
+      }
+
+      function onDrag(e) {
+        if (!isDragging) return;
+        if (e.cancelable) e.preventDefault();
+        const clientX = getClientX(e);
+        const walk = clientX - startX;
+        velocity = clientX - prevClientX;
+        prevClientX = clientX;
+
+        let newX = getTargetX(currentIndex) + walk;
+        const maxScroll = getMaxScroll();
+
+        // Rubber band resistance
+        if (newX > 0) {
+          newX = newX * 0.35;
+        } else if (newX < maxScroll) {
+          newX = maxScroll + (newX - maxScroll) * 0.35;
+        }
+        trackLeft = newX;
+        track.style.transform = `translateX(${trackLeft}px)`;
+      }
+
+      function endDrag() {
+        if (!isDragging) return;
+        isDragging = false;
+        document.removeEventListener('mousemove', onDrag);
+        document.removeEventListener('touchmove', onDrag);
+        document.removeEventListener('mouseup', endDrag);
+        document.removeEventListener('touchend', endDrag);
+
+        // Snap with momentum
+        const itemW = getItemWidth();
+        let targetIndex = currentIndex;
+
+        if (Math.abs(velocity) > 2) {
+          targetIndex = velocity < 0 ? currentIndex + 1 : currentIndex - 1;
+        } else {
+          targetIndex = Math.round(-trackLeft / itemW);
+        }
+        goTo(targetIndex);
+        startAutoplay();
+      }
+
+      // Controls
+      prevBtn.addEventListener('click', () => { goTo(currentIndex - 1); resetAutoplay(); });
+      nextBtn.addEventListener('click', () => { goTo(currentIndex + 1); resetAutoplay(); });
+      dots.forEach(d => {
+        d.addEventListener('click', () => { goTo(parseInt(d.dataset.index)); resetAutoplay(); });
+      });
+
+      // Autoplay
+      function startAutoplay() {
+        autoplayTimer = setInterval(() => {
+          goTo(currentIndex < totalItems - 1 ? currentIndex + 1 : 0);
+        }, 4500);
+      }
+      function stopAutoplay() { clearInterval(autoplayTimer); }
+      function resetAutoplay() { stopAutoplay(); startAutoplay(); }
+
+      wrap.addEventListener('mouseenter', stopAutoplay);
+      wrap.addEventListener('mouseleave', startAutoplay);
+
+      startAutoplay();
+    })();
+
+    /* =============================================
+       3D CARDS - Keyboard Support
+    ============================================= */
+    document.querySelectorAll('.card-3d').forEach(card => {
+      card.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          card.closest('.card-3d-wrap').classList.toggle('flipped');
+          const isFlipped = card.closest('.card-3d-wrap').classList.contains('flipped');
+          card.style.transform = isFlipped ? 'rotateY(180deg)' : '';
+        }
+      });
+    });
+
+    /* =============================================
+       MOBILE TABLE - Responsive labels
+    ============================================= */
+    function addMobileTableLabels() {
+      const table = document.querySelector('.tabla-comparativa');
+      if (!table) return;
+      const headers = [...table.querySelectorAll('th')].map(th => th.textContent.trim());
+      table.querySelectorAll('tbody tr').forEach(row => {
+        [...row.querySelectorAll('td')].forEach((td, i) => {
+          if (!td.dataset.label) td.dataset.label = headers[i] || '';
+        });
+      });
+    }
+    addMobileTableLabels();
+
+    /* =============================================
+       SMOOTH SCROLL FOR ANCHOR LINKS
+    ============================================= */
+    document.querySelectorAll('a[href^="#"]:not([href="#"])').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
