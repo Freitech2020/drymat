@@ -129,6 +129,19 @@
         .reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.8s var(--ease-premium), transform 0.8s var(--ease-premium); }
         .reveal.visible { opacity: 1; transform: translateY(0); }
 
+        .center-header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            margin-bottom: 4rem;
+            width: 100%;
+        }
+        .center-header h2 {
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
         /* TARJETAS 3D */
         .grid-3 { display: flex; flex-wrap: wrap; gap: 2rem; justify-content: center; perspective: 1000px; }
         .card-3d {
@@ -252,9 +265,9 @@
 
         <!-- PROBLEMA -->
         <section id="problema" style="background: var(--color-white);">
-            <div class="reveal">
+            <div class="reveal center-header">
                 <h2>¿MANCHAS, SALITRE O PINTURA DESCARCELADA?</h2>
-                <p style="text-align: center; max-width: 800px; margin: 0 auto 4rem; font-size: 1.1rem;">La humedad destruye tu hogar y pone en riesgo la salud de tu familia. No ignores las señales.</p>
+                <p style="max-width: 800px; margin: 0 auto; font-size: 1.1rem;">La humedad destruye tu hogar y pone en riesgo la salud de tu familia. No ignores las señales.</p>
             </div>
             <div class="grid-3">
                 <article class="card-3d reveal">
@@ -301,9 +314,9 @@
 
         <!-- COMPARATIVA -->
         <section id="solucion" style="background: var(--color-primary); color: var(--color-white);">
-            <div class="reveal">
+            <div class="reveal center-header">
                 <h2 style="color: var(--color-white);">BENEFICIOS VS MÉTODOS TRADICIONALES</h2>
-                <p style="text-align: center; max-width: 800px; margin: 0 auto 4rem; color: #e0e0e0; font-weight: 400;">La revolución en el tratamiento de humedades. Comparativa técnica directa.</p>
+                <p style="max-width: 800px; margin: 0 auto; color: #e0e0e0; font-weight: 400;">La revolución en el tratamiento de humedades. Comparativa técnica directa.</p>
             </div>
             <div class="comparison-table reveal">
                 <div class="table-header">
@@ -341,9 +354,9 @@
 
         <!-- CARRUSEL CASOS DE ÉXITO -->
         <section style="background: var(--color-bg-light);">
-            <div class="reveal">
+            <div class="reveal center-header">
                 <h2>CASOS DE ÉXITO</h2>
-                <p style="text-align: center; max-width: 800px; margin: 0 auto 4rem; font-size: 1.1rem;">Arrastra para ver las transformaciones reales con el sistema Drymat®.</p>
+                <p style="max-width: 800px; margin: 0 auto; font-size: 1.1rem;">Arrastra para ver las transformaciones reales con el sistema Drymat®.</p>
             </div>
             
             <div class="carousel-container reveal">
@@ -406,7 +419,7 @@
 
         <!-- FAQ -->
         <section id="faq" style="background: var(--color-white);">
-            <div class="reveal">
+            <div class="reveal center-header" style="margin-bottom: 2rem;">
                 <h2>PREGUNTAS FRECUENTES</h2>
             </div>
             <div class="reveal" style="max-width: 800px; margin: 0 auto;">
