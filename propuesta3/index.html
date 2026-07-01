@@ -1,1482 +1,878 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DRYMAT España | Instalador Certificado - Tecnología Alemana Antihumedad</title>
+  <title>DRYMAT España | Instalador Certificado — Tecnología Alemana Antihumedad</title>
   <meta name="description" content="Conviértete en instalador certificado DRYMAT en España. Tecnología alemana patentada para el secado de muros mediante electrodos de metales preciosos.">
-  <meta name="keywords" content="instalador antihumedad, curso humedades por capilaridad, sistema antihumedad, secado de muros, electroósmosis humedades, tecnología alemana antihumedad, DRYMAT España">
-  <meta property="og:title" content="DRYMAT España | Instalador Certificado - Tecnología Alemana Antihumedad">
+  <meta property="og:title" content="DRYMAT España | Instalador Certificado — Tecnología Alemana Antihumedad">
   <meta property="og:description" content="Forma parte de la nueva generación de instaladores antihumedad en España. Tecnología alemana patentada, menor obra, mayor rentabilidad.">
   <meta property="og:type" content="website">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Open+Sans:wght@300;400;600;700&family=Roboto+Mono:wght@400;500;700&display=swap" rel="stylesheet">
   <style>
-    /* ===== RESET & BASE ===== */
     *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
-    html { scroll-behavior:smooth; font-size:16px; }
-    body { font-family:'Inter',system-ui,-apple-system,sans-serif; color:#1E293B; background:#FAFBFC; line-height:1.6; overflow-x:hidden; }
+    html { scroll-behavior:smooth; font-size:18px; }
+    @media (min-width: 768px) { html { font-size:18px; } }
+    body { font-family:'Open Sans', system-ui, sans-serif; color:#111111; background:#ffffff; line-height:1.6; overflow-x:hidden; }
     a { text-decoration:none; color:inherit; }
-    ul,ol { list-style:none; }
+    ul, ol { list-style:none; }
     img { max-width:100%; display:block; }
-    button,input,select,textarea { font-family:inherit; font-size:inherit; }
+    button, input, select, textarea { font-family:inherit; font-size:inherit; }
+    h1, h2, h3, h4, h5, h6 { font-family:'Montserrat', sans-serif; color:#000000; line-height:1.2; }
 
-    /* ===== COLOR PALETTE ===== */
     :root {
-      --dark: #333333;
-      --navy: #1A1A1A;
-      --slate: #666666;
-      --light: #E0E0E0;
-      --surface: #F5F5F5;
-      --gold: #00A0DC;
-      --gold-light: #4DD0E1;
-      --gold-pale: #E0F7FA;
-      --copper: #0077B6;
-      --blue: #00A0DC;
-      --blue-light: #4DD0E1;
-      --blue-dark: #0077B6;
-      --blue-soft: #DBEAFE;
+      --blue: #1E40AF;
+      --blue-mid: #2563EB;
+      --blue-light: #DBEAFE;
       --blue-pale: #EFF6FF;
-      --white: #FFFFFF;
+      --dark: #0F172A;
+      --navy: #1E293B;
       --border: #E2E8F0;
-      --text: #1E293B;
-      --text-muted: #64748B;
+      --surface: #F8FAFC;
+      --white: #FFFFFF;
       --radius: 12px;
       --radius-lg: 16px;
-      --radius-xl: 24px;
-      --shadow-sm: 0 1px 3px rgba(0,0,0,0.06);
-      --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
-      --shadow-lg: 0 8px 30px rgba(0,0,0,0.1);
-      --shadow-blue: 0 4px 20px rgba(37,99,235,0.15);
+      --shadow-sm: 0 1px 4px rgba(0,0,0,0.06);
+      --shadow-md: 0 4px 16px rgba(0,0,0,0.09);
+      --shadow-lg: 0 8px 32px rgba(0,0,0,0.13);
     }
 
-    /* ===== UTILITIES ===== */
-    .container { max-width:1200px; margin:0 auto; padding:0 24px; }
-    .container-sm { max-width:800px; margin:0 auto; padding:0 24px; }
-    .sr-only { position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0; }
-    .text-gradient-gold { background:linear-gradient(135deg,#C8963E 0%,#DDB76A 50%,#C8963E 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text; }
-    .text-gradient-blue { background:linear-gradient(135deg,#2563EB 0%,#3B82F6 50%,#60A5FA 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+    @media (min-width: 1024px) { .container { padding: 0 48px; } }
+    .section { padding: 80px 0; }
+    .bg-surface { background: var(--surface); }
 
-    @keyframes shimmer-blue {
-      0% { background-position:-200% center; }
-      100% { background-position:200% center; }
-    }
-    .shimmer-blue {
-      background:linear-gradient(90deg,#00A0DC 0%,#4DD0E1 25%,#00A0DC 50%,#0077B6 75%,#00A0DC 100%);
-      background-size:200% auto;
-      -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
-      animation:shimmer-blue 3s linear infinite;
-    }
-    @keyframes pulse-gold {
-      0%,100% { box-shadow:0 0 0 0 rgba(200,150,62,0.4); }
-      50% { box-shadow:0 0 0 10px rgba(200,150,62,0); }
-    }
-    @keyframes pulse-blue {
-      0%,100% { box-shadow:0 0 0 0 rgba(37,99,235,0.35); }
-      50% { box-shadow:0 0 0 10px rgba(37,99,235,0); }
-    }
-    @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)} }
-    @keyframes fade-up { from{opacity:0;transform:translateY(30px)} to{opacity:1;transform:translateY(0)} }
-    @keyframes fade-in { from{opacity:0} to{opacity:1} }
-    @keyframes slide-right { from{opacity:0;transform:translateX(-20px)} to{opacity:1;transform:translateX(0)} }
+    /* BADGE */
+    .badge { display: inline-block; font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase; padding: 5px 14px; border-radius: 30px; margin-bottom: 16px; }
+    .badge-blue { background: var(--blue-light); color: var(--blue-mid); }
+    .badge-outline { background: transparent; color: var(--blue-mid); border: 1px solid var(--blue-mid); }
 
-    .animate-fade-up { animation:fade-up 0.7s ease-out both; }
-    .animate-fade-in { animation:fade-in 0.5s ease-out both; }
-    .delay-1 { animation-delay:0.1s; }
-    .delay-2 { animation-delay:0.2s; }
-    .delay-3 { animation-delay:0.3s; }
-    .delay-4 { animation-delay:0.4s; }
-    .delay-5 { animation-delay:0.5s; }
+    /* BUTTONS */
+    .btn { display: inline-flex; align-items: center; gap: 8px; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 18px; padding: 14px 28px; border-radius: 8px; cursor: pointer; border: none; transition: all 0.25s ease; text-decoration: none; }
+    .btn-primary { background: #00A0DC; color: #ffffff; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important; }
+    .btn-primary:hover { background: #0089bd !important; transform: translateY(-2px) scale(1.02); box-shadow: 0 10px 20px rgba(0, 160, 220, 0.3); }
+    .btn-primary:active { transform: translateY(0) scale(0.98); box-shadow: 0 4px 10px rgba(0, 160, 220, 0.2); }
+    .btn-blue { background: var(--blue-mid); color: #ffffff; }
+    .btn-blue:hover { background: var(--blue); transform: translateY(-1px); }
+    .btn-white { background: #ffffff; color: var(--dark); }
+    .btn-white:hover { background: #F1F5F9; }
+    .btn-outline-white { background: transparent; color: #ffffff; border: 2px solid rgba(255,255,255,0.55); }
+    .btn-outline-white:hover { border-color: #ffffff; background: rgba(255,255,255,0.08); }
+    .btn-lg { font-size: 18px; padding: 16px 36px; }
+    .btn-sm { font-size: 18px; padding: 9px 20px; }
 
-    /* ===== BUTTONS ===== */
-    .btn { display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 28px;border-radius:10px;font-weight:600;font-size:15px;cursor:pointer;border:none;transition:all 0.3s ease; }
-    .btn-blue { background:var(--gold);color:#fff; }
-    .btn-blue:hover { background:var(--copper);transform:translateY(-1px);box-shadow:0 4px 16px rgba(200,150,62,0.35); }
-    .btn-blue.pulse { animation:pulse-gold 2.5s ease-in-out infinite; }
-    .btn-blue { background:var(--blue);color:#fff; }
-    .btn-blue:hover { background:var(--blue-dark);transform:translateY(-1px);box-shadow:var(--shadow-blue); }
-    .btn-blue.pulse { animation:pulse-blue 2.5s ease-in-out infinite; }
-    .btn-outline { background:transparent;border:2px solid rgba(255,255,255,0.4);color:#fff; }
-    .btn-outline:hover { background:rgba(255,255,255,0.1);border-color:rgba(255,255,255,0.7); }
-    .btn-outline-blue { background:transparent;border:2px solid var(--blue);color:var(--blue); }
-    .btn-outline-blue:hover { background:var(--blue-pale); }
-    .btn-lg { padding:16px 36px;font-size:16px;border-radius:12px; }
-    .btn-sm { padding:8px 18px;font-size:13px; }
-    .btn-full { width:100%; }
+    /* FORMS */
+    .form-group { margin-bottom: 16px; }
+    .form-group label { display: block; font-size: 18px; font-weight: 600; color: #000; margin-bottom: 6px; }
+    .form-input { width: 100%; padding: 12px 16px; border: 1.5px solid var(--border); border-radius: 8px; font-size: 18px; color: #000; background: #fff; transition: border-color 0.2s; }
+    .form-input:focus { outline: none; border-color: var(--blue-mid); }
 
-    /* ===== NAVBAR ===== */
-    .navbar { position:fixed;top:0;left:0;right:0;z-index:1000;transition:all 0.3s ease;padding:0 24px; }
-    .navbar.scrolled { background:rgba(255,255,255,0.97);backdrop-filter:blur(16px);box-shadow:0 2px 20px rgba(0,0,0,0.08);border-bottom:1px solid var(--border); }
-    .navbar-inner { max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:72px; }
-    .navbar.scrolled .navbar-inner { height:64px; }
-    .logo { display:flex;align-items:center;gap:10px;font-weight:700;font-size:18px;letter-spacing:-0.02em;transition:color 0.3s; }
-    .navbar:not(.scrolled) .logo { color:#fff; }
-    .navbar.scrolled .logo { color:var(--dark); }
-    .logo-icon { width:36px;height:36px;border-radius:8px;background:var(--dark);display:flex;align-items:center;justify-content:center; }
-    .navbar.scrolled .logo-icon { background:var(--dark); }
-    .logo-icon span { color:var(--gold);font-weight:700;font-size:15px; }
-    .logo-badge { color:var(--gold);font-weight:400;font-size:13px;margin-left:4px; }
-    .nav-links { display:flex;align-items:center;gap:4px; }
-    .nav-links a { padding:8px 14px;border-radius:8px;font-size:14px;font-weight:500;transition:all 0.2s; }
-    .navbar:not(.scrolled) .nav-links a { color:rgba(255,255,255,0.8); }
-    .navbar:not(.scrolled) .nav-links a:hover { color:#fff;background:rgba(255,255,255,0.08); }
-    .navbar.scrolled .nav-links a { color:var(--slate); }
-    .navbar.scrolled .nav-links a:hover { color:var(--blue);background:var(--blue-pale); }
-    .nav-cta { display:flex;align-items:center;gap:12px; }
-    .nav-cta .btn-sm { padding:8px 20px; }
-    .mobile-toggle { display:none;background:none;border:none;cursor:pointer;padding:8px; }
-    .navbar:not(.scrolled) .mobile-toggle svg { stroke:#fff; }
-    .navbar.scrolled .mobile-toggle svg { stroke:var(--dark); }
+    /* REVEAL */
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.55s ease, transform 0.55s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .delay-1 { transition-delay: 0.1s; } .delay-2 { transition-delay: 0.2s; } .delay-3 { transition-delay: 0.3s; }
 
-    /* Mobile menu */
-    .mobile-menu { position:fixed;inset:0;z-index:999;background:#fff;padding-top:80px;display:none;flex-direction:column; }
-    .mobile-menu.open { display:flex; }
-    .mobile-menu a { display:block;padding:14px 24px;font-size:16px;font-weight:500;color:var(--text);border-bottom:1px solid var(--border); }
-    .mobile-menu a:hover { color:var(--blue);background:var(--blue-pale); }
-    .mobile-menu .mobile-ctas { padding:20px 24px;display:flex;flex-direction:column;gap:12px; }
+    /* NAVBAR */
+    .navbar { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(15,23,42,0.85); backdrop-filter: blur(15px); border-bottom: 1px solid rgba(255,255,255,0.08); transition: box-shadow 0.3s ease; }
+    .navbar.scrolled { box-shadow: var(--shadow-md); }
+    .navbar-inner { display: flex; align-items: center; justify-content: space-between; height: 68px; }
+    .logo img { max-height: 42px; }
+    .nav-links { display: flex; align-items: center; gap: 28px; }
+    .nav-links a { font-family: 'Montserrat', sans-serif; font-size: 18px; font-weight: 600; color: #ffffff; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--blue-mid); }
+    .mobile-toggle { display: none; background: none; border: none; cursor: pointer; color: #ffffff; }
+    .mobile-menu { display: none; flex-direction: column; position: fixed; top: 68px; left: 0; right: 0; background: #fff; z-index: 999; border-bottom: 1px solid var(--border); padding: 16px 24px 24px; gap: 0; }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a { padding: 14px 0; font-family: 'Montserrat', sans-serif; font-size: 18px; font-weight: 600; color: var(--dark); border-bottom: 1px solid var(--border); }
+    .mobile-ctas { margin-top: 16px; }
+    @media (max-width: 900px) { .nav-links, .nav-cta { display: none; } .mobile-toggle { display: flex; } }
 
-    @media(max-width:1024px) {
-      .nav-links,.nav-cta { display:none; }
-      .mobile-toggle { display:block; }
-    }
-
-    /* ===== HERO ===== */
-    .hero { position:relative;min-height:100vh;display:flex;align-items:center;background:var(--dark);overflow:hidden; }
-    .hero-bg { position:absolute;inset:0; background: url('images/hero.png') center/cover no-repeat; }
-    .hero-grid { position:absolute;inset:0;opacity:0.6;background: rgba(51, 51, 51, 0.85); }
-    .hero-radial-1 { position:absolute;inset:0;background:radial-gradient(ellipse at top right,rgba(37,99,235,0.12) 0%,transparent 55%); }
-    .hero-radial-2 { position:absolute;inset:0;background:radial-gradient(ellipse at bottom left,rgba(30,41,59,0.7) 0%,transparent 60%); }
-    .hero-radial-3 { position:absolute;inset:0;background:radial-gradient(ellipse at center left,rgba(200,150,62,0.06) 0%,transparent 50%); }
-    .hero-content { position:relative;z-index:2;max-width:1200px;margin:0 auto;padding:120px 24px 80px;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center; }
-    .hero-badge { display:inline-flex;align-items:center;gap:8px;background:rgba(37,99,235,0.1);border:1px solid rgba(37,99,235,0.2);border-radius:999px;padding:6px 16px;margin-bottom:24px; }
-    .hero-badge .dot { width:8px;height:8px;border-radius:50%;background:var(--blue);animation:pulse-blue 2s infinite; }
-    .hero-badge span { color:var(--blue-light);font-size:14px;font-weight:500; }
-    .hero h1 { font-size:clamp(2.2rem,5vw,3.6rem);font-weight:800;color:#fff;line-height:1.1;margin-bottom:24px;letter-spacing:-0.03em; }
-    .hero-sub { font-size:18px;color:#94A3B8;line-height:1.7;margin-bottom:32px;max-width:560px; }
-    .hero-bullets { display:flex;flex-direction:column;gap:12px;margin-bottom:40px; }
-    .hero-bullets .bullet { display:flex;align-items:flex-start;gap:10px;color:#CBD5E1;font-size:15px; }
-    .hero-bullets .bullet svg { width:20px;height:20px;flex-shrink:0;margin-top:2px;color:var(--gold); }
-    .hero-ctas { display:flex;flex-wrap:wrap;gap:16px; }
-
-    /* Hero Visual */
-    .hero-visual { position:relative; }
-    .hero-card { background:linear-gradient(135deg,rgba(30,41,59,0.8),rgba(15,23,42,0.9));border:1px solid rgba(100,116,139,0.3);border-radius:20px;padding:32px;backdrop-filter:blur(8px); }
-    .hero-diagram { position:relative;aspect-ratio:4/3;border-radius:14px;background:linear-gradient(180deg,rgba(51,65,85,0.3),rgba(30,41,59,0.4));border:1px solid rgba(100,116,139,0.25);overflow:hidden; }
-    .wall-representation { position:absolute;left:12%;right:12%;top:15%;bottom:15%;background:linear-gradient(90deg,rgba(120,53,15,0.15),rgba(168,162,158,0.2),rgba(120,53,15,0.15));border-radius:10px;border:1px solid rgba(168,162,158,0.15); }
-    .wall-brick { position:absolute;inset:0;opacity:0.15;background-image:repeating-linear-gradient(0deg,transparent,transparent 18px,rgba(37,99,235,0.2) 18px,rgba(37,99,235,0.2) 20px),repeating-linear-gradient(90deg,transparent,transparent 38px,rgba(37,99,235,0.2) 38px,rgba(37,99,235,0.2) 40px); }
-    .electrode-col { position:absolute;left:50%;top:0;bottom:0;transform:translateX(-50%);display:flex;flex-direction:column;justify-content:space-around;align-items:center;padding:12px 8px; }
-    .electrode { display:flex;align-items:center;gap:6px; }
-    .electrode-dot { width:10px;height:10px;border-radius:50%;background:var(--gold);box-shadow:0 0 12px rgba(200,150,62,0.6); }
-    .electrode-line { width:28px;height:2px;background:rgba(200,150,62,0.4); }
-    .moisture-arrow { position:absolute;bottom:8px;left:50%;transform:translateX(-50%);text-align:center; }
-    .moisture-arrow span { color:var(--blue-light);font-size:11px;opacity:0.6; }
-    .moisture-arrow .arrow { color:var(--blue);font-size:14px;opacity:0.7; }
-    .control-unit { position:absolute;right:12px;top:12px;background:rgba(15,23,42,0.85);border:1px solid rgba(37,99,235,0.3);border-radius:10px;padding:10px 12px; }
-    .control-unit .status { display:flex;align-items:center;gap:6px;margin-bottom:6px; }
-    .control-unit .status-dot { width:7px;height:7px;border-radius:50%;background:#4ADE80;animation:pulse-gold 2s infinite; }
-    .control-unit .status-text { color:#4ADE80;font-size:10px;font-family:monospace;font-weight:600; }
-    .control-unit .data { color:var(--blue-light);font-size:10px;font-family:monospace;line-height:1.5; }
-    .electrode-label { position:absolute;left:12px;top:12px; }
-    .electrode-label span { background:rgba(37,99,235,0.12);color:var(--blue-light);font-size:10px;font-weight:500;padding:4px 10px;border-radius:6px;border:1px solid rgba(37,99,235,0.2); }
-    .hero-stats { display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:24px; }
-    .hero-stat { text-align:center; }
-    .hero-stat .value { font-size:24px;font-weight:700;color:var(--gold); }
-    .hero-stat .label { font-size:12px;color:#94A3B8;margin-top:2px; }
-    .hero-float { position:absolute;top:-16px;right:-16px;background:var(--blue);color:#fff;border-radius:14px;padding:10px 18px;font-size:14px;font-weight:700;box-shadow:0 8px 24px rgba(37,99,235,0.3);animation:float 3s ease-in-out infinite; }
-
-    @media(max-width:1024px) {
-      .hero-content { grid-template-columns:1fr;padding-top:100px; }
-      .hero-visual { display:none; }
-    }
-    @media(max-width:640px) {
-      .hero h1 { font-size:2rem; }
-      .hero-sub { font-size:16px; }
-      .hero-ctas { flex-direction:column; }
-      .hero-ctas .btn { width:100%; }
-    }
-
-    /* ===== TRUST BADGES ===== */
-    .trust-badges { background:#fff;border-bottom:1px solid var(--border);padding:28px 0; }
-    .trust-badges-inner { display:flex;flex-wrap:wrap;justify-content:center;gap:24px 40px; }
-    .trust-badge { display:flex;align-items:center;gap:8px;color:var(--slate);font-size:14px;font-weight:500;transition:color 0.3s; }
-    .trust-badge:hover { color:var(--blue); }
-    .trust-badge svg { width:18px;height:18px;color:var(--blue); }
-
-    /* ===== SECTION COMMON ===== */
-    .section { padding:100px 0; }
-    .section-light { background:var(--light); }
-    .section-white { background:#fff; }
-    .section-dark { background:var(--dark); }
-    .section-blue-soft { background:linear-gradient(180deg,var(--blue-pale),var(--light)); }
-    .section-header { text-align:center;max-width:720px;margin:0 auto 64px; }
-    .section-label { display:block;font-size:13px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--blue);margin-bottom:12px; }
-    .section-label-gold { color:var(--gold); }
-    .section-title { font-size:clamp(1.8rem,3.5vw,2.5rem);font-weight:700;color:var(--dark);line-height:1.2;margin-bottom:20px;letter-spacing:-0.02em; }
-    .section-dark .section-title { color:#fff; }
-    .section-desc { font-size:17px;color:var(--text-muted);line-height:1.7; }
-    .section-dark .section-desc { color:#94A3B8; }
-
-    /* ===== CARDS ===== */
-    .card { background:#fff;border:1px solid var(--border);border-radius:var(--radius-lg);padding:28px;transition:all 0.3s ease; }
-    .card:hover { border-color:rgba(37,99,235,0.25);box-shadow:var(--shadow-md);transform:translateY(-2px); }
-    .card-dark { background:rgba(30,41,59,0.5);border:1px solid rgba(100,116,139,0.3);border-radius:var(--radius-lg);padding:28px;transition:all 0.3s ease; }
-    .card-dark:hover { border-color:rgba(37,99,235,0.3);background:rgba(30,41,59,0.7); }
-    .card-icon { width:48px;height:48px;border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:16px; }
-    .card-icon-blue { background:var(--blue-soft); }
-    .card-icon-blue svg { color:var(--blue);width:24px;height:24px; }
-    .card-icon-gold { background:var(--gold-pale); }
-    .card-icon-gold svg { color:var(--gold);width:24px;height:24px; }
-    .card h3 { font-size:17px;font-weight:600;color:var(--dark);margin-bottom:10px; }
-    .card-dark h3 { color:#fff; }
-    .card p { font-size:14px;color:var(--text-muted);line-height:1.65; }
-    .card-dark p { color:#94A3B8; }
-
-    .grid-2 { display:grid;grid-template-columns:repeat(2,1fr);gap:24px; }
-    .grid-3 { display:grid;grid-template-columns:repeat(3,1fr);gap:24px; }
-    .grid-4 { display:grid;grid-template-columns:repeat(4,1fr);gap:24px; }
-    @media(max-width:1024px) { .grid-4,.grid-3 { grid-template-columns:repeat(2,1fr); } }
-    @media(max-width:640px) { .grid-4,.grid-3,.grid-2 { grid-template-columns:1fr; } }
-
-    /* ===== MARKET PROBLEM ===== */
-    .problem-card { border-left:3px solid transparent; }
-    .problem-card:hover { border-left-color:var(--blue); }
-
-    /* ===== TECHNOLOGY ===== */
-    .tech-diagram { background:linear-gradient(135deg,var(--light),var(--surface));border:1px solid var(--border);border-radius:var(--radius-xl);padding:40px;margin-bottom:64px; }
-    .tech-diagram h3 { font-size:20px;font-weight:600;text-align:center;margin-bottom:32px;color:var(--dark); }
-    .tech-steps-visual { max-width:700px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:32px;align-items:center; }
-    .tech-step-vis { text-align:center; }
-    .tech-step-box { width:80px;height:96px;margin:0 auto;border-radius:10px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;border:1px solid var(--border);position:relative; }
-    .tech-step-box.moisture { background:linear-gradient(to top,rgba(37,99,235,0.15),transparent);border-color:rgba(37,99,235,0.2); }
-    .tech-step-box.electrodes { background:linear-gradient(to bottom,rgba(168,162,158,0.15),rgba(168,162,158,0.08));border-color:rgba(200,150,62,0.3); }
-    .tech-step-box.dry { background:linear-gradient(to top,rgba(34,197,94,0.08),transparent);border-color:rgba(34,197,94,0.2); }
-    .tech-step-box .step-label { font-size:11px;font-weight:500;color:var(--slate); }
-    .tech-step-box .step-icon { font-size:20px; }
-    .tech-arrow { text-align:center;color:var(--blue);font-size:24px;font-weight:300; }
-    .tech-step-label { margin-top:12px;font-size:13px;color:var(--text-muted);font-weight:500; }
-
-    .tech-card-number { font-size:12px;font-weight:700;letter-spacing:0.08em;color:var(--blue);margin-bottom:4px; }
-    .tech-card-accent { border-top:3px solid var(--blue); }
-
-    /* ===== COMPARISON TABLE ===== */
-    .comparison-table-wrap { background:#fff;border-radius:var(--radius-xl);border:1px solid var(--border);overflow:hidden;box-shadow:var(--shadow-sm); }
-    .comparison-table { width:100%;border-collapse:collapse; }
-    .comparison-table thead { background:var(--dark); }
-    .comparison-table th { color:#fff;padding:16px 20px;font-size:13px;font-weight:600;text-align:center; }
-    .comparison-table th:first-child { text-align:left; }
-    .comparison-table td { padding:14px 20px;border-top:1px solid var(--border);font-size:14px;vertical-align:middle; }
-    .comparison-table td:first-child { font-weight:600;color:var(--dark); }
-    .comparison-table tr.highlight { background:rgba(37,99,235,0.04); }
-    .comparison-table tr.highlight td:first-child { color:var(--blue); }
-    .comparison-table td:last-child { color:var(--text-muted);font-size:13px; }
-    .icon-ok { color:#22C55E; } .icon-warn { color:#F59E0B; } .icon-no { color:#EF4444; }
-    .badge-risk { display:inline-block;font-size:11px;font-weight:600;padding:4px 10px;border-radius:999px; }
-    .badge-blue { background:var(--blue-soft);color:var(--blue); }
-    .badge-gray { background:var(--surface);color:var(--slate); }
-    .badge-red { background:#FEF2F2;color:#DC2626; }
-
-    /* Mobile comparison cards */
-    .comparison-cards { display:none; }
-    .comparison-card { background:#fff;border-radius:var(--radius-lg);padding:20px;border:1px solid var(--border);margin-bottom:16px; }
-    .comparison-card.highlight { border-color:var(--blue);box-shadow:var(--shadow-blue); }
-    .comparison-card h4 { font-weight:600;margin-bottom:12px; }
-    .comparison-card.highlight h4 { color:var(--blue); }
-    .comparison-row { display:flex;justify-content:space-between;align-items:center;padding:6px 0;font-size:14px;color:var(--text-muted);border-bottom:1px solid var(--surface); }
-
-    @media(max-width:900px) {
-      .comparison-table-wrap { display:none; }
-      .comparison-cards { display:block; }
-    }
-
-    /* ===== OPPORTUNITY ===== */
-    .opp-quote { font-size:clamp(1.2rem,2.5vw,1.6rem);font-weight:600;color:#fff;max-width:700px;margin:0 auto 32px;text-align:center;line-height:1.5;font-style:italic; }
-
-    /* ===== CERTIFICATION ===== */
-    .cert-block { background:linear-gradient(135deg,var(--dark),var(--navy));border-radius:var(--radius-xl);padding:48px;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center; }
-    .cert-detail-grid { display:grid;grid-template-columns:1fr 1fr;gap:12px; }
-    .cert-detail { background:rgba(30,41,59,0.6);border:1px solid rgba(100,116,139,0.2);border-radius:10px;padding:14px; }
-    .cert-detail .label { font-size:11px;color:#94A3B8;margin-bottom:2px; }
-    .cert-detail .value { font-size:14px;font-weight:600;color:#fff;display:flex;align-items:center;gap:6px; }
-    .cert-detail .value svg { width:14px;height:14px;color:var(--blue); }
-
-    @media(max-width:900px) { .cert-block { grid-template-columns:1fr;padding:32px; } }
-
-    /* ===== CASES ===== */
-    .case-card { border-top:3px solid var(--blue); }
-    .case-count { display:flex;align-items:center;gap:8px;color:var(--blue);font-size:14px;font-weight:500;margin-top:16px; }
-    .case-count .dot { width:6px;height:6px;border-radius:50%;background:var(--blue); }
-    .authority-block { background:linear-gradient(135deg,var(--dark),var(--navy));border-radius:var(--radius-xl);padding:48px;margin-top:64px; }
-    .authority-block h3 { font-size:22px;font-weight:700;color:#fff;text-align:center;margin-bottom:32px; }
-    .authority-stats { display:grid;grid-template-columns:repeat(4,1fr);gap:24px;text-align:center; }
-    .authority-stat .value { font-size:28px;font-weight:700;color:var(--blue);margin-bottom:4px; }
-    .authority-stat .label { font-size:13px;color:#94A3B8; }
-    @media(max-width:640px) { .authority-stats { grid-template-columns:repeat(2,1fr); } }
-
-    /* ===== PROCESS ===== */
-    .process-timeline { position:relative;max-width:800px;margin:0 auto; }
-    .process-line { position:absolute;left:24px;top:0;bottom:0;width:2px;background:linear-gradient(to bottom,var(--blue),rgba(37,99,235,0.1)); }
-    @media(min-width:768px) { .process-line { left:50%;transform:translateX(-50%); } }
-    .process-step { position:relative;display:flex;align-items:flex-start;gap:24px;margin-bottom:48px; }
-    .process-circle { position:absolute;left:24px;transform:translateX(-50%);width:44px;height:44px;border-radius:50%;background:var(--blue);display:flex;align-items:center;justify-content:center;color:#fff;font-size:13px;font-weight:700;box-shadow:0 4px 12px rgba(37,99,235,0.3);z-index:2; }
-    @media(min-width:768px) {
-      .process-step { padding-left:0; }
-      .process-circle { left:50%; }
-      .process-step:nth-child(odd) .process-content { margin-left:auto;width:45%;padding-right:40px;text-align:right; }
-      .process-step:nth-child(even) .process-content { margin-right:auto;width:45%;padding-left:40px;margin-left:55%; }
-    }
-    @media(max-width:767px) {
-      .process-step { padding-left:60px; }
-    }
-    .process-content { background:var(--light);border:1px solid var(--border);border-radius:var(--radius);padding:20px;transition:all 0.3s; }
-    .process-content:hover { border-color:rgba(37,99,235,0.3);box-shadow:var(--shadow-md); }
-    .process-content h3 { font-size:16px;font-weight:600;margin-bottom:8px;color:var(--dark); }
-    .process-content p { font-size:14px;color:var(--text-muted);line-height:1.6; }
-
-    /* ===== LEAD MAGNET ===== */
-    .lead-wrap { background:linear-gradient(135deg,var(--light),var(--blue-pale));border:1px solid var(--border);border-radius:var(--radius-xl);padding:48px;position:relative;overflow:hidden; }
-    .lead-deco-1 { position:absolute;top:-60px;right:-60px;width:200px;height:200px;background:rgba(37,99,235,0.05);border-radius:50%; }
-    .lead-deco-2 { position:absolute;bottom:-40px;left:-40px;width:150px;height:150px;background:rgba(37,99,235,0.05);border-radius:50%; }
-    .lead-grid { display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;position:relative;z-index:2; }
-    .lead-checklist { display:flex;flex-direction:column;gap:8px;margin-top:20px; }
-    .lead-checklist li { display:flex;align-items:center;gap:8px;font-size:14px;color:var(--text-muted); }
-    .lead-checklist li::before { content:'';width:6px;height:6px;border-radius:50%;background:var(--blue);flex-shrink:0; }
-    .dossier-mockup { background:#fff;border:1px solid var(--border);border-radius:var(--radius-lg);padding:24px;box-shadow:var(--shadow-md);max-width:340px;margin:0 auto; }
-    .dossier-cover { height:160px;background:linear-gradient(135deg,var(--dark),var(--navy));border-radius:10px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:20px;margin-bottom:16px; }
-    .dossier-cover-icon { width:44px;height:44px;border-radius:10px;background:rgba(37,99,235,0.15);display:flex;align-items:center;justify-content:center;margin-bottom:10px; }
-    .dossier-cover-icon svg { color:var(--blue);width:22px;height:22px; }
-    .dossier-cover h4 { color:#fff;font-size:14px;font-weight:600;text-align:center; }
-    .dossier-cover p { color:#94A3B8;font-size:11px;text-align:center;margin-top:4px; }
-    .dossier-lines { display:flex;flex-direction:column;gap:8px; }
-    .dossier-lines span { height:8px;background:var(--surface);border-radius:4px; }
-    @media(max-width:900px) { .lead-grid { grid-template-columns:1fr; } }
-
-    /* ===== FAQ ===== */
-    .faq-list { max-width:800px;margin:0 auto; }
-    .faq-item { background:#fff;border:1px solid var(--border);border-radius:var(--radius);margin-bottom:12px;overflow:hidden;transition:all 0.3s; }
-    .faq-item:hover { border-color:rgba(37,99,235,0.25); }
-    .faq-item.active { border-color:var(--blue);box-shadow:var(--shadow-blue); }
-    .faq-question { width:100%;background:none;border:none;padding:18px 24px;text-align:left;font-size:15px;font-weight:600;color:var(--dark);cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:12px; }
-    .faq-question:hover { color:var(--blue); }
-    .faq-question svg { width:20px;height:20px;flex-shrink:0;transition:transform 0.3s;color:var(--blue); }
-    .faq-item.active .faq-question svg { transform:rotate(180deg); }
-    .faq-answer { max-height:0;overflow:hidden;transition:max-height 0.4s ease; }
-    .faq-answer-inner { padding:0 24px 18px;font-size:14px;color:var(--text-muted);line-height:1.7; }
-
-    /* ===== CONTACT FORM ===== */
-    .contact-grid { display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start; }
-    .contact-info h2 { font-size:clamp(1.6rem,3vw,2.4rem);font-weight:700;color:#fff;margin-bottom:20px; }
-    .contact-info p { font-size:16px;color:#94A3B8;line-height:1.7;margin-bottom:32px; }
-    .contact-step { display:flex;align-items:flex-start;gap:14px;margin-bottom:20px; }
-    .contact-step-circle { width:40px;height:40px;border-radius:50%;background:rgba(37,99,235,0.1);border:1px solid rgba(37,99,235,0.3);display:flex;align-items:center;justify-content:center;flex-shrink:0; }
-    .contact-step-circle span { color:var(--blue);font-weight:700;font-size:14px; }
-    .contact-step h4 { color:#fff;font-weight:600;margin-bottom:2px; }
-    .contact-step p { color:#94A3B8;font-size:13px;margin:0; }
-
-    .form-card { background:#fff;border-radius:var(--radius-xl);padding:32px;box-shadow:var(--shadow-lg); }
-    .form-card h3 { font-size:20px;font-weight:700;color:var(--dark);margin-bottom:24px; }
-    .form-group { margin-bottom:16px; }
-    .form-group label { display:block;font-size:13px;font-weight:500;color:var(--dark);margin-bottom:6px; }
-    .form-group label .req { color:#EF4444; }
-    .form-input { width:100%;padding:10px 14px;border:1px solid var(--border);border-radius:8px;font-size:14px;color:var(--dark);transition:all 0.2s;background:#fff; }
-    .form-input:focus { outline:none;border-color:var(--blue);box-shadow:0 0 0 3px rgba(37,99,235,0.1); }
-    .form-input::placeholder { color:#94A3B8; }
-    select.form-input { appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%2394A3B8' viewBox='0 0 16 16'%3E%3Cpath d='M4 6l4 4 4-4'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;padding-right:36px; }
-    textarea.form-input { resize:none;min-height:80px; }
-    .form-row { display:grid;grid-template-columns:1fr 1fr;gap:12px; }
-    .form-checkbox { display:flex;align-items:flex-start;gap:10px;margin:16px 0; }
-    .form-checkbox input { width:18px;height:18px;accent-color:var(--blue);margin-top:2px;flex-shrink:0; }
-    .form-checkbox label { font-size:12px;color:var(--text-muted);line-height:1.5;font-weight:400; }
-
-    @media(max-width:900px) { .contact-grid { grid-template-columns:1fr; } }
-    @media(max-width:640px) { .form-row { grid-template-columns:1fr; } }
-
-    /* Thank you */
-    .thankyou { text-align:center;padding:80px 24px; }
-    .thankyou-icon { width:80px;height:80px;border-radius:50%;background:rgba(37,99,235,0.1);display:flex;align-items:center;justify-content:center;margin:0 auto 24px; }
-    .thankyou-icon svg { width:40px;height:40px;color:var(--blue); }
-    .thankyou h2 { font-size:28px;font-weight:700;color:#fff;margin-bottom:16px; }
-    .thankyou p { font-size:16px;color:#94A3B8;margin-bottom:32px;max-width:500px;margin-left:auto;margin-right:auto; }
-
-    /* ===== FOOTER ===== */
-    .footer { background:#0A0F1C;color:#fff; }
-    .footer-top { border-bottom:1px solid rgba(100,116,139,0.2);padding:48px 0; }
-    .footer-grid { display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:40px; }
-    .footer-brand p { font-size:13px;color:#64748B;line-height:1.7;margin-top:12px; }
-    .footer-contact { margin-top:20px;display:flex;flex-direction:column;gap:8px; }
-    .footer-contact a,.footer-contact span { display:flex;align-items:center;gap:8px;font-size:13px;color:#64748B;transition:color 0.2s; }
-    .footer-contact a:hover { color:var(--blue); }
-    .footer-contact svg { width:14px;height:14px; }
-    .footer h4 { font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:#94A3B8;margin-bottom:16px; }
-    .footer ul li { margin-bottom:8px; }
-    .footer ul a { font-size:13px;color:#64748B;transition:color 0.2s; }
-    .footer ul a:hover { color:var(--blue); }
-    .footer-bottom { padding:20px 0; }
-    .footer-bottom-inner { display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px; }
-    .footer-legal { display:flex;align-items:center;gap:6px;font-size:12px;color:#475569; }
-    .footer-legal svg { width:14px;height:14px;color:var(--blue); }
-    .footer-links-bottom { display:flex;gap:20px;font-size:12px;color:#475569; }
-    .footer-links-bottom a:hover { color:var(--blue); }
-
-    @media(max-width:768px) { .footer-grid { grid-template-columns:1fr 1fr; } }
-    @media(max-width:480px) { .footer-grid { grid-template-columns:1fr; } }
-
-    /* ===== DIVIDER ===== */
-    .divider-blue { height:3px;background:linear-gradient(90deg,transparent,var(--blue),transparent);max-width:200px;margin:0 auto; }
-    .divider-blue { height:3px;background:linear-gradient(90deg,transparent,var(--gold),transparent);max-width:200px;margin:0 auto; }
-
-    /* ===== QUOTE BLOCK ===== */
-    .quote-block { text-align:center;margin-top:48px; }
-    .quote-block blockquote { font-size:clamp(1.1rem,2.2vw,1.5rem);font-weight:600;color:var(--dark);max-width:680px;margin:0 auto;font-style:italic;line-height:1.5; }
-
-    /* ===== SCROLL REVEAL ===== */
-    .reveal { opacity:0;transform:translateY(30px);transition:opacity 0.7s ease,transform 0.7s ease; }
-    .reveal.visible { opacity:1;transform:translateY(0); }
-
-    /* ===== UX & IMAGE PREMIUM ADDITIONS ===== */
-    .img-fade {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      filter: grayscale(10%) contrast(1.02) brightness(0.95);
-      transition: all 0.5s ease;
-      mask-image: linear-gradient(135deg, #000 80%, transparent 100%);
-      -webkit-mask-image: linear-gradient(135deg, #000 80%, transparent 100%);
-    }
-    .img-fade:hover {
-      filter: grayscale(0%) contrast(1) brightness(1);
-    }
-
-    .card-image-wrap {
+    /* ===================== HERO ===================== */
+    .hero {
       position: relative;
-      height: 180px;
-      overflow: hidden;
-      border-radius: var(--radius-lg) var(--radius-lg) 0 0;
-      margin: -28px -28px 20px -28px;
-      width: calc(100% + 56px);
-      border-bottom: 1px solid var(--border);
-    }
-
-    /* Hero visual redone */
-    .hero-image-container {
-      position: relative;
-      border-radius: var(--radius-xl);
-      overflow: hidden;
-      border: 1px solid rgba(100,116,139,0.3);
-      box-shadow: var(--shadow-lg);
-      aspect-ratio: 4/3;
-      max-height: 420px;
-    }
-    .hero-stats-overlay {
-      position: absolute;
-      bottom: 20px;
-      left: 20px;
-      right: 20px;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-      z-index: 3;
-    }
-    .hero-stat-card {
-      background: rgba(15, 23, 42, 0.85);
-      backdrop-filter: blur(8px);
-      border: 1px solid rgba(200, 150, 62, 0.3);
-      border-radius: var(--radius);
-      padding: 12px 16px;
-      text-align: center;
-    }
-    .hero-stat-card .value {
-      font-size: 20px;
-      font-weight: 700;
-      color: var(--gold);
-    }
-    .hero-stat-card .label {
-      font-size: 11px;
-      color: #94A3B8;
-      margin-top: 2px;
-    }
-
-    /* Opportunity split */
-    .opp-split {
-      display: grid;
-      grid-template-columns: 1.15fr 1.85fr;
-      gap: 48px;
-      align-items: stretch;
-    }
-    .opp-image-col {
-      height: 100%;
-      min-height: 450px;
-    }
-    .opp-image-wrap {
-      width: 100%;
-      height: 100%;
-      border-radius: var(--radius-xl);
-      overflow: hidden;
-      border: 1px solid rgba(100,116,139,0.3);
-      position: relative;
-    }
-    .opp-cards-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 20px;
-    }
-
-    /* Technology split */
-    .tech-split {
-      display: grid;
-      grid-template-columns: 1.60fr 1.40fr;
-      gap: 48px;
-      align-items: start;
-    }
-    .tech-cards-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 20px;
-    }
-    .tech-visual-col {
-      position: sticky;
-      top: 100px;
+      height: 100vh;
       display: flex;
-      flex-direction: column;
-      gap: 24px;
-    }
-    .tech-image-container {
-      position: relative;
-      border-radius: var(--radius-lg);
+      align-items: center;
       overflow: hidden;
-      border: 1px solid var(--border);
-      aspect-ratio: 16/10;
-      background: var(--surface);
+      padding-top: 68px;
     }
-    .tech-img-caption {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background: rgba(15, 23, 42, 0.85);
-      color: #fff;
-      font-size: 12px;
-      padding: 8px 16px;
-      font-weight: 500;
-      text-align: center;
-      backdrop-filter: blur(4px);
+    @media (max-width: 768px) {
+      .hero {
+        height: auto;
+        min-height: 100vh;
+      }
     }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background: url('images/hero3.webp') center center / cover no-repeat;
+    }
+    /* Strong left-side dark overlay, fading right */
+    .hero-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(
+        to right,
+        rgba(0,0,0,0.93) 0%,
+        rgba(0,0,0,0.88) 35%,
+        rgba(0,0,0,0.65) 60%,
+        rgba(0,0,0,0.25) 85%,
+        rgba(0,0,0,0.08) 100%
+      );
+    }
+    .hero-content { position:relative; z-index:2; max-width:640px; padding:30px 0; margin-left:0; margin-right:auto; text-align:left; }
+    .hero-kicker { font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #94A3B8; margin-bottom: 12px; }
+    .hero h1 { font-size: clamp(34px, 4vw, 56px); font-weight: 800; color: #ffffff; line-height: 1.1; margin-bottom: 14px; text-shadow: 0 2px 8px rgba(0,0,0,0.5); }
+    .hero h1 .accent { color: #60A5FA; }
+    .hero-desc { font-size: 18px; color: #CBD5E1; max-width: 580px; margin-bottom: 20px; line-height: 1.7; text-shadow: 0 1px 3px rgba(0,0,0,0.4); }
+    .hero-desc strong { color: #ffffff; }
+    .hero-pills { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px; }
+    .hero-pill { display: inline-flex; align-items: center; gap: 7px; background: rgba(255,255,255,0.09); border: 1px solid rgba(255,255,255,0.18); color: #E2E8F0; font-size: 18px; padding: 7px 14px; border-radius: 30px; }
+    .hero-pill svg { color: #60A5FA; flex-shrink: 0; }
+    .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+    .hero-scroll { position: absolute; bottom: 28px; left: 50%; transform: translateX(-50%); z-index: 2; text-align: center; color: rgba(255,255,255,0.38); font-size: 11px; font-family: 'Montserrat', sans-serif; letter-spacing: 1.5px; animation: bounce 2s ease-in-out infinite; pointer-events: none; }
+    @keyframes bounce { 0%,100%{transform:translateX(-50%) translateY(0)} 50%{transform:translateX(-50%) translateY(6px)} }
 
-    /* Certification override */
-    .cert-block {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      gap: 32px;
-      align-items: stretch;
+    /* TRUST BAR */
+    .trust-bar { background: var(--surface); border-bottom: 1px solid var(--border); padding: 20px 0; }
+    .trust-items { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 28px; }
+    .trust-item { display: flex; align-items: center; gap: 10px; font-family: 'Montserrat', sans-serif; font-size: 18px; font-weight: 600; color: var(--navy); }
+    .trust-item svg { color: var(--blue-mid); flex-shrink: 0; }
+
+    /* AUDIENCE */
+    .audience-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
+    .audience-text p { font-size: 18px; color: #111; line-height: 1.7; }
+    .audience-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .audience-card { position: relative; border-radius: var(--radius-lg); overflow: hidden; aspect-ratio: 4/3; }
+    .audience-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; display: block; }
+    .audience-card:hover img { transform: scale(1.05); }
+    .audience-card-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.1) 65%); display: flex; flex-direction: column; justify-content: flex-end; padding: 16px 18px; }
+    .audience-card-overlay h4 { color: #fff; font-size: 19px; font-weight: 700; margin-bottom: 3px; }
+    .audience-card-overlay p { color: #CBD5E1; font-size: 18px; }
+    @media (max-width: 768px) { .audience-layout { grid-template-columns: 1fr; } }
+
+    /* OPPORTUNITY */
+    .opportunity-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
+    .opp-features { display: flex; flex-direction: column; gap: 14px; margin-top: 24px; }
+    .opp-feature { display: flex; gap: 16px; align-items: flex-start; background: #fff; border: 1px solid var(--border); border-radius: var(--radius); padding: 18px 20px; box-shadow: var(--shadow-sm); }
+    .opp-feature-icon { width: 38px; height: 38px; border-radius: 9px; background: var(--blue-light); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .opp-feature-icon svg { color: var(--blue-mid); }
+    .opp-feature h4 { font-size: 20px; margin-bottom: 3px; }
+    .opp-feature p { font-size: 18px; color: #222; line-height: 1.55; }
+    .opp-image { border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-lg); }
+    .opp-image img { width: 100%; object-fit: cover; aspect-ratio: 4/5; display: block; }
+    @media (max-width: 768px) { .opportunity-layout { grid-template-columns: 1fr; } }
+
+    /* INSTRUCTOR */
+    .instructor-layout { display: grid; grid-template-columns: 300px 1fr; gap: 56px; align-items: start; }
+    .instructor-card { background: #fff; border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-md); }
+    .instructor-card img { width: 100%; aspect-ratio: 3/4; object-fit: cover; object-position: top center; display: block; }
+    .instructor-card-footer { padding: 16px 18px; }
+    .instructor-card-footer h4 { font-size: 19px; margin-bottom: 2px; }
+    .instructor-card-footer p { font-size: 18px; color: #555; }
+    .instructor-content h2 { font-size: clamp(24px, 2.8vw, 34px); margin-bottom: 18px; }
+    .instructor-content p { font-size: 18px; color: #111; line-height: 1.7; margin-bottom: 14px; }
+    .instructor-notice { background: #FFFBEB; border: 1px solid #FDE68A; border-left: 4px solid #F59E0B; border-radius: var(--radius); padding: 16px 18px; display: flex; gap: 12px; align-items: flex-start; margin: 20px 0 28px; }
+    .instructor-notice svg { color: #D97706; flex-shrink: 0; margin-top: 2px; }
+    .instructor-notice p { font-size: 18px; color: #333; margin: 0; }
+    @media (max-width: 900px) { .instructor-layout { grid-template-columns: 1fr; } .instructor-card { max-width: 280px; } }
+
+    /* WHY */
+    .why-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    .why-card { background: #fff; border: 1px solid var(--border); border-radius: var(--radius); padding: 24px; box-shadow: var(--shadow-sm); }
+    .why-card-icon { width: 42px; height: 42px; border-radius: 10px; background: var(--blue-pale); display: flex; align-items: center; justify-content: center; margin-bottom: 14px; }
+    .why-card-icon svg { color: var(--blue-mid); }
+    .why-card h4 { font-size: 20px; margin-bottom: 7px; }
+    .why-card p { font-size: 18px; color: #222; line-height: 1.6; }
+    @media (max-width: 600px) { .why-grid { grid-template-columns: 1fr; } }
+
+    /* TECHNOLOGY */
+    .tech-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
+    .tech-specs { display: flex; flex-direction: column; gap: 14px; margin-top: 20px; }
+    .tech-spec { display: flex; gap: 16px; border-left: 3px solid var(--blue-mid); padding: 14px 16px; background: var(--surface); border-radius: 0 var(--radius) var(--radius) 0; }
+    .tech-spec-number { font-family: 'Roboto Mono', monospace; font-size: 20px; font-weight: 700; color: var(--blue-mid); flex-shrink: 0; width: 44px; }
+    .tech-spec-label { font-size: 19px; font-weight: 700; color: #000; margin-bottom: 2px; }
+    .tech-spec-desc { font-size: 18px; color: #333; }
+    .tech-product-photo { border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-lg); background: #fff; display: flex; align-items: center; justify-content: center; padding: 24px; }
+    .tech-product-photo img { width: 100%; object-fit: contain; border-radius: var(--radius); }
+    @media (max-width: 768px) { .tech-layout { grid-template-columns: 1fr; } }
+
+    /* PROCESS */
+    .process-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 18px; }
+    .process-card { background: #fff; border: 1px solid var(--border); border-top: 3px solid var(--blue-mid); border-radius: var(--radius); padding: 26px; box-shadow: var(--shadow-sm); }
+    .process-number { font-family: 'Roboto Mono', monospace; font-size: 32px; font-weight: 700; color: #E2E8F0; margin-bottom: 14px; }
+    .process-card h4 { font-size: 20px; margin-bottom: 7px; }
+    .process-card p { font-size: 18px; color: #333; line-height: 1.55; }
+
+    /* FAQ */
+    .faq-list { max-width: 760px; margin: 0 auto; display: flex; flex-direction: column; gap: 10px; }
+    .faq-item { background: #fff; border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
+    .faq-question { width: 100%; background: none; border: none; padding: 17px 22px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; text-align: left; font-family: 'Montserrat', sans-serif; font-size: 21px; font-weight: 600; color: #000; gap: 16px; }
+    .faq-icon { transition: transform 0.3s ease; flex-shrink: 0; color: var(--blue-mid); }
+    .faq-item.active .faq-icon { transform: rotate(180deg); }
+    .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.35s ease; }
+    .faq-answer-inner { padding: 0 22px 18px; font-size: 18px; color: #222; line-height: 1.7; }
+
+    /* CTA BANNER */
+    .cta-banner { background: var(--dark); padding: 68px 0; }
+    .cta-banner-inner { display: flex; align-items: center; justify-content: space-between; gap: 32px; flex-wrap: wrap; }
+    .cta-banner h2 { font-size: clamp(22px, 2.8vw, 34px); color: #fff; }
+    .cta-banner p { font-size: 18px; color: #94A3B8; margin-top: 8px; max-width: 480px; }
+    .cta-banner-actions { display: flex; gap: 12px; flex-wrap: wrap; flex-shrink: 0; }
+
+    /* FOOTER */
+    .footer { background: #0F172A; padding: 52px 0 30px; }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px; margin-bottom: 40px; }
+    .footer-brand img { max-height: 34px; margin-bottom: 14px; filter: brightness(0) invert(1); opacity: 0.65; }
+    .footer-brand p { font-size: 18px; color: #94A3B8; line-height: 1.7; }
+    .footer h5 { font-size: 11px; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase; color: #64748B; margin-bottom: 12px; }
+    .footer ul { display: flex; flex-direction: column; gap: 9px; }
+    .footer ul li a { font-size: 18px; color: #94A3B8; transition: color 0.2s; }
+    .footer ul li a:hover { color: #fff; }
+    .footer-bottom { border-top: 1px solid #1E293B; padding-top: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; }
+    .footer-legal { font-size: 18px; color: #475569; }
+    .footer-links-bottom { display: flex; gap: 18px; }
+    .footer-links-bottom a { font-size: 18px; color: #475569; transition: color 0.2s; }
+    .footer-links-bottom a:hover { color: #94A3B8; }
+    @media (max-width: 768px) { .footer-grid { grid-template-columns: 1fr; } }
+
+    /* ===================== MODAL ===================== */
+    .modal-overlay {
+      position: fixed; inset: 0;
+      background: rgba(0,0,0,0.72);
+      backdrop-filter: blur(5px);
+      -webkit-backdrop-filter: blur(5px);
+      z-index: 99999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
     }
-    .cert-img-wrap {
+    .modal-overlay.open { opacity: 1; pointer-events: auto; }
+    .modal-content {
+      background: #fff;
+      border-radius: 16px;
+      padding: 40px 36px;
       width: 100%;
-      height: 100%;
-      border-radius: var(--radius-lg);
-      overflow: hidden;
-      border: 1px solid rgba(100,116,139,0.2);
+      max-width: 460px;
+      box-shadow: 0 24px 80px rgba(0,0,0,0.3);
+      transform: translateY(24px) scale(0.97);
+      transition: transform 0.32s cubic-bezier(0.34, 1.56, 0.64, 1);
+      position: relative;
     }
+    .modal-overlay.open .modal-content { transform: translateY(0) scale(1); }
+    .modal-close {
+      position: absolute; top: 14px; right: 14px;
+      background: #F1F5F9; border: none; border-radius: 50%;
+      width: 32px; height: 32px;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; color: #64748B;
+      transition: background 0.2s;
+    }
+    .modal-close:hover { background: #E2E8F0; }
+    .modal-content h3 { font-size: 20px; font-weight: 800; margin-bottom: 6px; color: #000; }
+    .modal-content > p.modal-subtitle { font-size: 18px; color: #555; margin-bottom: 24px; }
+    .modal-form-submit { width: 100%; justify-content: center; margin-top: 8px; font-size: 18px; padding: 15px; }
 
-    /* Responsive adjustments */
-    @media(max-width:1024px) {
-      .hero-content {
-        grid-template-columns: 1fr;
-        padding-top: 100px;
-        text-align: center;
-      }
-      .hero-sub {
-        margin-left: auto;
-        margin-right: auto;
-      }
-      .hero-bullets {
-        align-items: center;
-      }
-      .hero-bullets .bullet {
-        text-align: left;
-      }
-      .hero-ctas {
-        justify-content: center;
-      }
-      .hero-visual {
-        display: block !important;
-        max-width: 500px;
-        margin: 40px auto 0;
-      }
-      .opp-split {
-        grid-template-columns: 1fr;
-        gap: 32px;
-      }
-      .opp-image-col {
-        min-height: 300px;
-        height: 350px;
-      }
-      .tech-split {
-        grid-template-columns: 1fr;
-        gap: 32px;
-      }
-      .tech-visual-col {
-        position: static;
-        margin-top: 20px;
-      }
-      .cert-block {
-        grid-template-columns: 1fr 1fr;
-      }
-      .cert-image-column {
-        grid-column: span 2;
-        height: 300px;
-      }
-    }
-    @media(max-width:768px) {
-      .cert-block {
-        grid-template-columns: 1fr;
-      }
-      .cert-image-column {
-        grid-column: span 1;
-        height: 250px;
-      }
-    }
-    @media(max-width:640px) {
-      .opp-cards-grid, .tech-cards-grid {
-        grid-template-columns: 1fr;
-      }
-    }
+    /* Section header helper */
+    .section-header-center { text-align: center; margin-bottom: 48px; }
+    .section-header-center h2 { font-size: clamp(26px, 3vw, 38px); margin-bottom: 12px; }
+    .section-header-center p { font-size: 18px; color: #222; max-width: 620px; margin: 0 auto; line-height: 1.65; }
+
+@media (max-width: 900px) {
+  footer > .container > div[style*="grid-template-columns:1.6fr"] {
+    grid-template-columns: 1fr 1fr !important;
+  }
+}
+@media (max-width: 560px) {
+  footer > .container > div[style*="grid-template-columns:1.6fr"] {
+    grid-template-columns: 1fr !important;
+  }
+}
   </style>
 </head>
 <body>
 
-<!-- ===== NAVBAR ===== -->
+<!-- NAVBAR -->
 <header class="navbar" id="navbar">
-  <div class="navbar-inner">
+  <div class="container navbar-inner">
     <a href="#" class="logo">
-      <div class="logo-icon"><span>D</span></div>
-      DRYMAT<span class="logo-badge">España</span>
+      <img src="images/logo-drymat-systeme.png" alt="DRYMAT España — Instalador Certificado" >
     </a>
     <nav class="nav-links">
-      <a href="#tecnologia">Tecnología</a>
       <a href="#oportunidad">Oportunidad</a>
-      <a href="#certificacion">Certificación</a>
-      <a href="#casos">Casos</a>
+      <a href="#instructor">Formador</a>
+      <a href="#tecnologia">Tecnología</a>
+      <a href="#proceso">Proceso</a>
       <a href="#faq">FAQ</a>
-      <a href="#contacto">Contacto</a>
     </nav>
     <div class="nav-cta">
-      <a href="tel:+34900000000" class="btn btn-sm btn-outline" style="border-color:rgba(255,255,255,0.3)">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-        Llamar
-      </a>
-      <a href="#contacto" class="btn btn-sm btn-blue">Solicitar información</a>
+      <button onclick="openModal()" class="btn btn-primary btn-sm">Solicitar información</button>
     </div>
-    <button class="mobile-toggle" onclick="toggleMobile()" aria-label="Menú">
-      <svg id="menu-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    <button class="mobile-toggle" onclick="toggleMobile()" aria-label="Abrir menú">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
     </button>
   </div>
 </header>
 
-<!-- Mobile menu -->
-<div class="mobile-menu" id="mobile-menu">
-  <a href="#tecnologia" onclick="closeMobile()">Tecnología</a>
+<div class="mobile-menu" id="mobile-menu" role="navigation">
   <a href="#oportunidad" onclick="closeMobile()">Oportunidad</a>
-  <a href="#certificacion" onclick="closeMobile()">Certificación</a>
-  <a href="#casos" onclick="closeMobile()">Casos</a>
-  <a href="#faq" onclick="closeMobile()">FAQ</a>
-  <a href="#contacto" onclick="closeMobile()">Contacto</a>
-  <div class="mobile-ctas">
-    <a href="tel:+34900000000" class="btn btn-outline-blue btn-full">Llamar ahora</a>
-    <a href="#contacto" class="btn btn-blue btn-full" onclick="closeMobile()">Solicitar información</a>
+  <a href="#instructor" onclick="closeMobile()">Formador</a>
+  <a href="#tecnologia" onclick="closeMobile()">Tecnología</a>
+  <a href="#proceso" onclick="closeMobile()">Proceso</a>
+  <a href="#faq" onclick="closeMobile()">Preguntas frecuentes</a>
+  <div class="mobile-ctas" style="margin-top:16px;">
+    <button onclick="openModal(); closeMobile();" class="btn btn-primary" style="width:100%; justify-content:center;">Solicitar información</button>
   </div>
 </div>
 
-<!-- ===== HERO ===== -->
-<section class="hero">
-  <div class="hero-bg">
-    <div class="hero-grid"></div>
-    <div class="hero-radial-1"></div>
-    <div class="hero-radial-2"></div>
-    <div class="hero-radial-3"></div>
+<!-- HERO -->
+<section class="hero" aria-label="Portada del programa de certificación DRYMAT">
+  <div class="hero-bg" role="img" aria-label="Sesión de formación técnica en Madrid"></div>
+  <div class="hero-overlay"></div>
+  <div class="container">
+    <div class="hero-content reveal">
+      <p class="hero-kicker">PROGRAMA DE CERTIFICACIÓN PROFESIONAL</p>
+      <h1>
+        Fórmate como instalador<br>
+        <span class="accent">DRYMAT en España</span>
+      </h1>
+      <p class="hero-desc">
+        Curso presencial en Madrid impartido por <strong>Aísla y Ahorra</strong> para profesionales que quieran incorporar a su empresa un sistema alemán patentado de secado de muros mediante electrodos de metales preciosos.
+      </p>
+      <div class="hero-pills">
+        <span class="hero-pill">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          Curso presencial en Madrid
+        </span>
+        <span class="hero-pill">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          Tecnología patentada DRYMAT — Alemania
+        </span>
+        <span class="hero-pill">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          Sin obras invasivas ni productos químicos
+        </span>
+      </div>
+      <div class="hero-actions">
+        <button onclick="openModal()" class="btn btn-white btn-lg">Solicitar información del curso →</button>
+        <button onclick="openModal()" class="btn btn-outline-white btn-lg">Descargar dossier profesional</button>
+      </div>
+    </div>
   </div>
-  
-<div class="hero-content">
+  <div class="hero-scroll" aria-hidden="true">DESCUBRE MÁS<br>↓</div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="container">
+    <div class="trust-items">
+      <div class="trust-item">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        Tecnología alemana patentada
+      </div>
+      <div class="trust-item">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        Formación presencial en Madrid
+      </div>
+      <div class="trust-item">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+        Certificación oficial DRYMAT
+      </div>
+      <div class="trust-item">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        Red nacional de partners certificados
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PARA QUIÉN ES -->
+<section id="oportunidad" class="section">
+  <div class="container">
+    <div class="audience-layout">
+      <div class="audience-text reveal">
+        <span class="badge badge-outline">PARA QUIÉN ES</span>
+        <h2 style="font-size:clamp(26px,3vw,38px); margin-bottom:16px;">Profesionales que pueden incorporar DRYMAT a su negocio</h2>
+        <p>DRYMAT complementa perfectamente lo que ya ofreces. Una nueva categoría de servicio técnico que genera proyectos de mayor margen y diferencia tu empresa de la competencia.</p>
+      </div>
+      <div class="audience-grid reveal delay-1">
+        <div class="audience-card">
+          <img src="images/aud_aislamiento.webp" alt="Empresa de aislamiento incorporando DRYMAT" loading="lazy">
+          <div class="audience-card-overlay">
+            <h4>Empresas de aislamiento</h4>
+            <p>Añade secado de muros a tu cartera</p>
+          </div>
+        </div>
+        <div class="audience-card">
+          <img src="images/aud_humedades.webp" alt="Técnico de humedades con medidor" loading="lazy">
+          <div class="audience-card-overlay">
+            <h4>Empresas de humedades</h4>
+            <p>Diferénciate con tecnología certificada</p>
+          </div>
+        </div>
+        <div class="audience-card">
+          <img src="images/aud_reformista.webp" alt="Reformistas y constructoras revisando planos" loading="lazy">
+          <div class="audience-card-overlay">
+            <h4>Reformistas y constructoras</h4>
+            <p>Amplía tu oferta de rehabilitación</p>
+          </div>
+        </div>
+        <div class="audience-card">
+          <img src="images/aud_arquitecto.webp" alt="Arquitecto e ingeniero técnico" loading="lazy">
+          <div class="audience-card-overlay">
+            <h4>Arquitectos e ingenieros</h4>
+            <p>Especifica una solución técnica avanzada</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OPORTUNIDAD DE NEGOCIO -->
+<section class="section bg-surface">
+  <div class="container">
+    <div class="opportunity-layout">
+      <div class="reveal">
+        <span class="badge badge-blue">POR QUÉ AHORA</span>
+        <h2 style="font-size:clamp(26px,3vw,38px); margin-bottom:14px;">El momento de posicionarte es ahora</h2>
+        <p style="font-size:16px; color:#111; line-height:1.7;">Si ya tienes estructura empresarial en construcción o instalaciones, puedes añadir DRYMAT a tu catálogo sin partir de cero. La formación te da el respaldo técnico y comercial para ofrecerlo con total garantía a tus clientes.</p>
+        <div class="opp-features">
+          <div class="opp-feature">
+            <div class="opp-feature-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+            <div>
+              <h4>Tecnología novedosa en España</h4>
+              <p>Sé uno de los primeros instaladores certificados DRYMAT. Ventaja competitiva real frente a los que lleguen después.</p>
+            </div>
+          </div>
+          <div class="opp-feature">
+            <div class="opp-feature-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+            <div>
+              <h4>Mercado de humedades muy amplio</h4>
+              <p>Miles de edificios en toda España necesitan soluciones frente a humedades por capilaridad. La demanda no para de crecer.</p>
+            </div>
+          </div>
+          <div class="opp-feature">
+            <div class="opp-feature-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div>
+            <div>
+              <h4>Diferenciación técnica demostrable</h4>
+              <p>Un sistema medible, con resultados verificables, respaldado por ingeniería alemana. Argumentos de venta sólidos.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="opp-image reveal delay-2">
+        <img src="../img/partner.webp" alt="Instalador DRYMAT con nueva línea de negocio" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FORMADOR -->
+<section id="instructor" class="section">
+  <div class="container">
+    <div class="instructor-layout">
+      <div class="instructor-card reveal">
+        <img src="images/ricardo.webp" alt="Ricardo López Pietsch — Director Técnico de AislayAhorra">
+        <div class="instructor-card-footer">
+          <h4>Ricardo López Pietsch</h4>
+          <p>Director Técnico de Aísla y Ahorra</p>
+        </div>
+      </div>
+      <div class="instructor-content reveal delay-1">
+        <span class="badge badge-outline">DIRECCIÓN TÉCNICA</span>
+        <h2>Formación impartida por Ricardo López Pietsch</h2>
+        <p><strong>Ricardo López Pietsch</strong>, Director Técnico de Aísla y Ahorra e <strong>Ingeniero de Caminos, Canales y Puertos</strong>, será el encargado de dirigir la formación técnica DRYMAT en Madrid.</p>
+        <p>Su experiencia está vinculada a la <strong>formación de instaladores, equipos profesionales, maquinaria, aislantes, termografía, Blower Door, ventilación con recuperación de calor, sistemas de estanqueidad</strong> y soluciones avanzadas para rehabilitación energética.</p>
+        <div class="instructor-notice">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <p><strong>No es una formación impartida por un comercial.</strong> Es una formación dirigida por un <strong>perfil técnico senior</strong>. Esto es clave para captar empresas serias: instaladores, ingenieros, arquitectos técnicos, empresas de rehabilitación y profesionales que buscan soluciones reales.</p>
+        </div>
+        <button onclick="openModal()" class="btn btn-primary btn-lg">Solicitar información del curso →</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- POR QUÉ AÍSLA Y AHORRA -->
+<section class="section" style="position: relative; overflow: hidden; padding: 100px 0;">
+  <div style="position: absolute; inset: 0; background: url('images/bg-clase.jpg') center center / cover no-repeat;"></div>
+  <div style="position: absolute; inset: 0; background: rgba(248, 250, 252, 0.92);"></div>
+  <div class="container" style="position: relative; z-index: 1;">
+    <div class="section-header-center reveal">
+      <span class="badge badge-blue" style="background: rgba(0,160,220,0.1); color: #00A0DC;">POR QUÉ AÍSLA Y AHORRA</span>
+      <h2>¿Por qué deberías formarte con ellos?</h2>
+      <p>DRYMAT llega a España de la mano de una empresa que ya ha formado a cientos de profesionales del aislamiento y conoce las necesidades reales del instalador.</p>
+    </div>
+    <div class="why-grid reveal delay-1">
+      <div class="why-card">
+        <div class="why-card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
+        <h4>Experiencia desde 2009</h4>
+        <p>Aísla y Ahorra lleva desde 2009 trabajando en soluciones de aislamiento, materiales técnicos, aplicaciones termoacústicas y formación profesional teórica y práctica.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+        <h4>Más de 250 empresas formadas</h4>
+        <p>Han formado empresas aplicadoras en España y Portugal para sistemas como celulosa, lana mineral, fibra de madera, protección pasiva y corcho expandido.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
+        <h4>Red nacional de instaladores</h4>
+        <p>Cuentan con una red de instaladores certificados y distribución a nivel nacional, actuando desde la instalación, la formación y la distribución de equipos y materiales.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+        <h4>Conocimiento técnico y comercial</h4>
+        <p>Sus programas incluyen visión comercial, posicionamiento, marketing, SEO, Adwords y captación de clientes, no solo la aplicación técnica.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TECNOLOGÍA -->
+<section id="tecnologia" class="section">
+  <div class="container">
+    <div class="tech-layout">
+      <div class="reveal">
+        <span class="badge badge-outline">LA TECNOLOGÍA</span>
+        <h2 style="font-size:clamp(26px,3vw,38px); margin-bottom:16px;">¿Cómo funciona el sistema DRYMAT?</h2>
+        <p style="font-size:16px; color:#111; line-height:1.7;">DRYMAT es un sistema de electroósmosis activa de origen alemán que seca los muros por capilaridad sin necesidad de obras invasivas ni productos químicos. Los ánodos de metales preciosos modifican la carga eléctrica del agua intersticial, forzando su migración hacia el suelo.</p>
+        <div class="tech-specs">
+          <div class="tech-spec">
+            <div class="tech-spec-number">01</div>
+            <div>
+              <div class="tech-spec-label">Sin obras invasivas</div>
+              <div class="tech-spec-desc">No requiere picar paredes, inyecciones ni zanjas. Instalación limpia y respetuosa con el edificio.</div>
+            </div>
+          </div>
+          <div class="tech-spec">
+            <div class="tech-spec-number">02</div>
+            <div>
+              <div class="tech-spec-label">Ánodos de metales preciosos</div>
+              <div class="tech-spec-desc">Electrodos de titanio y platino de alta durabilidad. Generan un campo electromagnético de baja frecuencia que moviliza el agua ascendente.</div>
+            </div>
+          </div>
+          <div class="tech-spec">
+            <div class="tech-spec-number">03</div>
+            <div>
+              <div class="tech-spec-label">Resultados medibles y verificables</div>
+              <div class="tech-spec-desc">La eficacia se verifica con medición de humedad antes y después de la instalación. Informe técnico entregable al cliente final.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="reveal delay-2">
+        <div class="tech-product-photo" style="margin-bottom:16px;">
+          <img src="images/anodos_reales.webp" alt="Ánodos y electrodos DRYMAT de metales preciosos — sistema de electroósmosis activa" loading="lazy">
+        </div>
+        <p style="font-size:13px; color:#555; text-align:center; font-style:italic;">Ánodos DRYMAT — electrodos de titanio con punta de platino y capuchones de protección.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESO -->
+<section id="proceso" class="section bg-surface">
+  <div class="container">
+    <div class="section-header-center reveal">
+      <span class="badge badge-blue">EL PROCESO</span>
+      <h2>Cómo funciona el proceso para ser partner</h2>
+      <p>Un camino estructurado para incorporar DRYMAT a tu empresa y comenzar a rentabilizar esta tecnología en tu zona geográfica.</p>
+    </div>
+    <div class="process-grid reveal delay-1">
+      <div class="process-card">
+        <div class="process-number">01</div>
+        <h4>Solicitud e Idoneidad</h4>
+        <p>Evaluamos el perfil de tu empresa para garantizar exclusividad y capacidad técnica en tu zona geográfica.</p>
+      </div>
+      <div class="process-card">
+        <div class="process-number">02</div>
+        <h4>Formación Presencial</h4>
+        <p>Asistes al curso técnico en Madrid, con prácticas sobre sistemas DRYMAT, impartido por AislayAhorra.</p>
+      </div>
+      <div class="process-card">
+        <div class="process-number">03</div>
+        <h4>Certificación Oficial</h4>
+        <p>Obtienes el sello de instalador certificado DRYMAT España para operar con exclusividad en tu área.</p>
+      </div>
+      <div class="process-card">
+        <div class="process-number">04</div>
+        <h4>Soporte Continuo</h4>
+        <p>Acompañamiento técnico, materiales de marketing y derivación de contactos B2C a tu empresa.</p>
+      </div>
+    </div>
+    <div style="display:flex; justify-content:center; margin-top:40px;" class="reveal delay-2">
+      <button onclick="openModal()" class="btn btn-blue btn-lg">Iniciar solicitud ahora</button>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" class="section">
+  <div class="container">
+    <div class="section-header-center reveal" style="margin-bottom:40px;">
+      <span class="badge badge-outline">PREGUNTAS FRECUENTES</span>
+      <h2>Resolvemos tus dudas</h2>
+    </div>
+    <div class="faq-list reveal delay-1">
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">¿Quién puede asistir al curso?<svg class="faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <div class="faq-answer"><div class="faq-answer-inner">El curso está orientado a empresas profesionales del sector: instaladores de aislamiento, empresas de humedades, reformistas, constructoras, arquitectos técnicos e ingenieros. No está dirigido al cliente final.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">¿Cuánto dura el curso y dónde se imparte?<svg class="faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <div class="faq-answer"><div class="faq-answer-inner">El curso es presencial y se imparte en Madrid, en las instalaciones de Aísla y Ahorra. Para conocer las fechas exactas y duración de la próxima convocatoria, solicita información a través del formulario.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">¿Qué incluye la certificación DRYMAT?<svg class="faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <div class="faq-answer"><div class="faq-answer-inner">La certificación acredita a tu empresa como instalador oficial DRYMAT en España, con exclusividad territorial, materiales de marketing, soporte técnico continuado y derivación de potenciales clientes en tu zona.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">¿Necesito experiencia previa en humedades?<svg class="faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <div class="faq-answer"><div class="faq-answer-inner">No es imprescindible, aunque sí se valora tener base técnica en construcción, aislamiento o instalaciones. El curso parte desde la teoría de la electroósmosis activa hasta la práctica de instalación.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">¿Hay exclusividad territorial para el instalador?<svg class="faq-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <div class="faq-answer"><div class="faq-answer-inner">Sí. Una vez certificado, tu empresa contará con exclusividad en tu zona geográfica, lo que te da una ventaja competitiva clara frente a empresas que no disponen de esta tecnología.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="cta-banner">
+  <div class="container">
+    <div class="cta-banner-inner">
       <div>
-        <div class="hero-badge animate-fade-up">
-          <span class="dot"></span>
-          <span>AislayAhorra presenta: Curso Presencial en Madrid</span>
-        </div>
-        <h1 class="animate-fade-up delay-1">Conviértete en instalador certificado <span class="shimmer-blue">DRYMAT</span> en España</h1>
-        <p class="hero-sub animate-fade-up delay-2">Fórmate en la tecnología alemana líder en secado electrofísico de muros. Cumplimiento ÖNORM B 3355-2, sin obras ni químicos, con más de 10.000 proyectos de éxito en Europa.</p>
-        <div class="hero-bullets animate-fade-up delay-3">
-          <div class="bullet">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
-            Aumenta el ticket medio y atrae clientes de alto valor (B2B, patrimonio, residencial premium).
-          </div>
-          <div class="bullet">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-            Instalación en un día, monitorización continua y altos márgenes de beneficio.
-          </div>
-          <div class="bullet">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
-            Soporte técnico continuo y derivación de leads cualificados a nivel nacional.
-          </div>
-        </div>
-        <div class="hero-ctas animate-fade-up delay-4">
-          <a href="#certificacion" class="btn btn-blue btn-lg pulse">Descargar Programa del Curso <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-          <a href="#oportunidad" class="btn btn-outline btn-lg">Ver Detalles del Sistema</a>
-        </div>
+        <h2>¿Listo para convertirte en instalador certificado DRYMAT?</h2>
+        <p>Plazas limitadas. Solicita información y asegura tu plaza en la próxima convocatoria en Madrid.</p>
       </div>
-      <div class="hero-image animate-fade-in delay-5">
-        <!-- Background handles the image -->
-      </div>
-    </div>
-
-    </section>
-
-<!-- ===== TRUST BADGES ===== -->
-<section class="trust-badges">
-  <div class="container">
-    <div class="trust-badges-inner">
-      <div class="trust-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Tecnología patentada</div>
-      <div class="trust-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg> Made in Germany</div>
-      <div class="trust-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> +25 años de experiencia</div>
-      <div class="trust-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg> Norma ÖNORM B 3355-2</div>
-      <div class="trust-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg> +10.000 edificios tratados</div>
-      <div class="trust-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> Certificado ISO</div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== MARKET PROBLEM ===== -->
-<section class="section section-light">
-  <div class="container">
-    <div class="section-header reveal">
-      <span class="section-label">El problema del mercado</span>
-      <h2 class="section-title">Las humedades por capilaridad siguen sin una solución satisfactoria</h2>
-      <p class="section-desc">Las humedades por capilaridad siguen siendo uno de los problemas más frecuentes en viviendas antiguas, sótanos, bajos, garajes, locales, edificios históricos y comunidades de propietarios. Sin embargo, muchos sistemas actuales requieren obra invasiva, excavaciones, inyecciones químicas o soluciones con eficacia limitada. Esto abre una oportunidad para empresas que quieran ofrecer una solución más técnica, medible y diferenciada.</p>
-    </div>
-    <div class="grid-3">
-      <div class="card problem-card reveal">
-        <div class="card-image-wrap">
-          <img src="../img/measurement.webp" class="img-fade" alt="Medición de humedad por capilaridad en muro">
-        </div>
-        <div class="card-icon card-icon-blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg></div>
-        <h3>Humedad por capilaridad</h3>
-        <p>Las humedades ascendentes siguen siendo uno de los problemas más frecuentes en viviendas antiguas, sótanos, bajos, garajes y edificios históricos. El agua asciende por capilaridad a través de los poros del muro, provocando deterioro continuo si no se trata adecuadamente.</p>
-      </div>
-      <div class="card problem-card reveal">
-        <div class="card-image-wrap">
-          <img src="../img/engineer.webp" class="img-fade" alt="Ingeniero analizando soluciones técnicas">
-        </div>
-        <div class="card-icon card-icon-blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div>
-        <h3>Soluciones invasivas o limitadas</h3>
-        <p>Muchos sistemas actuales requieren obra invasiva, excavaciones costosas, inyecciones químicas con eficacia variable o soluciones con resultados difíciles de demostrar. Esto genera insatisfacción en el cliente final y limita la capacidad de diferenciación del profesional.</p>
-      </div>
-      <div class="card problem-card reveal">
-        <div class="card-image-wrap">
-          <img src="../img/electrode.webp" class="img-fade" alt="Electrodos de metales preciosos DRYMAT">
-        </div>
-        <div class="card-icon card-icon-blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
-        <h3>Consecuencias en viviendas</h3>
-        <p>La humedad ascendente provoca eflorescencias salinas, desprendimiento de revocos, aparición de moho, deterioro de pinturas y un aumento significativo de los costes de calefacción. Son problemas recurrentes que el propietario no sabe cómo resolver de forma definitiva.</p>
-      </div>
-      <div class="card problem-card reveal">
-        <div class="card-image-wrap">
-          <img src="../img/historic.webp" class="img-fade" alt="Edificio histórico afectado por humedad">
-        </div>
-        <div class="card-icon card-icon-blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"/><path d="M9 22v-4h6v4"/></svg></div>
-        <h3>Edificios históricos y patrimoniales</h3>
-        <p>En edificios con muros gruesos, piedra natural o mampostería irregular, una barrera mecánica o una excavación resulta complicada o directamente inviable. Se necesitan soluciones que actúen sobre toda la sección del muro sin crear solo una línea de barrera.</p>
-      </div>
-      <div class="card problem-card reveal">
-        <div class="card-image-wrap">
-          <img src="../img/commercial.webp" class="img-fade" alt="Espacio público y comercial rehabilitado">
-        </div>
-        <div class="card-icon card-icon-blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg></div>
-        <h3>Comunidades y espacios públicos</h3>
-        <p>Iglesias, colegios, ayuntamientos y edificios públicos sufren humedades por capilaridad de forma crónica. La intervención mínima y la posibilidad de monitorizar el secado son requisitos fundamentales en estos entornos.</p>
-      </div>
-      <div class="card problem-card reveal">
-        <div class="card-image-wrap">
-          <img src="../img/basement.webp" class="img-fade" alt="Sótano saneado y seco">
-        </div>
-        <div class="card-icon card-icon-blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div>
-        <h3>Sótanos y garajes</h3>
-        <p>Los espacios soterrados son especialmente vulnerables a la humedad ascendente. Las soluciones tradicionales suelen requerir excavaciones exteriores de gran envergadura, con costes elevados y importante alteración del entorno.</p>
+      <div class="cta-banner-actions">
+        <button onclick="openModal()" class="btn btn-white btn-lg">Solicitar información →</button>
+        <button onclick="openModal()" class="btn btn-outline-white">Descargar dossier</button>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ===== OPPORTUNITY ===== -->
-<section id="oportunidad" class="section section-dark">
-  <div class="container">
-    <div class="section-header reveal">
-      <span class="section-label section-label-gold">Oportunidad para instaladores</span>
-      <h2 class="section-title">Por qué es una oportunidad para tu empresa</h2>
-      <p class="section-desc">El B2B no compra solo tecnología. Compra margen, diferenciación, exclusividad, formación, soporte y demanda. DRYMAT ofrece todo eso en un sistema integrado, respaldado por más de 25 años de experiencia en el mercado europeo.</p>
-    </div>
-    <div class="opp-split reveal">
-      <div class="opp-image-col">
-        <div class="opp-image-wrap">
-          <img src="../img/partner.webp" class="img-fade" alt="Socio comercial DRYMAT España">
-        </div>
-      </div>
-      <div class="opp-cards-col">
-        <div class="opp-cards-grid">
-          <div class="card-dark reveal">
-            <div class="card-icon" style="background:rgba(37,99,235,0.1)"><svg viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2" width="24" height="24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
-            <h3>Nuevo servicio de alto valor</h3>
-            <p>Permite ofrecer una solución diferente a clientes que ya tienen problemas de humedad. No compites por precio, sino por tecnología y resultado documentable. El sistema DRYMAT te posiciona como profesional de referencia.</p>
-          </div>
-          <div class="card-dark reveal">
-            <div class="card-icon" style="background:rgba(37,99,235,0.1)"><svg viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2" width="24" height="24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div>
-            <h3>Menos competencia directa</h3>
-            <p>En España, este sistema se posiciona como una novedad técnica. Ser de los primeros instaladores certificados te da una ventaja competitiva real frente a empresas tradicionales de inyecciones químicas.</p>
-          </div>
-          <div class="card-dark reveal">
-            <div class="card-icon" style="background:rgba(37,99,235,0.1)"><svg viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2" width="24" height="24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div>
-            <h3>Ticket medio superior</h3>
-            <p>No lo vendas como un arreglo rápido, sino como rehabilitación técnica. El sistema DRYMAT, por su tecnología y respaldo documental, permite justificar un precio premium frente a alternativas de obra convencionales.</p>
-          </div>
-          <div class="card-dark reveal">
-            <div class="card-icon" style="background:rgba(37,99,235,0.1)"><svg viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2" width="24" height="24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
-            <h3>Formación y soporte continuo</h3>
-            <p>La formación no termina con el curso. DRYMAT ofrece material, apoyo comercial y soporte técnico. Recibirás acompañamiento en tus primeros proyectos y acceso directo a actualizaciones del sistema.</p>
-          </div>
-          <div class="card-dark reveal">
-            <div class="card-icon" style="background:rgba(37,99,235,0.1)"><svg viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2" width="24" height="24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
-            <h3>Prioridad o exclusividad</h3>
-            <p>Instaladores certificados por zona con plazas limitadas por provincia para garantizar el mercado. Si el modelo comercial lo permite, tendrás prioridad de zona, protegiendo tu inversión y esfuerzo comercial.</p>
-          </div>
-          <div class="card-dark reveal">
-            <div class="card-icon" style="background:rgba(37,99,235,0.1)"><svg viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2" width="24" height="24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-            <h3>Acceso a leads derivados</h3>
-            <p>Como partner oficial e instalador certificado, puedes recibir solicitudes de presupuesto y clientes derivados directamente de la red DRYMAT en tu zona geográfica asignada.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="quote-block reveal" style="margin-top:56px">
-      <blockquote style="color:#fff">&ldquo;Deja de competir solo por precio. Incorpora un sistema de <span class="shimmer-blue">alto valor añadido</span> a tu cartera de servicios.&rdquo;</blockquote>
-      <a href="#contacto" class="btn btn-blue btn-lg" style="margin-top:32px">Solicitar información para ser instalador certificado <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-    </div>
-  </div>
-</section>
+<!-- FOOTER -->
+<footer style="background:#0A0F1E; border-top:1px solid #1E2D4A;">
+  <!-- Main footer body -->
+  <div class="container" style="padding-top:56px; padding-bottom:48px;">
+    <div style="display:grid; grid-template-columns:1.6fr 1fr 1fr 1fr; gap:40px; align-items:start;">
 
-<!-- ===== TECHNOLOGY ===== -->
-<section id="tecnologia" class="section section-white">
-  <div class="container">
-    <div class="section-header reveal">
-      <span class="section-label">La tecnología</span>
-      <h2 class="section-title">Una tecnología alemana patentada que seca el muro desde el interior</h2>
-      <p class="section-desc">El sistema DRYMAT utiliza un proceso electrofísico reconocido bajo la norma ÖNORM B 3355-2, con requisitos sobre diseño e instalación de electrodos, control del campo eléctrico, prueba de efecto, seguimiento y durabilidad del material.</p>
-    </div>
+      <!-- BRAND COLUMN -->
+      <div>
+        <div style="display:flex; align-items:center; gap:12px; margin-bottom:18px;">
+          <img src="images/logo-drymat-systeme.png" alt="DRYMAT España"
+               style="max-height:36px;">
+          <span style="font-family:'Montserrat',sans-serif; font-size:13px; font-weight:600; color:#3B82F6; background:rgba(59,130,246,0.12); padding:3px 9px; border-radius:4px; letter-spacing:0.5px;">España</span>
+        </div>
+        <p style="font-size:13px; color:#64748B; line-height:1.8; margin-bottom:24px;">
+          Tecnología alemana patentada para el secado de muros y paredes. Forma parte de la nueva generación de instaladores certificados en España.
+        </p>
+        <!-- Contact info -->
+        <ul style="list-style:none; display:flex; flex-direction:column; gap:10px;">
+          <li style="display:flex; align-items:center; gap:10px;">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#3B82F6" stroke-width="2" style="flex-shrink:0;"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 11.5a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.8 0.68h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.4a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <span style="font-size:13px; color:#94A3B8;">+34 900 000 000</span>
+          </li>
+          <li style="display:flex; align-items:center; gap:10px;">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#3B82F6" stroke-width="2" style="flex-shrink:0;"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            <a href="mailto:info@drymat.es" style="font-size:13px; color:#3B82F6; text-decoration:none;">info@drymat.es</a>
+          </li>
+          <li style="display:flex; align-items:center; gap:10px;">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#3B82F6" stroke-width="2" style="flex-shrink:0;"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span style="font-size:13px; color:#94A3B8;">España</span>
+          </li>
+        </ul>
+      </div>
 
-    <div class="tech-split reveal">
-      <div class="tech-info-col">
-        <div class="tech-cards-grid">
-          <div class="card tech-card-accent reveal">
-            <div class="card-icon card-icon-blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3v18"/><path d="M18 3v18"/><path d="M6 8h12"/><path d="M6 16h12"/></svg></div>
-            <div class="tech-card-number">01</div>
-            <h3>Electrodos de metales preciosos</h3>
-            <p>Ánodos fabricados con materiales resistentes y duraderos que se insertan directamente en la mampostería. Los electrodos están diseñados para mantener su integridad estructural durante décadas, garantizando un funcionamiento estable y continuo del sistema de secado.</p>
-          </div>
-          <div class="card tech-card-accent reveal">
-            <div class="card-icon card-icon-blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
-            <div class="tech-card-number">02</div>
-            <h3>Corriente continua débil</h3>
-            <p>El sistema trabaja con baja tensión y regula la energía necesaria según el nivel de humedad del muro. Con un consumo aproximado de 2 vatios (10V / 200mA), el coste eléctrico anual ronda los 7€ para una vivienda completa, lo que lo convierte en un sistema extremadamente eficiente.</p>
-          </div>
-          <div class="card tech-card-accent reveal">
-            <div class="card-icon card-icon-blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 8C8 10 5.9 16.17 3.82 21.34l1.89.66L7 19c4-4 6-7 10-11"/><path d="M2 12c1-3 5-8 12-8"/></svg></div>
-            <div class="tech-card-number">03</div>
-            <h3>Secado físico, sin química</h3>
-            <p>No depende de inyecciones químicas ni de grandes obras estructurales. El proceso electrofísico actúa sobre la humedad ascendente de forma natural, revirtiendo el flujo capilar mediante un campo eléctrico controlado. Sin productos tóxicos, sin olores, sin residuos.</p>
-          </div>
-          <div class="card tech-card-accent reveal">
-            <div class="card-icon card-icon-blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
-            <div class="tech-card-number">04</div>
-            <h3>Monitorización del proceso</h3>
-            <p>La evolución del secado se puede medir, documentar y ajustar en tiempo real. Mediante registros de datos (data logging), el instalador y el cliente pueden verificar la reducción progresiva de la humedad, aportando objetividad y transparencia al proceso de rehabilitación.</p>
-          </div>
-        </div>
+      <!-- TECNOLOGÍA COLUMN -->
+      <div>
+        <p style="font-size:11px; font-weight:700; letter-spacing:1.4px; text-transform:uppercase; color:#475569; margin-bottom:18px; font-family:'Montserrat',sans-serif;">Tecnología</p>
+        <ul style="list-style:none; display:flex; flex-direction:column; gap:11px;">
+          <li><a href="#tecnologia" style="font-size:13.5px; color:#94A3B8; text-decoration:none; transition:color 0.2s;" onmouseover="this.style.color='#3B82F6'" onmouseout="this.style.color='#94A3B8'">Cómo funciona DRYMAT</a></li>
+          <li><a href="#tecnologia" style="font-size:13.5px; color:#94A3B8; text-decoration:none; transition:color 0.2s;" onmouseover="this.style.color='#3B82F6'" onmouseout="this.style.color='#94A3B8'">Electrodos de metales preciosos</a></li>
+          <li><a href="#tecnologia" style="font-size:13.5px; color:#94A3B8; text-decoration:none; transition:color 0.2s;" onmouseover="this.style.color='#3B82F6'" onmouseout="this.style.color='#94A3B8'">Proceso electrofísico</a></li>
+          <li><a href="#tecnologia" style="font-size:13.5px; color:#94A3B8; text-decoration:none; transition:color 0.2s;" onmouseover="this.style.color='#3B82F6'" onmouseout="this.style.color='#94A3B8'">Comparativa de métodos</a></li>
+        </ul>
       </div>
-      <div class="tech-visual-col">
-        <div class="tech-image-container">
-          <img src="../img/diagram.webp" class="img-fade tech-img" alt="Esquema técnico DRYMAT">
-          <div class="tech-img-caption">Esquema físico-eléctrico de electrodos en mampostería</div>
-        </div>
-        <div class="tech-image-container">
-          <img src="../img/electrode.webp" class="img-fade tech-img" alt="Instalación de electrodo DRYMAT">
-          <div class="tech-img-caption">Detalle de electrodo de metal precioso insertado en muro</div>
-        </div>
+
+      <!-- EMPRESA COLUMN -->
+      <div>
+        <p style="font-size:11px; font-weight:700; letter-spacing:1.4px; text-transform:uppercase; color:#475569; margin-bottom:18px; font-family:'Montserrat',sans-serif;">Empresa</p>
+        <ul style="list-style:none; display:flex; flex-direction:column; gap:11px;">
+          <li><a href="#instructor" style="font-size:13.5px; color:#94A3B8; text-decoration:none; transition:color 0.2s;" onmouseover="this.style.color='#3B82F6'" onmouseout="this.style.color='#94A3B8'">Programa de certificación</a></li>
+          <li><a href="#oportunidad" style="font-size:13.5px; color:#94A3B8; text-decoration:none; transition:color 0.2s;" onmouseover="this.style.color='#3B82F6'" onmouseout="this.style.color='#94A3B8'">Oportunidad para instaladores</a></li>
+          <li><a href="#" style="font-size:13.5px; color:#94A3B8; text-decoration:none; transition:color 0.2s;" onmouseover="this.style.color='#3B82F6'" onmouseout="this.style.color='#94A3B8'">Casos y referencias</a></li>
+          <li><a href="#proceso" style="font-size:13.5px; color:#94A3B8; text-decoration:none; transition:color 0.2s;" onmouseover="this.style.color='#3B82F6'" onmouseout="this.style.color='#94A3B8'">Proceso de incorporación</a></li>
+        </ul>
       </div>
+
+      <!-- SOPORTE COLUMN -->
+      <div>
+        <p style="font-size:11px; font-weight:700; letter-spacing:1.4px; text-transform:uppercase; color:#475569; margin-bottom:18px; font-family:'Montserrat',sans-serif;">Soporte</p>
+        <ul style="list-style:none; display:flex; flex-direction:column; gap:11px;">
+          <li><a href="#" onclick="event.preventDefault();openModal();" style="font-size:13.5px; color:#94A3B8; text-decoration:none; transition:color 0.2s;" onmouseover="this.style.color='#3B82F6'" onmouseout="this.style.color='#94A3B8'">Solicitar información</a></li>
+          <li><a href="#" onclick="event.preventDefault();openModal();" style="font-size:13.5px; color:#94A3B8; text-decoration:none; transition:color 0.2s;" onmouseover="this.style.color='#3B82F6'" onmouseout="this.style.color='#94A3B8'">Descargar dossier</a></li>
+          <li><a href="#faq" style="font-size:13.5px; color:#94A3B8; text-decoration:none; transition:color 0.2s;" onmouseover="this.style.color='#3B82F6'" onmouseout="this.style.color='#94A3B8'">Preguntas frecuentes</a></li>
+          <li><a href="#" onclick="event.preventDefault();openModal();" style="font-size:13.5px; color:#94A3B8; text-decoration:none; transition:color 0.2s;" onmouseover="this.style.color='#3B82F6'" onmouseout="this.style.color='#94A3B8'">Contacto</a></li>
+        </ul>
+      </div>
+
     </div>
   </div>
-</section>
 
-<!-- ===== COMPARISON ===== -->
-<section class="section section-light">
-  <div class="container">
-    <div class="section-header reveal">
-      <span class="section-label">Comparativa</span>
-      <h2 class="section-title">No vendas otro tratamiento antihumedad</h2>
-      <p class="section-desc">No se trata de vender "otro aparato antihumedad", sino de incorporar un procedimiento técnico, instalable, medible y respaldado por documentación. La diferencia está en la objetividad del resultado y en la diferenciación comercial que aporta a tu empresa.</p>
-    </div>
-
-    <!-- Desktop table -->
-    <div class="comparison-table-wrap reveal">
-      <table class="comparison-table">
-        <thead>
-          <tr>
-            <th style="text-align:left">Método</th>
-            <th>Baja intervención</th>
-            <th>Medible</th>
-            <th>Diferenciación</th>
-            <th>Riesgo percibido</th>
-            <th style="text-align:left">Observación</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Inyecciones químicas</td>
-            <td style="text-align:center"><span class="icon-no">✕</span></td>
-            <td style="text-align:center"><span class="icon-warn">—</span></td>
-            <td style="text-align:center"><span class="icon-no">✕</span></td>
-            <td style="text-align:center"><span class="badge-risk badge-gray">Mercado saturado</span></td>
-            <td>Método muy extendido con alta competencia. Eficacia variable según el tipo de muro.</td>
-          </tr>
-          <tr>
-            <td>Excavación / barrera física</td>
-            <td style="text-align:center"><span class="icon-no">✕</span></td>
-            <td style="text-align:center"><span class="icon-ok">✓</span></td>
-            <td style="text-align:center"><span class="icon-no">✕</span></td>
-            <td style="text-align:center"><span class="badge-risk badge-gray">Coste elevado</span></td>
-            <td>Alta eficacia pero máxima invasividad. Excavaciones que encarecen la intervención.</td>
-          </tr>
-          <tr>
-            <td>Sistemas pasivos / por ondas</td>
-            <td style="text-align:center"><span class="icon-ok">✓</span></td>
-            <td style="text-align:center"><span class="icon-no">✕</span></td>
-            <td style="text-align:center"><span class="icon-no">✕</span></td>
-            <td style="text-align:center"><span class="badge-risk badge-red">Escepticismo</span></td>
-            <td>Baja intervención pero difícil de demostrar. Percepción de falta de rigor técnico.</td>
-          </tr>
-          <tr class="highlight">
-            <td>DRYMAT con electrodos</td>
-            <td style="text-align:center"><span class="icon-ok">✓</span></td>
-            <td style="text-align:center"><span class="icon-ok">✓</span></td>
-            <td style="text-align:center"><span class="icon-ok">✓</span></td>
-            <td style="text-align:center"><span class="badge-risk badge-blue">Requiere formación</span></td>
-            <td>Baja intervención, resultados monitorizables y alta diferenciación comercial.</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
-    <!-- Mobile cards -->
-    <div class="comparison-cards reveal">
-      <div class="comparison-card">
-        <h4>Inyecciones químicas</h4>
-        <div class="comparison-row"><span>Baja intervención</span><span class="icon-no">✕</span></div>
-        <div class="comparison-row"><span>Medible</span><span class="icon-warn">—</span></div>
-        <div class="comparison-row"><span>Diferenciación</span><span class="icon-no">✕</span></div>
-        <div class="comparison-row"><span>Riesgo</span><span class="badge-risk badge-gray">Mercado saturado</span></div>
-        <p style="margin-top:12px;font-size:13px;color:var(--text-muted)">Método extendido con alta competencia. Eficacia variable.</p>
-      </div>
-      <div class="comparison-card">
-        <h4>Excavación / barrera física</h4>
-        <div class="comparison-row"><span>Baja intervención</span><span class="icon-no">✕</span></div>
-        <div class="comparison-row"><span>Medible</span><span class="icon-ok">✓</span></div>
-        <div class="comparison-row"><span>Diferenciación</span><span class="icon-no">✕</span></div>
-        <div class="comparison-row"><span>Riesgo</span><span class="badge-risk badge-gray">Coste elevado</span></div>
-        <p style="margin-top:12px;font-size:13px;color:var(--text-muted)">Alta eficacia pero máxima invasividad.</p>
-      </div>
-      <div class="comparison-card">
-        <h4>Sistemas pasivos / por ondas</h4>
-        <div class="comparison-row"><span>Baja intervención</span><span class="icon-ok">✓</span></div>
-        <div class="comparison-row"><span>Medible</span><span class="icon-no">✕</span></div>
-        <div class="comparison-row"><span>Diferenciación</span><span class="icon-no">✕</span></div>
-        <div class="comparison-row"><span>Riesgo</span><span class="badge-risk badge-red">Escepticismo</span></div>
-        <p style="margin-top:12px;font-size:13px;color:var(--text-muted)">Difícil de demostrar. Percepción de falta de rigor.</p>
-      </div>
-      <div class="comparison-card highlight">
-        <h4>DRYMAT con electrodos</h4>
-        <div class="comparison-row"><span>Baja intervención</span><span class="icon-ok">✓</span></div>
-        <div class="comparison-row"><span>Medible</span><span class="icon-ok">✓</span></div>
-        <div class="comparison-row"><span>Diferenciación</span><span class="icon-ok">✓</span></div>
-        <div class="comparison-row"><span>Riesgo</span><span class="badge-risk badge-blue">Requiere formación</span></div>
-        <p style="margin-top:12px;font-size:13px;color:var(--text-muted)">Baja intervención, resultados monitorizables y alta diferenciación.</p>
-      </div>
-    </div>
-
-    <div class="quote-block reveal">
-      <blockquote>&ldquo;No vendas otro tratamiento antihumedad. <span class="text-gradient-blue">Ofrece una tecnología diferencial.</span>&rdquo;</blockquote>
-    </div>
-  </div>
-</section>
-
-<!-- ===== CERTIFICATION ===== -->
-<section id="certificacion" class="section section-white">
-  <div class="container">
-    <div class="section-header reveal">
-      <span class="section-label">Programa de certificación</span>
-      <h2 class="section-title">Programa de Instalador Certificado DRYMAT España</h2>
-      <p class="section-desc">No es simplemente un curso. Es un programa de certificación profesional que te capacita para instalar, configurar y dar soporte al sistema DRYMAT, incorporando una nueva línea de negocio de alto valor añadido a tu empresa.</p>
-    </div>
-
-    <div class="grid-3" style="margin-bottom:48px">
-      <div class="card reveal" style="border-top:3px solid var(--blue)">
-        <div class="card-icon card-icon-blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div>
-        <h3>Qué aprenderás</h3>
-        <p>Fundamentos del proceso electrofísico, instalación de electrodos, configuración del sistema de control, medición de humedad, interpretación de datos de monitorización y protocolo de seguimiento post-instalación.</p>
-      </div>
-      <div class="card reveal" style="border-top:3px solid var(--blue)">
-        <div class="card-icon card-icon-blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-        <h3>A quién va dirigido</h3>
-        <p>Empresas de humedades, reformistas y constructores, fontaneros y técnicos sanitarios, arquitectos técnicos, aparejadores y empresas de rehabilitación patrimonial. No es necesario tener experiencia previa en humedades.</p>
-      </div>
-      <div class="card reveal" style="border-top:3px solid var(--blue)">
-        <div class="card-icon card-icon-blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div>
-        <h3>Prácticas con sistema real</h3>
-        <p>El programa incluye sesiones prácticas con el sistema DRYMAT completo, desde la instalación de electrodos hasta la puesta en marcha y configuración del equipo de control. Aprenderás sobre el terreno con casos reales.</p>
-      </div>
-      <div class="card reveal" style="border-top:3px solid var(--blue)">
-        <div class="card-icon card-icon-blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
-        <h3>Certificado oficial</h3>
-        <p>Al superar el programa, recibirás el certificado de Instalador Certificado DRYMAT, válido para realizar instalaciones y formar parte de la red oficial de instaladores homologados en España.</p>
-      </div>
-      <div class="card reveal" style="border-top:3px solid var(--blue)">
-        <div class="card-icon card-icon-blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></svg></div>
-        <h3>Soporte técnico posterior</h3>
-        <p>Soporte técnico continuo, acceso a actualizaciones del sistema, consultas sobre proyectos complejos y acompañamiento en tus primeras instalaciones reales. No te quedas solo tras la certificación.</p>
-      </div>
-      <div class="card reveal" style="border-top:3px solid var(--blue)">
-        <div class="card-icon card-icon-blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
-        <h3>Material comercial incluido</h3>
-        <p>Dossier técnico, presentaciones, fichas de referencia y documentos de garantía para presentar el sistema a tus clientes. Todo el material que refuerza tu propuesta de valor frente a la competencia.</p>
-      </div>
-    </div>
-
-    <!-- Cert block -->
-    <div class="cert-block reveal">
-      <div class="cert-info-column">
-        <div style="display:flex;align-items:center;gap:12px;margin-bottom:24px">
-          <svg viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2" width="32" height="32"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"/></svg>
-          <h3 style="color:#fff;font-size:22px;font-weight:700;margin:0">Resumen del programa</h3>
-        </div>
-        <div class="cert-detail-grid">
-          <div class="cert-detail"><div class="label">Modalidad</div><div class="value"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" width="14" height="14"><polyline points="20 6 9 17 4 12"/></svg> Presencial / Mixta</div></div>
-          <div class="cert-detail"><div class="label">Certificado</div><div class="value"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" width="14" height="14"><polyline points="20 6 9 17 4 12"/></svg> Instalador Certificado</div></div>
-          <div class="cert-detail"><div class="label">Prácticas</div><div class="value"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" width="14" height="14"><polyline points="20 6 9 17 4 12"/></svg> Con sistema real</div></div>
-          <div class="cert-detail"><div class="label">Soporte</div><div class="value"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" width="14" height="14"><polyline points="20 6 9 17 4 12"/></svg> Técnico continuo</div></div>
-          <div class="cert-detail"><div class="label">Material</div><div class="value"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" width="14" height="14"><polyline points="20 6 9 17 4 12"/></svg> Comercial incluido</div></div>
-          <div class="cert-detail"><div class="label">Leads</div><div class="value"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" width="14" height="14"><polyline points="20 6 9 17 4 12"/></svg> Derivación de clientes</div></div>
-        </div>
-      </div>
-      <div class="cert-cta-column">
-        <h3 style="color:#fff;font-size:24px;font-weight:700;margin-bottom:16px">Sé de los primeros instaladores certificados en España</h3>
-        <p style="color:#94A3B8;line-height:1.7;margin-bottom:32px">Solicita el dossier del programa y un asesor revisará tu perfil. Las plazas son limitadas por provincia para garantizar la exclusividad territorial de nuestros instaladores.</p>
-        <a href="#contacto" class="btn btn-blue btn-lg pulse">Quiero recibir el dossier del programa <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-      </div>
-      <div class="cert-image-column">
-        <div class="cert-img-wrap">
-          <img src="../img/training.webp" class="img-fade" alt="Formación de instaladores DRYMAT España">
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== CASES ===== -->
-
-<section id="formacion" class="section section-light">
-    <div class="container">
-      <div class="section-header reveal">
-        <span class="badge">Curso Oficial en Madrid</span>
-        <h2 class="section-title">Aprende con los mejores: AislayAhorra y Ricardo López Pietsch</h2>
-        <p class="section-desc">Una oportunidad única para dominar la tecnología DRYMAT de la mano de expertos con décadas de experiencia en el sector del aislamiento.</p>
-      </div>
-
-      <div class="cases-grid">
-        <div class="case-card reveal">
-          <div class="case-img">
-            <img src="images/instructor.png" alt="Ricardo López Pietsch - Director Técnico">
-          </div>
-          <div class="case-content">
-            <div class="case-meta">
-              <span class="case-tag">Director Técnico</span>
-            </div>
-            <h3 class="case-title">Ricardo López Pietsch</h3>
-            <p class="case-desc">Ingeniero de Caminos, Canales y Puertos. Director Técnico de AislayAhorra, empresa referente a nivel nacional en aislamientos técnicos. Aportará toda su experiencia práctica y visión de negocio para que tu empresa implemente DRYMAT con garantías de éxito comercial y técnico.</p>
-          </div>
-        </div>
-
-        <div class="case-card reveal delay-1">
-          <div class="case-img">
-            <img src="images/tech.png" alt="Tecnología DRYMAT Instalada">
-          </div>
-          <div class="case-content">
-            <div class="case-meta">
-              <span class="case-tag">Sistema Tecnológico</span>
-            </div>
-            <h3 class="case-title">Tecnología DRYMAT</h3>
-            <p class="case-desc">Aprenderás a instalar, configurar y monitorizar la centralita DRYMAT y el tendido de electrodos de metales nobles. Un sistema certificado, conforme a la ÖNORM B 3355-2, con un diseño limpio que aporta prestigio a tu portafolio de servicios.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-  </section>
-
-<!-- ===== PROCESS ===== -->
-<section class="section section-white">
-  <div class="container">
-    <div class="section-header reveal">
-      <span class="section-label">Proceso de incorporación</span>
-      <h2 class="section-title">Cómo funciona el proceso para ser partner</h2>
-      <p class="section-desc">Desde tu primera solicitud hasta tu incorporación a la red de instaladores certificados, cada paso está pensado para que puedas empezar a generar negocio con DRYMAT lo antes posible.</p>
-    </div>
-    <div class="process-timeline">
-      <div class="process-line"></div>
-      <div class="process-step reveal">
-        <div class="process-circle">01</div>
-        <div class="process-content">
-          <h3>Solicitud de información</h3>
-          <p>El profesional deja sus datos, zona de actividad y tipo de colaboración que le interesa. Nuestro equipo revisa cada solicitud de forma personalizada para entender tu perfil y necesidades.</p>
-        </div>
-      </div>
-      <div class="process-step reveal">
-        <div class="process-circle">02</div>
-        <div class="process-content">
-          <h3>Evaluación del perfil</h3>
-          <p>Se revisa si encajas como instalador, distribuidor o partner técnico. Evaluamos tu zona de actividad, tu experiencia previa y tu potencial de mercado para maximizar el éxito de la colaboración.</p>
-        </div>
-      </div>
-      <div class="process-step reveal">
-        <div class="process-circle">03</div>
-        <div class="process-content">
-          <h3>Formación oficial</h3>
-          <p>Acceso al programa de certificación DRYMAT con formación teórica y práctica. Aprenderás a instalar, configurar y monitorizar el sistema con casos reales y acompañamiento de instructores expertos.</p>
-        </div>
-      </div>
-      <div class="process-step reveal">
-        <div class="process-circle">04</div>
-        <div class="process-content">
-          <h3>Instalación y soporte</h3>
-          <p>Acompañamiento técnico en los primeros proyectos reales. Recibirás soporte directo durante tus primeras instalaciones para garantizar que todo funciona correctamente.</p>
-        </div>
-      </div>
-      <div class="process-step reveal">
-        <div class="process-circle">05</div>
-        <div class="process-content">
-          <h3>Incorporación a la red</h3>
-          <p>Forma parte de la red de instaladores certificados DRYMAT en España. Accede a leads derivados, material comercial actualizado, soporte continuo y la posibilidad de exclusividad territorial.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== LEAD MAGNET ===== -->
-<section class="section section-blue-soft">
-  <div class="container">
-    <div class="lead-wrap reveal">
-      <div class="lead-deco-1"></div>
-      <div class="lead-deco-2"></div>
-      <div class="lead-grid">
-        <div style="position:relative;z-index:2">
-          <div style="display:inline-flex;align-items:center;gap:8px;background:var(--blue-soft);border:1px solid rgba(37,99,235,0.2);border-radius:999px;padding:6px 16px;margin-bottom:20px">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-            <span style="color:var(--blue);font-size:14px;font-weight:500">Recurso gratuito</span>
-          </div>
-          <h2 style="font-size:clamp(1.4rem,2.8vw,1.8rem);font-weight:700;color:var(--dark);margin-bottom:16px;line-height:1.3">Guía para empresas instaladoras: cómo diferenciarse en el mercado antihumedad</h2>
-          <p style="color:var(--text-muted);line-height:1.7;margin-bottom:20px">Descarga nuestra guía gratuita sobre la oportunidad de negocio en el tratamiento de humedades por capilaridad con tecnología electrofísica alemana.</p>
-          <ul class="lead-checklist">
-            <li>Análisis del mercado antihumedad en España</li>
-            <li>Comparativa de tecnologías disponibles</li>
-            <li>Oportunidad de negocio con DRYMAT</li>
-            <li>Perfil ideal del instalador certificado</li>
-          </ul>
-        </div>
-        <div style="display:flex;flex-direction:column;align-items:center;position:relative;z-index:2">
-          <div class="dossier-mockup">
-            <div class="dossier-cover">
-              <div class="dossier-cover-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></div>
-              <h4>Dossier profesional</h4>
-              <p>Nueva oportunidad de negocio en el tratamiento de humedades por capilaridad</p>
-            </div>
-            <div class="dossier-lines">
-              <span style="width:100%"></span>
-              <span style="width:75%"></span>
-              <span style="width:85%"></span>
-            </div>
-          </div>
-          <a href="#contacto" class="btn btn-blue btn-lg pulse" style="margin-top:24px">Descargar dossier gratuito <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== FAQ ===== -->
-
-<section id="faq" class="section section-white">
-  <div class="container-sm">
-    <div class="section-header reveal">
-      <span class="section-label">Preguntas frecuentes</span>
-      <h2 class="section-title">Resolvemos tus dudas</h2>
-      <p class="section-desc">Las preguntas más habituales de profesionales que quieren conocer el sistema DRYMAT y el programa de certificación.</p>
-    </div>
-    <div class="faq-list reveal">
-      <div class="faq-item">
-        <button class="faq-question" onclick="toggleFaq(this)">¿Necesito experiencia previa en humedades? <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
-        <div class="faq-answer"><div class="faq-answer-inner">No es imprescindible. El programa de certificación DRYMAT está diseñado para profesionales de distintos sectores: reformistas, fontaneros, constructores, arquitectos técnicos y empresas de rehabilitación. La formación cubre desde los fundamentos del proceso electrofísico hasta la instalación completa del sistema, por lo que puedes incorporarte aunque no tengas experiencia previa en tratamientos de humedad.</div></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-question" onclick="toggleFaq(this)">¿Puedo formarme si soy reformista, fontanero o constructor? <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
-        <div class="faq-answer"><div class="faq-answer-inner">Por supuesto. DRYMAT busca específicamente empresas colaboradoras, fontaneros, técnicos sanitarios, distribuidores y prescriptores. Tu experiencia en obra y contacto directo con clientes que tienen problemas de humedad es exactamente el perfil que buscamos. La formación te dará la especialización técnica que necesitas.</div></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-question" onclick="toggleFaq(this)">¿El sistema requiere grandes obras? <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
-        <div class="faq-answer"><div class="faq-answer-inner">No. Una de las principales ventajas del sistema DRYMAT es su baja intervención comparada con métodos convencionales. Los electrodos se insertan en el muro mediante perforaciones de pequeño diámetro, sin necesidad de excavaciones exteriores, zanjas perimetrales o grandes movimientos de tierra. Esto reduce el tiempo de instalación y el impacto en el edificio.</div></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-question" onclick="toggleFaq(this)">¿Es necesario usar productos químicos? <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
-        <div class="faq-answer"><div class="faq-answer-inner">No. El sistema DRYMAT funciona mediante un proceso electrofísico con corriente continua débil. No utiliza inyecciones químicas, siliconas, resinas ni ningún tipo de producto que pueda generar olores, residuos o riesgos para la salud. Es una solución física, limpia y respetuosa con el edificio y sus habitantes.</div></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-question" onclick="toggleFaq(this)">¿Se ofrece soporte técnico después del curso? <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
-        <div class="faq-answer"><div class="faq-answer-inner">Sí, de forma continua. DRYMAT proporciona soporte técnico post-formación, acceso a actualizaciones del sistema, consultas sobre proyectos complejos y acompañamiento en las primeras instalaciones reales. No te quedas solo tras la certificación; formas parte de una red con respaldo técnico constante.</div></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== CONTACT FORM ===== -->
-<section id="contacto" class="section section-dark">
-  <div class="container">
-    <div class="contact-grid">
-      <div class="contact-info reveal">
-        <span class="section-label section-label-gold">Solicitar información</span>
-        <h2>Reserva tu plaza en el Curso Oficial DRYMAT</h2>
-        <p>Completa el formulario y un asesor revisará tu perfil de forma personalizada. No es un compromiso, es el inicio de una conversación sobre cómo DRYMAT puede transformar tu negocio.</p>
-        <div style="margin-top:32px">
-          <div class="contact-step">
-            <div class="contact-step-circle"><span>1</span></div>
-            <div><h4>Evaluación personalizada</h4><p>Analizamos tu perfil, zona y experiencia.</p></div>
-          </div>
-          <div class="contact-step">
-            <div class="contact-step-circle"><span>2</span></div>
-            <div><h4>Dossier del programa</h4><p>Recibirás toda la información detallada.</p></div>
-          </div>
-          <div class="contact-step">
-            <div class="contact-step-circle"><span>3</span></div>
-            <div><h4>Llamada con asesor</h4><p>Resolvemos dudas y definimos los siguientes pasos.</p></div>
-          </div>
-        </div>
-      </div>
-      <div class="form-card reveal" id="form-card">
-        <h3>Formulario de solicitud</h3>
-        <form id="contactForm" onsubmit="handleSubmit(event)">
-          <div class="form-group">
-            <label>Nombre y apellidos <span class="req">*</span></label>
-            <input type="text" class="form-input" placeholder="Tu nombre completo" required>
-          </div>
-          <div class="form-group">
-            <label>Empresa <span class="req">*</span></label>
-            <input type="text" class="form-input" placeholder="Nombre de tu empresa" required>
-          </div>
-          <div class="form-row">
-            <div class="form-group">
-              <label>Teléfono <span class="req">*</span></label>
-              <input type="tel" class="form-input" placeholder="600 000 000" required>
-            </div>
-            <div class="form-group">
-              <label>Email <span class="req">*</span></label>
-              <input type="email" class="form-input" placeholder="tu@email.com" required>
-            </div>
-          </div>
-          <div class="form-group">
-            <label>Provincia <span class="req">*</span></label>
-            <select class="form-input" required>
-              <option value="" disabled selected>Selecciona tu provincia</option>
-              <option>A Coruña</option><option>Álava</option><option>Albacete</option><option>Alicante</option><option>Almería</option><option>Asturias</option><option>Ávila</option><option>Badajoz</option><option>Barcelona</option><option>Burgos</option><option>Cáceres</option><option>Cádiz</option><option>Cantabria</option><option>Castellón</option><option>Ciudad Real</option><option>Córdoba</option><option>Cuenca</option><option>Girona</option><option>Granada</option><option>Guadalajara</option><option>Gipuzkoa</option><option>Huelva</option><option>Huesca</option><option>Illes Balears</option><option>Jaén</option><option>La Rioja</option><option>Las Palmas</option><option>León</option><option>Lleida</option><option>Lugo</option><option>Madrid</option><option>Málaga</option><option>Murcia</option><option>Navarra</option><option>Ourense</option><option>Palencia</option><option>Pontevedra</option><option>Salamanca</option><option>Santa Cruz de Tenerife</option><option>Segovia</option><option>Sevilla</option><option>Soria</option><option>Tarragona</option><option>Teruel</option><option>Toledo</option><option>Valencia</option><option>Valladolid</option><option>Bizkaia</option><option>Zamora</option><option>Zaragoza</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label>Actividad principal <span class="req">*</span></label>
-            <select class="form-input" required>
-              <option value="" disabled selected>Selecciona tu actividad</option>
-              <option>Humedades e impermeabilización</option>
-              <option>Reformas</option>
-              <option>Construcción</option>
-              <option>Fontanería</option>
-              <option>Arquitectura técnica</option>
-              <option>Rehabilitación</option>
-              <option>Otro</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label>¿Ya trabajas con tratamientos antihumedad? <span class="req">*</span></label>
-            <select class="form-input" required>
-              <option value="" disabled selected>Selecciona una opción</option>
-              <option value="si">Sí, actualmente</option>
-              <option value="no">No, pero me interesa</option>
-              <option value="parcial">Parcialmente, como parte de reformas</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label>¿Qué te interesa? <span class="req">*</span></label>
-            <select class="form-input" required>
-              <option value="" disabled selected>Selecciona tu interés principal</option>
-              <option>Formarme como instalador</option>
-              <option>Distribuir el sistema</option>
-              <option>Colaborar como instalador</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label>Mensaje (opcional)</label>
-            <textarea class="form-input" placeholder="Cuéntanos sobre tu empresa o tus objetivos..."></textarea>
-          </div>
-          <div class="form-checkbox">
-            <input type="checkbox" id="legal" required>
-            <label for="legal">He leído y acepto la política de privacidad y consiento el tratamiento de mis datos para recibir información sobre el programa DRYMAT.</label>
-          </div>
-          <button type="submit" class="btn btn-blue btn-lg btn-full pulse">Solicitar información para ser instalador certificado <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg></button>
-        </form>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== FOOTER ===== -->
-<footer class="footer">
-  <div class="footer-top">
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-brand">
-          <div class="logo" style="color:#fff">
-            <div class="logo-icon" style="background:var(--blue)"><img src="images/tech.png" style="width:100%;height:100%;object-fit:cover;border-radius:12px;"></div>
-            DRYMAT<span class="logo-badge">España</span>
-          </div>
-          <p>Tecnología alemana patentada para el secado de muros y paredes. Forma parte de la nueva generación de instaladores certificados en España.</p>
-          <div class="footer-contact">
-            <a href="tel:+34900000000"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg> +34 900 000 000</a>
-            <a href="mailto:info@drymat.es"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg> info@drymat.es</a>
-            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> España</span>
-          </div>
-        </div>
-        <div>
-          <h4>Tecnología</h4>
-          <ul>
-            <li><a href="#tecnologia">Cómo funciona DRYMAT</a></li>
-            <li><a href="#tecnologia">Electrodos de metales preciosos</a></li>
-            <li><a href="#tecnologia">Proceso electrofísico</a></li>
-            <li><a href="#tecnologia">Comparativa de métodos</a></li>
-          </ul>
-        </div>
-        <div>
-          <h4>Empresa</h4>
-          <ul>
-            <li><a href="#certificacion">Programa de certificación</a></li>
-            <li><a href="#oportunidad">Oportunidad para instaladores</a></li>
-            <li><a href="#casos">Casos y referencias</a></li>
-            <li><a href="#certificacion">Proceso de incorporación</a></li>
-          </ul>
-        </div>
-        <div>
-          <h4>Soporte</h4>
-          <ul>
-            <li><a href="#contacto">Solicitar información</a></li>
-            <li><a href="#contacto">Descargar dossier</a></li>
-            <li><a href="#faq">Preguntas frecuentes</a></li>
-            <li><a href="#contacto">Contacto</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <div class="container">
-      <div class="footer-bottom-inner">
-        <div class="footer-legal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> DRYMAT es una marca registrada. Tecnología patentada. Todos los derechos reservados.</div>
-        <div class="footer-links-bottom">
-          <a href="#">Política de privacidad</a>
-          <a href="#">Aviso legal</a>
-          <a href="#">Cookies</a>
-        </div>
+  <!-- Bottom legal bar -->
+  <div style="border-top: 1px solid #1A2540; background: #0A0F1E;">
+    <div class="container" style="padding-top: 20px; padding-bottom: 20px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; font-size: 12px !important; color: #64748B; font-family: 'Open Sans', sans-serif;">
+      <p style="font-size: 12px !important; line-height: 1.6; margin: 0; color: #64748B;">
+        DRYMAT España | Todos los Derechos Reservados.<br>
+        Diseñado con <img draggable="false" role="img" class="emoji" alt="❤" src="https://s.w.org/images/core/emoji/17.0.2/svg/2764.svg" style="display: inline; width: 12px; height: 12px; vertical-align: -2px; margin: 0 3px;"> por <a href="https://seolife.es" rel="nofollow" style="color: #64748B; text-decoration: none; font-weight: 600; font-size: 12px !important;">SEOLife.es</a>
+      </p>
+      <div style="display: flex; gap: 24px; align-items: center; font-size: 12px !important;">
+        <a href="#" rel="nofollow" style="font-size: 12px !important; color: #64748B; text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#94A3B8'" onmouseout="this.style.color='#64748B'">Política de Privacidad</a>
+        <span style="color: #1A2540; font-size: 12px !important;">|</span>
+        <a href="#" rel="nofollow" style="font-size: 12px !important; color: #64748B; text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#94A3B8'" onmouseout="this.style.color='#64748B'">Política de Cookies</a>
       </div>
     </div>
   </div>
 </footer>
 
+<!-- ===================== POPUP / MODAL ===================== -->
+<div class="modal-overlay" id="modalOverlay" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+  <div class="modal-content">
+    <button class="modal-close" onclick="closeModal()" aria-label="Cerrar formulario">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <h3 id="modal-title">Solicitar Información del Curso</h3>
+    <p class="modal-subtitle">Déjanos los datos de tu empresa y nos pondremos en contacto con los detalles del programa y próximas convocatorias.</p>
+    <form id="contactForm" onsubmit="handleModalSubmit(event)" novalidate>
+      <div class="form-group">
+        <label for="modal_name">Nombre completo *</label>
+        <input type="text" id="modal_name" name="nombre" class="form-input" placeholder="Tu nombre y apellidos" required autocomplete="name">
+      </div>
+      <div class="form-group">
+        <label for="modal_company">Empresa *</label>
+        <input type="text" id="modal_company" name="empresa" class="form-input" placeholder="Nombre de tu empresa" required autocomplete="organization">
+      </div>
+      <div class="form-group">
+        <label for="modal_phone">Teléfono *</label>
+        <input type="tel" id="modal_phone" name="telefono" class="form-input" placeholder="+34 600 000 000" required autocomplete="tel">
+      </div>
+      <div class="form-group">
+        <label for="modal_email">Correo electrónico *</label>
+        <input type="email" id="modal_email" name="email" class="form-input" placeholder="tu@empresa.com" required autocomplete="email">
+      </div>
+      <div class="form-group">
+        <label for="modal_sector">Sector de actividad</label>
+        <select id="modal_sector" name="sector" class="form-input">
+          <option value="">Selecciona tu sector</option>
+          <option value="aislamiento">Empresa de aislamiento</option>
+          <option value="humedades">Empresa de tratamiento de humedades</option>
+          <option value="reformas">Reformista / Constructora</option>
+          <option value="arquitecto">Arquitecto / Ingeniero</option>
+          <option value="otro">Otro</option>
+        </select>
+      </div>
+      <button type="submit" class="btn btn-primary modal-form-submit">Enviar solicitud →</button>
+      <p style="font-size:12px; color:#94A3B8; margin-top:12px; text-align:center;">Tus datos serán tratados de forma confidencial conforme a nuestra política de privacidad.</p>
+    </form>
+  </div>
+</div>
+
 <script>
-// ===== NAVBAR SCROLL =====
-const navbar = document.getElementById('navbar');
-window.addEventListener('scroll', () => {
-  navbar.classList.toggle('scrolled', window.scrollY > 20);
-});
+  // NAVBAR SCROLL
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => { navbar.classList.toggle('scrolled', window.scrollY > 20); });
 
-// ===== MOBILE MENU =====
-function toggleMobile() {
-  const menu = document.getElementById('mobile-menu');
-  menu.classList.toggle('open');
-}
-function closeMobile() {
-  document.getElementById('mobile-menu').classList.remove('open');
-}
+  // MOBILE MENU
+  function toggleMobile() { document.getElementById('mobile-menu').classList.toggle('open'); }
+  function closeMobile() { document.getElementById('mobile-menu').classList.remove('open'); }
 
-// ===== FAQ ACCORDION =====
-function toggleFaq(btn) {
-  const item = btn.parentElement;
-  const answer = item.querySelector('.faq-answer');
-  const inner = answer.querySelector('.faq-answer-inner');
-  const isActive = item.classList.contains('active');
-
-  // Close all
-  document.querySelectorAll('.faq-item').forEach(fi => {
-    fi.classList.remove('active');
-    fi.querySelector('.faq-answer').style.maxHeight = '0';
+  // SMOOTH ANCHORS (close mobile on click)
+  document.querySelectorAll('.mobile-menu a[href^="#"]').forEach(a => {
+    a.addEventListener('click', () => closeMobile());
   });
 
-  // Open clicked if wasn't active
-  if (!isActive) {
-    item.classList.add('active');
-    answer.style.maxHeight = inner.scrollHeight + 24 + 'px';
-  }
-}
-
-// ===== FORM SUBMIT =====
-function handleSubmit(e) {
-  e.preventDefault();
-  const formCard = document.getElementById('form-card');
-  formCard.innerHTML = `
-    <div class="thankyou" style="padding:48px 24px">
-      <div class="thankyou-icon" style="margin:0 auto 24px;width:72px;height:72px;border-radius:50%;background:var(--blue-soft);display:flex;align-items:center;justify-content:center">
-        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-      </div>
-      <h2 style="font-size:22px;font-weight:700;margin-bottom:12px">Gracias, hemos recibido tu solicitud</h2>
-      <p style="color:var(--text-muted);font-size:15px;line-height:1.7;margin-bottom:28px">Nuestro equipo evaluará la candidatura de tu empresa y se pondrá en contacto contigo en el menor plazo posible. Mientras tanto, puedes descargar el dossier del programa.</p>
-      <div style="display:flex;flex-wrap:wrap;gap:12px;justify-content:center">
-        <button class="btn btn-blue btn-lg">Descargar dossier PDF</button>
-        <button class="btn btn-outline-blue btn-lg">Agendar llamada</button>
-      </div>
-    </div>
-  `;
-}
-
-// ===== SCROLL REVEAL =====
-const revealElements = document.querySelectorAll('.reveal');
-const revealObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
+  // FAQ ACCORDION
+  function toggleFaq(btn) {
+    const item = btn.parentElement;
+    const answer = item.querySelector('.faq-answer');
+    const inner = answer.querySelector('.faq-answer-inner');
+    const isActive = item.classList.contains('active');
+    document.querySelectorAll('.faq-item').forEach(fi => {
+      fi.classList.remove('active');
+      fi.querySelector('.faq-answer').style.maxHeight = '0';
+    });
+    if (!isActive) {
+      item.classList.add('active');
+      answer.style.maxHeight = (inner.scrollHeight + 24) + 'px';
     }
+  }
+
+  // MODAL POPUP
+  const modalOverlay = document.getElementById('modalOverlay');
+
+  function openModal() {
+    modalOverlay.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal() {
+    modalOverlay.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  // Close on overlay click
+  modalOverlay.addEventListener('click', function(e) {
+    if (e.target === modalOverlay) closeModal();
   });
-}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
-revealElements.forEach(el => revealObserver.observe(el));
+  // Close on Escape key
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && modalOverlay.classList.contains('open')) closeModal();
+  });
+
+  // FORM SUBMIT
+  function handleModalSubmit(e) {
+    e.preventDefault();
+    const form = document.getElementById('contactForm');
+    const btn = form.querySelector('button[type="submit"]');
+    btn.textContent = 'Enviando...';
+    btn.disabled = true;
+
+    // Simulate async send
+    setTimeout(() => {
+      closeModal();
+      btn.textContent = 'Enviar solicitud →';
+      btn.disabled = false;
+      form.reset();
+      // Success notification
+      const toast = document.createElement('div');
+      toast.style.cssText = 'position:fixed;bottom:32px;left:50%;transform:translateX(-50%);background:#1E40AF;color:#fff;padding:16px 28px;border-radius:10px;font-family:Montserrat,sans-serif;font-weight:600;font-size:15px;z-index:99999;box-shadow:0 8px 32px rgba(0,0,0,0.2);transition:opacity 0.4s;';
+      toast.textContent = '✓ Solicitud enviada. Contactaremos contigo pronto.';
+      document.body.appendChild(toast);
+      setTimeout(() => { toast.style.opacity = '0'; setTimeout(() => toast.remove(), 400); }, 4000);
+    }, 800);
+  }
+
+  // SCROLL REVEAL
+  const revealEls = document.querySelectorAll('.reveal');
+  const revealObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.07, rootMargin: '0px 0px -40px 0px' });
+  revealEls.forEach(el => revealObserver.observe(el));
 </script>
-
 </body>
 </html>
-
-
