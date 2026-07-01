@@ -1713,11 +1713,13 @@ p { line-height: var(--lh-long); color: var(--clr-text-mid); }
 
 .prog-stat-lbl { font-size: .7rem; color: rgba(255,255,255,.35); margin-top: .25rem; line-height: 1.3; }
 .instructor-card {
-  background: rgba(255,255,255,.04);
-  border: 1px solid rgba(255,255,255,.08);
-  border-radius: var(--radius);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-left: 3px solid var(--clr-accent);
-  padding: 1.375rem;
+  border-radius: var(--radius-lg);
+  padding: 2.25rem 2rem;
+  margin-top: 2rem;
+  box-shadow: 0 10px 30px rgba(0,0,0,.25);
 }
 .inst-label {
   font-size: .6875rem;
@@ -1727,73 +1729,51 @@ p { line-height: var(--lh-long); color: var(--clr-text-mid); }
   color: var(--clr-accent);
   margin-bottom: .75rem;
 }
-.inst-profile { display: flex; align-items: center; gap: .875rem; margin-bottom: .875rem; }
+.inst-profile {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 1.25rem;
+}
 .inst-avatar {
-  width: 90px !important;
-  height: 90px !important;
+  width: 90px;
+  height: 90px;
   flex-shrink: 0;
   border-radius: 50%;
   overflow: hidden;
   border: 3px solid var(--clr-accent);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-  display: flex; align-items: center; justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .inst-avatar img {
-  width: 100%; height: 100%;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   object-position: center top;
 }
-.inst-profile {
-  display: flex;
-  align-items: center;
-  gap: 1.5rem !important;
-  margin-bottom: 1.25rem;
-}
 .inst-name {
   font-family: var(--font-heading);
-  font-size: 1.25rem !important;
+  font-size: 1.25rem;
   font-weight: 700;
   color: var(--clr-white);
   text-transform: uppercase;
   letter-spacing: .04em;
 }
 .inst-role {
-  font-size: 0.9375rem !important;
-  color: var(--clr-accent) !important;
+  font-size: 0.9375rem;
+  color: var(--clr-accent);
   margin-top: .3rem;
   font-weight: 500;
 }
 .inst-bio {
-  font-size: 1.125rem !important;
-  color: rgba(255, 255, 255, 0.8) !important;
+  font-size: 1.05rem;
+  color: rgba(255, 255, 255, 0.8);
   line-height: 1.7;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   padding-top: 1rem;
   margin: 0;
-}
-.instructor-card {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: var(--radius-lg);
-  padding: 2.25rem 2rem;
-  margin-top: 2rem;
-  box-shadow: 0 10px 30px rgba(0,0,0,.25);
-}
-.inst-name {
-  font-family: var(--font-heading);
-  font-size: .9375rem;
-  font-weight: 600;
-  color: var(--clr-white);
-  text-transform: uppercase;
-  letter-spacing: .04em;
-}
-.inst-role { font-size: .7rem; color: rgba(255,255,255,.4); margin-top: .2rem; }
-.inst-bio {
-  font-size: .8125rem;
-  color: rgba(255,255,255,.42);
-  line-height: 1.65;
-  border-top: 1px solid rgba(255,255,255,.06);
-  padding-top: .875rem;
 }
 
 /* =================================================================
@@ -3139,7 +3119,7 @@ details[open] summary .faq-ico path { stroke: var(--clr-white); }
       <div data-reveal>
         <div class="section-tag tag-white">06 — Certificación</div>
         <h2 id="prog-h2" class="section-h2 light">PROGRAMA DE<br>INSTALADOR<br>CERTIFICADO DRYMAT®</h2>
-        <p class="lead-text light" style="margin-top:.875rem;margin-bottom:0">No es un curso genérico. Es un programa de certificación profesional que te acredita como instalador oficial en España.</p>
+        <p class="lead-text light" style="margin-top:.875rem;margin-bottom:0">No es un curso genérico. Es un programa oficial de certificación impartido por <strong>Aísla y Ahorra</strong> que te acredita como instalador certificado en España.</p>
       </div>
 
       <ul class="prog-feats" data-reveal data-delay="2" aria-label="Contenidos del programa de certificación">
@@ -3169,10 +3149,18 @@ details[open] summary .faq-ico path { stroke: var(--clr-white); }
             <img src="img/ricardo_explaining.png" alt="Ricardo explicando el sistema DRYMAT en clase">
             <div class="prog-slide-caption">
               <h4>Formación Presencial en Madrid</h4>
-              <p>Ricardo López Pietsch — Ing. de Caminos, explicando el sistema electrofísico.</p>
+              <p>Ricardo López Pietsch — Ingeniero de Caminos, explicando el sistema electrofísico.</p>
             </div>
           </div>
-          <!-- Slide 2: Alumnos Aprendiendo -->
+          <!-- Slide 2: Prácticas de Maquinaria y Aislamiento (Aísla y Ahorra) -->
+          <div class="prog-slide">
+            <img src="img/ricardo_instructor.jpg" alt="Ricardo López Pietsch en taller práctico presencial de Aísla y Ahorra con maquinaria especializada">
+            <div class="prog-slide-caption">
+              <h4>Talleres Prácticos y Equipos de Diagnóstico</h4>
+              <p>Prácticas de hermeticidad con Blower Door y sistemas de aislamiento impartidos por Ricardo López Pietsch.</p>
+            </div>
+          </div>
+          <!-- Slide 3: Alumnos Aprendiendo -->
           <div class="prog-slide">
             <img src="img/training_class.png" alt="Alumnos aprendiendo en la clase de formación DRYMAT">
             <div class="prog-slide-caption">
@@ -3180,7 +3168,7 @@ details[open] summary .faq-ico path { stroke: var(--clr-white); }
               <p>Alumnos aprendiendo a ser instaladores certificados en talleres presenciales.</p>
             </div>
           </div>
-          <!-- Slide 3: Detalle de Electrodos -->
+          <!-- Slide 4: Detalle de Electrodos -->
           <div class="prog-slide">
             <img src="img/electrode_demo.png" alt="Explicación técnica de la colocación de electrodos">
             <div class="prog-slide-caption">
@@ -3188,7 +3176,7 @@ details[open] summary .faq-ico path { stroke: var(--clr-white); }
               <p>Explicación práctica de la inserción y conexión de los ánodos activos.</p>
             </div>
           </div>
-          <!-- Slide 4: Entrega de Certificado -->
+          <!-- Slide 5: Entrega de Certificado -->
           <div class="prog-slide">
             <img src="img/cert_delivery.png" alt="Profesional recibiendo certificado oficial DRYMAT e incorporándose a la red de partners">
             <div class="prog-slide-caption">
@@ -3206,18 +3194,23 @@ details[open] summary .faq-ico path { stroke: var(--clr-white); }
           <span class="slider-dot" data-index="1"></span>
           <span class="slider-dot" data-index="2"></span>
           <span class="slider-dot" data-index="3"></span>
+          <span class="slider-dot" data-index="4"></span>
         </div>
       </div>
       <div class="instructor-card" data-reveal="right" data-delay="3">
-        <div class="inst-label">// Director Técnico</div>
+        <div class="inst-label">// Instructor & Director Técnico</div>
         <div class="inst-profile">
           <div class="inst-avatar" aria-hidden="true"><img src="img/ricardo.webp" alt="Ricardo López Pietsch"></div>
-          <div>
+          <div style="flex-grow: 1;">
             <div class="inst-name">Ricardo López Pietsch</div>
-            <div class="inst-role">Ing. de Caminos · Dir. Técnico AislayAhorra</div>
+            <div class="inst-role">Ingeniero de Caminos, Canales y Puertos</div>
+            <div style="font-size: 0.8125rem; color: var(--clr-accent); margin-top: 0.25rem; font-weight: 500;">Director Técnico de Aísla y Ahorra</div>
+          </div>
+          <div class="inst-logo-wrap" style="align-self: center; margin-left: auto; max-width: 90px; opacity: 0.85; filter: brightness(1.2);">
+            <img src="img/logo_aisla_ahorra.webp" alt="Logo Aísla & Ahorra" style="width: 100%; height: auto; display: block; object-fit: contain;">
           </div>
         </div>
-        <p class="inst-bio">Responsable de la implantación del sistema DRYMAT® en España. Colaborador con universidades politécnicas en investigación de patologías de humedad en edificación.</p>
+        <p class="inst-bio">Ricardo López Pietsch es Ingeniero de Caminos, Canales y Puertos con amplia experiencia en patologías de edificación. Como Director Técnico de <strong>Aísla y Ahorra</strong> (empresa líder en aislamiento térmico y acústico), imparte este programa oficial de certificación profesional acreditando su experiencia como instructor certificado para la formación técnica y práctica de instaladores oficiales DRYMAT® en España.</p>
       </div>
     </aside>
   </div>
